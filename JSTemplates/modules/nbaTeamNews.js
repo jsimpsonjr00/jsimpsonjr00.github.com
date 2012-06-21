@@ -1,6 +1,6 @@
 ( function( $ ) {
-	
 	function nbaActive( e, team ) {
+		var $teamNews = $("#nba-team-news");
 		$.ajax( {
         	type:      "GET",
         	dataType:  "jsonp",
@@ -11,9 +11,8 @@
         		"_render":    "json",
         		team:         team
         	},
-        	timeout:   20,
+        	timeout:   (10 * 1000),
         	success: function ( data, xhr, status ) {
-        		var $teamNews = $("#nba-team-news");
         		var $tmpl = $("#nba-team-news-tmpl");
         		$teamNews.html( $tmpl.applyTemplate( data.value.items ) );
         	},

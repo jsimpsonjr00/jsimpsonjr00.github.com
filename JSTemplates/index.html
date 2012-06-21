@@ -12,9 +12,22 @@
         <script src='modules/nbaTeamNews.js'></script>
         <style>
             #tmpl-source {
-                overflow: scroll;
-                padding: 0;
-                margin: 0;
+                overflow:   scroll;
+                padding:    0;
+                margin:     0;
+                display:    none;
+            }
+            #tmpl-source.active {
+                display:    block;
+            }
+            .nba-team-news-item {
+                padding: 5px;
+                font-size: 12px;
+                font-family: arial;
+                border-bottom: 1px solid #C00;
+            }
+            .nba-team-news-item h3, .nba-team-news-item p {
+                margin: 5px 0;
             }
         </style>
     </head>
@@ -28,17 +41,19 @@
                     <h4>Miami Heat on Twitter</h4>
                     <div id='twtr-template-example' class='jstk-mitwi twtr-tmln'></div>
                     <br/>
-                    <button class='btn view-source' data-source="#twtr-tweet-tmpl">View Template Source</button>
+                    <button class='btn view-source' data-source="#twtr-tweet-tmpl" title='Twitter Tweet Template'>View Template Source</button>
                 </div>
                 <div class='span8'>
                     <h4>Miami Heat news on NBA.com</h4>
                     <div id='nba-team-news' class='jstk-mitwi'></div>
                     <br/>
-                    <button class='btn view-source' data-source="#nba-team-news-tmpl">View Template Source</button>
+                    <button class='btn view-source' data-source="#nba-team-news-tmpl" title='NBA Team News Template'>View Template Source</button>
                 </div>
             </div>
-            <h3>Template Source</h3>
-            <pre id='tmpl-source'></pre>
+            <div id="tmpl-source">
+                <h3>Template Source</h3>
+                <pre></pre>
+            </div>
         </div>
 <script type='text/html' id='twtr-tweet-tmpl'>
     <div class='twtr-tweet' data-id='${id_str}'>
@@ -74,9 +89,13 @@
     	$(document).trigger( "twitterActive", [] );
     	$(document).trigger( "nbaActive", [ "heat" ] );
     	
+    	var $tmplSrc = $("#tmpl-source");
     	$(".view-source").on( "click", function () {
-    		var $tmpl = $( $(this).attr("data-source") );
-    		$("#tmpl-source").text( $tmpl.html() );
+    		var $btn  = $(this),
+    		   $tmpl = $( $btn.attr("data-source") );
+    		$tmplSrc.addClass("active");
+    		$tmplSrc.find("pre").text( $tmpl.html() );
+    		$tmplSrc.find("h3").text( $btn.attr("title") );
     	});
     });
 </script>
