@@ -4,210 +4,81 @@
         <title>Github Portfolio of JSimpsonJr00</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         
-        <link rel='stylesheet' href='/MiTwi.css'> 
+        <link rel='stylesheet' href='../MiTwi.css'> 
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'></script>
-        <script src='/js/JSTemplates-min.js'></script>
+        <script src='../js/JSTemplates-min.js'></script>
+        
+        <script src='modules/twitter.js'></script>
+        <script src='modules/nbaTeamNews.js'></script>
+        <style>
+            #tmpl-source {
+                overflow: scroll;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <div class='container'>
+            <h2>JS Template - Example</h2>
+            In this Example my JS Template plugin to jQuery is used to display a Twitter Timeline and a listing of Miami
+            Heat team news from NBA.com. Logic used in generating the data is separated from the markup presentation.
             <div class='row'>
-                <div class='span8'>
-                    <h2>JS Template - Example</h2>
-                    In this Example my JS Template plugin to jQuery is used to display a Twitter Timeline. Logic used in generating the data is separated from the 
-                    markup presentation. 
-                </div>
                 <div class='span8'>
                     <h4>Miami Heat on Twitter</h4>
                     <div id='twtr-template-example' class='jstk-mitwi twtr-tmln'></div>
+                    <br/>
+                    <button class='btn view-source' data-source="#twtr-tweet-tmpl">View Template Source</button>
+                </div>
+                <div class='span8'>
+                    <h4>Miami Heat news on NBA.com</h4>
+                    <div id='nba-team-news' class='jstk-mitwi'></div>
+                    <br/>
+                    <button class='btn view-source' data-source="#nba-team-news-tmpl">View Template Source</button>
                 </div>
             </div>
-<h3>Tweet Template Used</h3>
-<pre>
-    &lt;div class='twtr-tweet' data-id='${id_str}'&gt;
-        &lt;div class='twtr-img'&gt;
-            &lt;a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'&gt;
-                &lt;img src='${profile_image_url}'&gt;
-            &lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class='twtr-tweet-text'&gt;
-            &lt;div class='tweet-row'&gt;
-                &lt;a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>${user_screen_name}&lt;/a&gt;${user_real_name}
-            &lt;/div&gt;
-            &lt;div class='status-text'&gt;${status_text}&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;a class='tweet-timestamp' data-timestamp='${timestamp}' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'&gt;${since_time}&lt;/a&gt;
-        &lt;span class='tweet-actions'&gt;
-            &lt;a class='tweet-reply' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'&gt;&lt;span class='sprite'&gt;&lt;/span&gt;reply&lt;/a&gt;
-            &lt;a class='tweet-retweet' href='http://www.twitter.com/intent/retweet?tweet_id=${id_str}'&gt;&lt;span class='sprite'&gt;&lt;/span&gt;retweet&lt;/a&gt;
-            &lt;a class='tweet-favorite' href='http://www.twitter.com/intent/favorite?tweet_id=${id_str}'&gt;&lt;span class='sprite'&gt;&lt;/span&gt;favorite&lt;/a&gt;
-        &lt;/span&gt;
-        &lt;div style='clear: both;'&gt;&lt;/div&gt;
-    &lt;/div&gt;
-</pre>
-        <script type='text/html' id='twtr-tweet-tmpl'>
-            <div class='twtr-tweet' data-id='${id_str}'>
-                <div class='twtr-img'>
-                    <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>
-                        <img src='${profile_image_url}'>
-                    </a>
-                </div>
-                <div class='twtr-tweet-text'>
-                    <div class='tweet-row'>
-                        <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>${user_screen_name}</a>${user_real_name}
-                    </div>
-                    <div class='status-text'>${status_text}</div>
-    
-                </div>
-                <a class='tweet-timestamp' data-timestamp='${timestamp}' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'>${since_time}</a>
-                <span class='tweet-actions'>
-                    <a class='tweet-reply' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'><span class='sprite'></span>reply</a>
-                    <a class='tweet-retweet' href='http://www.twitter.com/intent/retweet?tweet_id=${id_str}'><span class='sprite'></span>retweet</a>
-                    <a class='tweet-favorite' href='http://www.twitter.com/intent/favorite?tweet_id=${id_str}'><span class='sprite'></span>favorite</a>
-                </span>
-                <div style='clear: both;'></div>
-            </div>
-        </script>
-        <script>
-            $(document).ready( function () {
-                var $tmln = $("#twtr-template-example");
-                var opts = {
-                    type:       "GET",
-                    dataType:   "jsonp",
-                    url:        "http://api.twitter.com/1/lists/statuses.json",
-                    data:       {
-                        list_id:   "52796954" //Miami Heat list statuses
-                    },
-                    success: function ( data, xhr, status ) {
-                        var $tmpl = $("#twtr-tweet-tmpl"),
-                           i = 0,
-                           setData = [];
-                        
-                        for( i = 0; i < data.length; i++ ) { //setup the data
-                            setData.push( setTweetData( data[i] ));
-                        }
-                        $tmln.html( $tmpl.applyTemplate( setData ) );
-                    },
-                    error: function (xhr, status, error) {
-                        $tmln.html( "<h2>Unable to connect with Twitter.</h2>");
-                    },
-                    timeout: (10 * 1000)
-                };
-                var intentsURL = {
-                    user: "http://www.twitter.com/intent/user?screen_name=",
-                    reply: "http://www.twitter.com/intent/tweet?in_reply_to=",
-                    retweet: "http://www.twitter.com/intent/retweet?tweet_id=",
-                    favorite: "http://www.twitter.com/intent/favorite?tweet_id="
-                    
-                };
-                
-                function linkifyStatus( text ) {
-                    text = text.replace(/(https?:\/\/\S+)/gi, function (s) {
-                    return '<a target="_blank" rel="nofollow" href="' + s + '">' + s + '</a>';
-                    });
-        
-                    text = text.replace(/(^|)@(\w+)/gi, function (s) {
-                    return '<a target="_blank" rel="nofollow" href="http://twitter.com/intent/user?screen_name=' + s.replace(/@/, "") + '">' + s + '</a>';
-                    });
-        
-                    text = text.replace(/(^|)#(\w+)/gi, function (s) {
-                    return '<a target="_blank" rel="nofollow" href="http://twitter.com/#!/search/' + s.replace(/#/,'%23') + '">' + s + '</a>';
-                    });
-                    return text;
-                };
-                function updateTimestamp($tweet) {
-                    var stamp = this.getSinceTime($tweet.data("timestamp"));
-                    $tweet.text(stamp.sinceTime);
-                    return stamp.young;
-                };
-                function parseDate(dateString){
-                    var month = {Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11},
-                        then = dateString.split(" "),   time,   temp;
-        
-                    //then = new Date(year, month, day, hours, minutes, seconds);
-                    if(dateString.search(",") === -1){//REST result, This format: Tue Aug 02 12:16:08 +0000 2011
-                        time = then[3].split(":");
-                        temp = new Date(then[5], month[then[1]], then[2], time[0], time[1], time[2]);
-                    }               
-                    else{//Search result, This format: Sat, 13 Aug 2011 15:24:31 +0000
-                        then[0] = then[0].replace(",", "");
-                        time = then[4].split(":");
-                        temp = new Date(then[3], month[then[2]], then[1], time[0], time[1], time[2]);
-                    }
-                    return temp - Time.offset; //date in milliseconds since UTC
-                };
-                var Time = {
-                    offset: new Date().getTimezoneOffset() * 60 * 1000, //adjust for users timezone
-                    second:     1000,
-                    minute:     1000 * 60,
-                    hour:   1000 * 60 * 60,
-                    day:        1000 * 60 * 60 * 24,
-                    week:   1000 * 60 * 60 * 24 * 7
-                };
-                function getSinceTime(timestamp) {
-                    var rightNow = new Date(),
-                        strTimeAgo = "",
-                        diff = rightNow - timestamp,
-                        bYoung = true; //used to abort processing on very large timelines after 1+ day old messages
-        
-                    if (isNaN(diff) || diff < 0) {
-                        strTimeAgo = ""; // return blank string if unknown
-                    }
-                    else if (diff < Time.second * 2) {
-                        strTimeAgo = "right now";
-                    }
-                    else if (diff < Time.minute) {
-                        strTimeAgo = Math.floor(diff / Time.second) + " seconds ago";
-                    }
-                    else if (diff < Time.minute * 2) {
-                        strTimeAgo = "1 minute ago";
-                    }
-                    else if (diff < Time.hour) {
-                        strTimeAgo = Math.floor(diff / Time.minute) + " minutes ago";
-                   }                
-                    else    if (diff < Time.hour * 2) {
-                        strTimeAgo = "1 hour ago";
-                   }
-                    else if (diff < Time.day) {
-                        strTimeAgo = Math.floor(diff / Time.hour) + " hours ago";
-                   }
-                   else {
-                        bYoung = false; 
-                         if (diff > Time.day && diff < Time.day * 2) {
-                        strTimeAgo = "yesterday";
-                    }
-                    else if (diff < Time.day * 365) {
-                        strTimeAgo = Math.floor(diff / Time.day) + " days ago";
-                    }
-                    else {
-                        strTimeAgo = "over a year ago";
-                    }
-                    }               
-                    return {sinceTime: strTimeAgo,young: bYoung};
-                };
-                
-                function setTweetData( data ) {
-                    var timestamp = parseDate(data.created_at);
-                    
-                    if(data.from_user){ //Map Search results to a user object on data
-                        data.user = {screen_name: data.from_user, name: data.from_user, profile_image_url: data.profile_image_url};
-                    }
-                    
-                    var dataMap = {
-                        id_str: data.id_str,
-                        profile_image_url: data.user.profile_image_url,
-                        user_real_name: data.user.name,
-                        user_screen_name: data.user.screen_name,
-                        status_text: linkifyStatus(data.text),
-                        "timestamp": timestamp,
-                        since_time: getSinceTime(timestamp).sinceTime
-                    };
-                    
-                    return dataMap;
-                };
-                
-                $.ajax( opts );
-            });
-        </script>
+            <h3>Template Source</h3>
+            <pre id='tmpl-source'></pre>
         </div>
+<script type='text/html' id='twtr-tweet-tmpl'>
+    <div class='twtr-tweet' data-id='${id_str}'>
+        <div class='twtr-img'>
+            <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>
+                <img src='${profile_image_url}'>
+            </a>
+        </div>
+        <div class='twtr-tweet-text'>
+            <div class='tweet-row'>
+                <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>${user_screen_name}</a>${user_real_name}
+            </div>
+            <div class='status-text'>${status_text}</div>
+        </div>
+        <a class='tweet-timestamp' data-timestamp='${timestamp}' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'>${since_time}</a>
+        <span class='tweet-actions'>
+            <a class='tweet-reply' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'><span class='sprite'></span>reply</a>
+            <a class='tweet-retweet' href='http://www.twitter.com/intent/retweet?tweet_id=${id_str}'><span class='sprite'></span>retweet</a>
+            <a class='tweet-favorite' href='http://www.twitter.com/intent/favorite?tweet_id=${id_str}'><span class='sprite'></span>favorite</a>
+        </span>
+        <div style='clear: both;'></div>
+    </div>
+</script>
+<script type='text/html' id='nba-team-news-tmpl'>
+    <div class='nba-team-news-item'>
+        <h3><a href='${link}'>${title}</a></h3>
+        <p>${description}</p>
+        <div class='pub-date'>${pubDate}</div>
+    </div>
+</script>
+<script>
+    $(document).ready( function () {
+    	$(document).trigger( "twitterActive", [] );
+    	$(document).trigger( "nbaActive", [ "heat" ] );
+    	
+    	$(".view-source").on( "click", function () {
+    		var $tmpl = $( $(this).attr("data-source") );
+    		$("#tmpl-source").text( $tmpl.html() );
+    	});
+    });
+</script>
     </body>
 </html>
