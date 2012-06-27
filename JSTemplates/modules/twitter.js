@@ -1,29 +1,56 @@
 ( function ( $ ) {
-	var opts = {
-        type:       "GET",
-        dataType:   "jsonp",
-        url:        "http://api.twitter.com/1/lists/statuses.json",
-        data:       {
-            list_id:   "52796954" //Miami Heat list statuses
-        },
-        success: function ( data, xhr, status ) {
-        	var $tmln = $("#twtr-template-example");
-            
-            var $tmpl = $("#twtr-tweet-tmpl"),
-               i = 0,
-               setData = [];
-            
-            for( i = 0; i < data.length; i++ ) { //setup the data
-                setData.push( setTweetData( data[i] ));
-            }
-            $tmln.html( $tmpl.applyTemplate( setData ) );
-        },
-        error: function (xhr, status, error) {
-            $tmln.html( "<h2>Unable to connect with Twitter.</h2>");
-        },
-        timeout: (10 * 1000)
-    };
-    
+	var $doc = $(document),
+		config = {
+			tmpl: "#twtr-tweet-tmpl"
+		},
+	//Track model state for new and more requests
+		maxID = null,
+		sinceID = null,
+	//Default AJAX options object
+		defaultOpts = {
+	        type:       "GET",
+	        dataType:   "jsonp",
+	        url:        "http://api.twitter.com/1/lists/statuses.json",
+	        data:       {
+	        	per_page: 	200,
+	            list_id:   	"52796954" //Miami Heat list statuses
+	        },
+	        success: function ( data, xhr, status ) {
+	        	if( data.length > 0 ) {
+					sinceID = data[0].id_str;
+					maxID = data[ data.length - 1 ].id_str;
+				}
+	        	$doc.trigger( "activeNewsData", [ config.tmpl, postProcessData( data ) ] );
+	        },
+	        error: function (xhr, status, error) {
+	            //$tmln.html( "<h2>Unable to connect with Twitter.</h2>");
+	        },
+	        timeout: (10 * 1000)
+	    },
+	//Cache active options passed by activeTwitter event
+	    activeOpts = {},
+	//Helper object used in UTC time conversions 
+	    Time = {
+            offset: new Date().getTimezoneOffset() * 60 * 1000, //adjust for users timezone
+            second: 1000,
+            minute: 1000 * 60,
+            hour:   1000 * 60 * 60,
+            day:    1000 * 60 * 60 * 24,
+            week:   1000 * 60 * 60 * 24 * 7
+        };
+
+//Functions used by this module
+	//Processes raw tweet data into a format the template expects
+	function postProcessData( data ) { 
+		var procData = [];
+		
+		for( var i = 0; i < data.length; i++ ) { //setup the data
+			procData.push( setTweetData( data[i] ));
+        }
+		
+		return procData;
+	};
+	
     function linkifyStatus( text ) {
         text = text.replace(/(https?:\/\/\S+)/gi, function (s) {
         return '<a target="_blank" rel="nofollow" href="' + s + '">' + s + '</a>';
@@ -59,14 +86,7 @@
         }
         return temp - Time.offset; //date in milliseconds since UTC
     };
-    var Time = {
-        offset: new Date().getTimezoneOffset() * 60 * 1000, //adjust for users timezone
-        second:     1000,
-        minute:     1000 * 60,
-        hour:   1000 * 60 * 60,
-        day:        1000 * 60 * 60 * 24,
-        week:   1000 * 60 * 60 * 24 * 7
-    };
+    
     function getSinceTime(timestamp) {
         var rightNow = new Date(),
             strTimeAgo = "",
@@ -128,9 +148,70 @@
         
         return dataMap;
     };
-    function twitterActive( e ) {
-    	$.ajax( opts );
+    
+    //remove model event handlers
+    function beforeActive( e ) {
+    	$doc.off( "modelNew modelMore");
     };
     
-    $(document).on("twitterActive", twitterActive );
+    function twitterActive( e, opts ) {
+    	if( opts !== undefined ) {
+    		activeOpts = opts.twitter;
+    	}
+    	opts = $.extend( true, defaultOpts, activeOpts );
+    	$.ajax( opts );
+    	
+    	//remove previous model event handlers - hmm, which method should I use?
+    	$doc.off( "modelNew modelMore");
+    	//$doc.trigger( "beforeActive" );
+    	
+    	//setup event handlers for this newly activated model
+    	$doc.on( "modelNew", modelNew );
+    	$doc.on( "modelMore", modelMore );
+    };
+    
+    function modelNew( e ) { //do a request which gets new tweets
+    	var newOpts = {
+    		data: {
+    			since_id: sinceID
+    		},
+    		success: function ( data, xhr, status ) {
+    			if( data.length > 0 ) {
+    				sinceID = data[0].id_str;
+    			}
+            	$doc.trigger( "newNewsData", [ postProcessData( data ) ] );
+            },
+            error: function (xhr, status, error) {
+                //$tmln.html( "<h2>Unable to connect with Twitter.</h2>");
+            }
+    	};
+    	
+    	newOpts = $.extend( true, defaultOpts, activeOpts, newOpts );
+    	$.ajax( newOpts );
+    };
+    
+    function modelMore( e ) { //do a request which gets more tweets
+    	var moreOpts = {
+    		data: {
+    			max_id: maxID
+    		},
+    		success: function ( data, xhr, status ) {
+    			if( data.length > 0 ) {
+    				maxID = data[ data.length - 1 ].id_str;
+    				data.shift(); //remove the first entry which duplicates the maxID entry
+    			}
+    			
+    			$doc.trigger( "moreNewsData", [ postProcessData( data ) ] );
+            },
+            error: function (xhr, status, error) {
+                //$tmln.html( "<h2>Unable to connect with Twitter.</h2>");
+            }
+    	};
+    	
+    	moreOpts = $.extend( true, defaultOpts, activeOpts, moreOpts );
+    	$.ajax( moreOpts );
+    };
+    
+//Commands to execute on load  
+    $doc.on("twitterActive", twitterActive );
 })(jQuery);
