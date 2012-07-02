@@ -1,0 +1,264 @@
+@import "../../BootstrapLess/variables.less";
+@import "../../BootstrapLess/mixins.less";
+@import "../../BootstrapLess/type.less";
+@import "../../BootstrapLess/layouts.less";
+@import "../../BootstrapLess/navbar.less";
+
+// Baseline grid
+@basefont:          13px;
+@baseline:          18px;
+@doubleline:        @baseline * 2;
+@halfline:          @baseline / 2;
+@thirdline:         @baseline / 3;
+
+.navbar {
+    color:          white;
+    font-weight:    bold;
+    line-height:    24px;
+}
+
+body {
+    font-size: 15px;
+    padding-top:    @baseline * 2;
+}
+
+h3 {
+    margin: @thirdline 0;
+}
+h4 {
+    margin: 0;
+}
+.item-detail {
+    overflow-y: auto;
+    
+    position:   absolute;
+    top:        @baseline*2;
+    left:       0;
+    bottom:     @baseline;
+    right:      0;
+    
+    .summary {
+        float: left;
+        margin: @halfline @baseline;
+    }
+    img {
+        float: right;
+        margin: 0 0 @thirdline @thirdline;
+    }
+    h4 {
+        clear: left;
+    }
+}
+.item-thumb {
+    cursor:         pointer;
+    margin-right:   20px;
+    height:         220px;
+    position:       relative;
+    
+    .clearfix();
+    
+    &._3 {
+	    margin-right: 0;
+	}
+    .summary {
+        padding: 0;
+        height: 170px;
+        position: relative;
+        
+        .percent-bar {
+		    bottom:     0;
+		    position:   absolute;
+		}
+    }
+    h2 {
+	    background-color: #C13900;
+	    color:         white;
+	    text-align:    center;
+	    position:      relative;
+	    line-height:   32px;
+	    
+	    .sprite {
+            display:    none;
+            background-image: url(../images/sprite.8.png);
+	        background-position: 52px 212px;
+	        width: 52px;
+	        height: 48px;
+	        position: absolute;
+	        right:  @halfline;
+	        top:    -@halfline;
+	        
+	        .clearfix();
+        }
+	}
+	img {
+        float: right;
+        margin: 0 0 @thirdline @thirdline;
+    }
+    &.woot-off-true h2 .sprite {
+        display: block;
+    }
+    .overlay {
+        display:    none;
+        position:   absolute;
+        z-index:    1000;
+        
+        top:    0;
+        right:  0;
+        bottom: 0;
+        left:   0;
+        
+        #translucent > .background( #000, 0.6 );
+        
+        .sprite {
+            background-image: url(../images/sprite.8.png);
+            background-position: 135px 101px;
+			width: 85px;
+			height: 85px;
+			position: absolute;
+			right:   0;
+			top:     31px;
+            
+            .clearfix();
+        }
+    }
+    &.sold-out-true {
+        .overlay {
+            display: block;
+        }
+        .percent-bar {
+            display:    none;
+        }
+    }
+    label {
+        font-weight:    bold;
+        display:        inline-block;
+        min-width:      70px;
+    }
+}
+      
+.percent-bar {
+    height:         @baseline;
+    width:          140px;
+    overflow:       hidden;
+    margin:         @halfline 0;
+    position:       relative;
+    text-align:     center;
+
+    //mixins
+    .border-radius(@halfline);
+    .box-shadow( 0 0 3px #333 );
+    #translucent > .background( #000, 0.3 );
+    
+    .underlay, .fill, label {
+	    position:   absolute;
+	    top:        0;
+	    left:       0;
+	    .border-radius(@halfline);
+	}
+    .underlay {
+        #translucent > .background( #000, 0.3 );
+	    width:  100%;
+	    height: 100%;
+	    z-index: 1;
+	}
+    .fill {
+	    background-color:   #c30;
+	    height:            100%;
+	    z-index:           2;
+	}
+	label {
+        float:      left;
+        color:      white;
+        text-align: center;
+        display:    inline;
+        min-width:  100%;
+        z-index:    3;
+    }
+}
+
+.Woot-theme {
+    @primaryColor:  #487709;
+    @import "sharedTheme.less";
+}
+
+.Home-theme {
+    @primaryColor:  #C13900;
+    @import "sharedTheme.less";
+}
+
+.Shirt-theme {
+    @primaryColor:  #005295;
+    @import "sharedTheme.less";
+}
+.Wine-theme {
+    @primaryColor:  #6A0F17;
+    @import "sharedTheme.less";
+}
+.Kids-theme {
+    @primaryColor:  #FFA60C;
+    @import "sharedTheme.less";
+}
+.Sellout-theme {
+    @primaryColor:  #2D5D1F;
+    @import "sharedTheme.less";
+}
+.Sport-theme {
+    @primaryColor:  #4B8501;
+    @import "sharedTheme.less";
+}
+            
+[id$=-thumb] {
+    float: left;
+    width: 300px;
+}
+[id$=-detail] {
+    display:    none;
+    background: white;
+    position:   absolute;
+    
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    
+    margin:         @baseline*2 auto;
+    width:          940px;
+    
+    .box-shadow( 0 0 @halfline #333 );
+    .border-radius(@halfline);
+    
+    h2 {
+        margin:         0;
+        padding:        @thirdline @halfline;
+        color:          white;
+        line-height:    24px;
+        .border-radius( @halfline @halfline 0 0 );
+    }
+    
+    &.active {
+	    display: block;
+	}
+}
+
+#woot-thumb-view {
+    .clearfix();
+}
+#woot-detail-view {
+    display:    none;
+    z-index:    1000;
+    position:   fixed;
+    padding:    @halfline @baseline;
+    
+    top:    0;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    
+    #translucent > .background( #000, .6);
+    
+    &.active {
+        display: block;
+    }
+    
+}
+            

@@ -6,7 +6,6 @@
 	};
 	
 	function nbaActive( e, opts ) {
-		//var $teamNews = $("#nba-team-news");
 		$.ajax( {
         	type:      "GET",
         	dataType:  "jsonp",
@@ -19,8 +18,6 @@
         	},
         	timeout:   (10 * 1000),
         	success: function ( data, xhr, status ) {
-        		//var $tmpl = $("#nba-team-news-tmpl");
-        		//$teamNews.html( $tmpl.applyTemplate( data.value.items ) );
         		$doc.trigger( "activeNewsData", [ config.tmpl, data.value.items ] );
         	},
         	error: function ( xhr, status, error ) {
