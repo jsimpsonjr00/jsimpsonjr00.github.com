@@ -3,6 +3,7 @@
 @import "../../BootstrapLess/type.less";
 @import "../../BootstrapLess/layouts.less";
 @import "../../BootstrapLess/navbar.less";
+@import "../../BootstrapLess/buttons.less";
 
 // Baseline grid
 @basefont:          13px;
@@ -12,9 +13,16 @@
 @thirdline:         @baseline / 3;
 
 .navbar {
-    color:          white;
+    @primaryColor:  #487709;
+    
+    color:          #f3f3f3;
     font-weight:    bold;
-    line-height:    24px;
+    line-height:    @baseline * 2;
+    font-size:      @baseline;
+    
+    .navbar-inner {
+        .gradientBar( lighten(@primaryColor, 10%), darken(@primaryColor, 10%) );
+    }
 }
 
 body {
@@ -28,6 +36,9 @@ h3 {
 h4 {
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 .item-detail {
     overflow-y: auto;
     
@@ -38,12 +49,26 @@ h4 {
     right:      0;
     
     .summary {
-        float: left;
+        //float: left;
         margin: @halfline @baseline;
     }
-    img {
+    img, .btn {
         float: right;
         margin: 0 0 @thirdline @thirdline;
+        
+        .clearfix();
+    }
+    .btn {
+        font-size:      @baseline * 2;
+        line-height:    @baseline * 2;
+        padding:        @baseline;
+        margin-right:   105px;
+        
+        color:          #F3F3F3;
+        text-shadow:    0 0 @thirdline #333;
+        
+        .buttonBackground( lighten(#EFA626, 10%) , darken( #EFA626, 10% ) );
+        clear: both;
     }
     h4 {
         clear: left;
@@ -51,15 +76,12 @@ h4 {
 }
 .item-thumb {
     cursor:         pointer;
-    margin-right:   20px;
     height:         220px;
     position:       relative;
     
     .clearfix();
     
-    &._3 {
-	    margin-right: 0;
-	}
+    
     .summary {
         padding: 0;
         height: 170px;
@@ -94,6 +116,7 @@ h4 {
         float: right;
         margin: 0 0 @thirdline @thirdline;
     }
+    
     &.woot-off-true h2 .sprite {
         display: block;
     }
@@ -210,6 +233,11 @@ h4 {
 [id$=-thumb] {
     float: left;
     width: 300px;
+    margin-right:   20px;
+    
+    &._3 {
+        margin-right: 0;
+    }
 }
 [id$=-detail] {
     display:    none;

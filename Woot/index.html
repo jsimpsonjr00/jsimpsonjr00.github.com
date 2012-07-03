@@ -1,20 +1,24 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Woot Checker</title>
+        <title>Auto Woot!: making sure you don't miss out on the Woot! Off</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Auto monitoring Woot.com for deal updates associated with Woot! Off sales." >
+        <meta name="keywords" content="woot,deals,shopping,woot off" >
         
-        <!--<link rel="stylesheet/less" type="text/css" href="Less/theme.less">
-        <script src='../js/less-1.3.0.min.js'></script> -->
-        <link rel='stylesheet' type='text/css' href='theme.css'>
+        <link rel="stylesheet/less" type="text/css" href="Less/theme.less">
+        <script src='../js/less-1.3.0.min.js'></script> 
+        <!-- <link rel='stylesheet' type='text/css' href='Less/theme.css'> -->
         
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'></script>
         <script src='../js/JSTemplates-min.js'></script>
         
+        <!-- <script src='js/mainView.js'></script>
+        <script src='js/thumbView.js'></script>
+        <script src='js/wootModel.js'></script>
+        <script src='js/wootStatusView.js'></script> -->
         
-        <script src='mainView.js'></script>
-        <script src='thumbView.js'></script>
-        <script src='wootModel.js'></script>
+        <script src='js/auto-woot-min.js'></script>
     </head>
     <body>
         <div class='navbar navbar-fixed-top'>
@@ -22,8 +26,9 @@
                 <div class='container'>
                     <div class='row'>
                         <div class='span16'>
-                            Current Deals on Woot!
-                            <button class='btn news-controller' data-event='wootActive'>Refresh</button>
+                            Auto Woot!:
+                            <label>refreshing deals in </label><span id='woot-status-time'></span>
+                            <!-- <button class='btn news-controller' data-event='wootActive'>Refresh</button> -->
                         </div>
                     </div>
                 </div>
@@ -74,6 +79,9 @@
             </h4>
             <span class='per-sold'>Percent Sold: ${SoldOutPercentage}</span>
             <img src='${StandardImage}'>
+            <a href='http://www.kqzyfj.com/click-5594068-10474050?url=${SaleUrl}' target='_woot'>
+                <button class="btn">Buy on Woot!</button>
+            </a>
             <h4>${SubTitle}</h4>
             <h5>${Teaser}</h5>
             <p>${WriteUp}</p>
@@ -87,12 +95,12 @@
             $doc.ready( function () {
                 $doc.trigger( "wootActive", [ ] );
                 
-                $(".news-controller").on( "click", function () {
+                /*$(".news-controller").on( "click", function () {
                     var $btn  = $(this);
                        
                     $btn.addClass("active");
                     $doc.trigger( $btn.attr("data-event"), [ ]);
-                });
+                });*/
             });
         </script>
     </body>
