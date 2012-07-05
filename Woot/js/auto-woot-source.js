@@ -212,7 +212,7 @@ var $doc = $(document);
 		});
 		
 		function setTimeout( ) { //initate a routine to update this status count
-			var interval = 5; //update every 5 seconds
+			var interval = 1; //update every 5 seconds
 			window.clearTimeout( timeoutID );
 			timeoutID = window.setTimeout( setRefreshTime, interval * 1000 );
 			refreshTime -= interval;

@@ -1,6 +1,6 @@
 <project basedir="." name="AutoWoot">
     <concat destfile="auto-woot-source.js">
-        <fileset dir="." includes="*.js"/>
+        <fileset dir="src\" includes="*.js"/>
     </concat>
     <java id='ClosureCompile' fork='true' jar="..\..\builders\Closure\compiler.jar">
           <arg line='--js auto-woot-source.js'/>
