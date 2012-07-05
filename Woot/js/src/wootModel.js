@@ -33,10 +33,10 @@
     };
     
     function wootActive( e ) {
-    	$.ajax( defaultOpts );
-    	
     	$doc.off( "modelNew"); //remove previous model event handlers
     	$doc.on( "modelNew", modelNew ); //setup event handlers for this newly activated model
+    	
+    	$.ajax( defaultOpts );
     };
     
     function processData( data, event ) { //process data into the appropriate cache
