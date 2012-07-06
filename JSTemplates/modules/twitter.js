@@ -159,7 +159,6 @@
     		activeOpts = opts.twitter;
     	}
     	opts = $.extend( true, defaultOpts, activeOpts );
-    	$.ajax( opts );
     	
     	//remove previous model event handlers - hmm, which method should I use?
     	$doc.off( "modelNew modelMore");
@@ -168,6 +167,8 @@
     	//setup event handlers for this newly activated model
     	$doc.on( "modelNew", modelNew );
     	$doc.on( "modelMore", modelMore );
+    	
+    	$.ajax( opts );
     };
     
     function modelNew( e ) { //do a request which gets new tweets

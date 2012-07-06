@@ -50,7 +50,12 @@
     		
     		// new item or updated item
     		if( activeCache[item.ThemeName] === undefined || activeCache[item.ThemeName].SaleUrl !== item.SaleUrl || activeCache[item.ThemeName].SoldOutPercentage !== item.SoldOutPercentage) {
-    			item.PercentAvailable = 100 - (item.SoldOutPercentage * 100);
+    			if( item.SoldOutPercentage <= 1 ) { //handle two different formats the feed may contain
+    				item.PercentAvailable = 100 - (item.SoldOutPercentage * 100);
+    			} else {
+    				item.PercentAvailable = 100 - item.SoldOutPercentage;
+    			}
+    			
     			item.WootOff == true ? wootOff = true : null;
     			
     			item = { 

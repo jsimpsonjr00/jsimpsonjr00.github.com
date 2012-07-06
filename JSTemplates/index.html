@@ -34,7 +34,7 @@
     <body>
         <div class='container'>
             <h2>JS Template - Example</h2>
-            In this Example my JS Template plugin to jQuery is used to display a Twitter Timeline and a listing of Miami
+            In this Example my JS Template jQuery plugin is used to display a Twitter Timeline and a listing of Miami
             Heat team news from NBA.com. Logic used in generating the data is separated from the markup presentation.
             <div class='row'>
                 <div class='span8'>
@@ -86,8 +86,21 @@
 </script>
 <script>
     $(document).ready( function () {
+    	var teamOpts    = {
+            twitter: {
+                data:       {
+                    list_id:    "52796954" //Miami Heat list statuses
+                }
+            },
+            reddit: {
+                subreddit: "heat"
+            },
+            nba: {
+                team: "heat"
+            }
+        };
     	$(document).trigger( "twitterActive", [] );
-    	$(document).trigger( "nbaActive", [ "heat" ] );
+    	$(document).trigger( "nbaActive", [ teamOpts ] );
     	
     	var $tmplSrc = $("#tmpl-source");
     	$(".view-source").on( "click", function () {
