@@ -66,6 +66,7 @@
                 <div class='fill' style='width: ${PercentAvailable}%;'></div>
                 <label>${PercentAvailable}%</label>
             </div>
+            <button class='btn btn-warning'>More&gt;&gt;</button>
         </div>
         <div class='overlay'><div class='sprite'></div></div>
     </div>
@@ -80,10 +81,13 @@
     <div class='item-detail woot-off-${WootOff} sold-out-${SoldOut}'>
         <i class='sprite sold-out'></i>
         <div class='summary'>
-            <img src='${StandardImage}'>
-            <a href='http://www.kqzyfj.com/click-5594068-10474050?url=${SaleUrl}' target='_woot'>
-                <button class="btn">Buy on Woot!</button>
-            </a>            
+            <div class='aside'>
+                <img src='${StandardImage}'>
+                <br/>
+                <a class="btn btn-warning" href='http://www.kqzyfj.com/click-5594068-10474050?url=${SaleUrl}' target='_woot'>
+                    Buy on Woot!
+                </a>
+            </div>       
             <h3><a href='http://www.kqzyfj.com/click-5594068-10474050?url=${SaleUrl}' target='_woot'>${Title}</a></h3>
             <h4>
                 Price: ${Price}<br/>
@@ -93,7 +97,6 @@
                 <div class='fill' style='width: ${PercentAvailable}%;'></div>
                 <label>${PercentAvailable}%</label>
             </div>
-            
             <h4>${SubTitle}</h4>
             <h5>${Teaser}</h5>
             <p>${WriteUp}</p>

@@ -170,12 +170,7 @@ footer, .footer {
     .summary {
         margin: @halfline @baseline;
     }
-    img, .btn {
-        float: right;
-        margin: 0 0 @thirdline @thirdline;
-        
-        .clearfix();
-    }
+    
     .btn {
         font-size:      @baseline * 2;
         line-height:    @baseline * 2;
@@ -185,11 +180,21 @@ footer, .footer {
         color:          #F3F3F3;
         text-shadow:    0 0 @thirdline #333;
         
-        .buttonBackground( lighten(#FAA617, 5%) , darken( #FAA617, 5% ) );
+        //.buttonBackground( lighten(#FAA617, 5%) , darken( #FAA617, 5% ) );
         clear: both;
     }
     h4 {
         clear: left;
+    }
+    .aside {
+        float:      right;
+        text-align: center;
+        
+        img, .btn {
+            margin: 0 0 @thirdline @thirdline;
+	        
+	        .clearfix();
+	    }
     }
 }
 .item-thumb {
@@ -213,7 +218,11 @@ footer, .footer {
             display:    none;
         }
     }
-    
+    &:hover {
+        button {
+            display: block;
+        }
+    }
     .summary {
         padding: 0;
         height: 185px;
@@ -223,6 +232,12 @@ footer, .footer {
 		    bottom:     0;
 		    position:   absolute;
 		}
+    }
+    button {
+        display:    none;
+        position:   absolute;
+        right:      0;
+        bottom:     0;
     }
     h2 {
 	    background-color: #C13900;
