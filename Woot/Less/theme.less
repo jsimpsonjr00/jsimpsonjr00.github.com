@@ -13,6 +13,11 @@
 @halfline:          @baseline / 2;
 @thirdline:         @baseline / 3;
 
+@font-face {
+    font-family: "ITC Highlander Bold";
+    src: url("../../fonts/itc-highlander-lt-bold.ttf")
+}
+
 // Styles by ID
 #woot-thumb-view {
     .clearfix();
@@ -77,6 +82,7 @@
         color:          white;
         line-height:    24px;
         .border-radius( @halfline @halfline 0 0 );
+        font-family:    ITC Highlander Bold, Trebuchet MS;
     }
     
     &.active {
@@ -88,7 +94,7 @@
 body {
     font-size: 15px;
     margin:    48px @halfline 36px;
-    font-family:    ITC Highlander Bold, Trebuchet MS;
+    font-family:    Trebuchet MS;
 }
 
 h3, h4 {
@@ -101,8 +107,9 @@ footer, .footer {
     font-size: @baseline !important;
     
     .sharing {
-        text-align: center;
-        font-size:  @baseline - @thirdline;
+        text-align:     center;
+        font-size:      @baseline - @thirdline;
+        font-family:    Trebuchet MS;
     }
     .logo {
         text-align: right;
@@ -124,6 +131,7 @@ footer, .footer {
     font-weight:    bold;
     line-height:    @baseline * 2;
     font-size:      @baseline + @thirdline;
+    font-family:    ITC Highlander Bold, Trebuchet MS;
     
    .gradientBar( lighten(@primaryColor, 5%), darken(@primaryColor, 5%) );
    
@@ -245,7 +253,7 @@ footer, .footer {
 	    text-align:    center;
 	    position:      relative;
 	    line-height:   32px;
-	    
+	    font-family:   ITC Highlander Bold, Trebuchet MS;
 	    letter-spacing:    1px;
 	    .border-radius( @thirdline );
 	    .box-shadow( 0 0 @thirdline #ccc);

@@ -1,0 +1,74 @@
+body {
+    font-family:    Georgia;
+    font-size:      14pt;
+    line-height:    120%;
+    color:          #333333;
+    width:          960px;
+    margin:         9pt auto 30pt;
+}
+header {
+    text-align:     center;
+    line-height:    20pt;
+}
+h3, h4 {
+    margin-bottom: 0;
+}
+h5 {
+    font-weight: normal;
+}
+section {
+    margin: 9px 0;
+}
+section h3 {
+    line-height:    30pt;
+    font-size:      18pt;
+    letter-spacing: 2pt;
+    border-top:     2px solid #666666;
+    border-bottom:  1px solid #999999;
+}
+section h4 {
+    margin:     9px 0 0px;
+    font-size:  15pt;
+    color:      #333;
+}
+h4 aside {
+    float:      right;
+    color:      #999999;
+    text-align: right;
+}
+section h5 {
+    margin:         0 0 3px;
+    line-height:    20pt;
+    font-size:      14pt;
+    font-style:     italic;
+    color:          #999;
+}
+section hr {
+    width:  20%;
+    margin: 18pt auto 19pt;
+}
+ul {
+    margin: 9pt 0 0 -40px;
+}
+li {
+    color:          #666;
+    margin-bottom:  4pt;
+}
+li label {
+    width:          120px;
+    display:        inline-block;
+    font-weight:    bold;
+    color:          #333;
+}
+.item-divider {
+    text-align: center;
+}
+.item-divider .down-arrow {
+    border-left:    9px solid transparent;
+    border-right:   9px solid transparent;
+    border-top:     9px solid #333;
+    
+    margin:     0 9px;
+    position:   relative;
+    top:    15px;
+}
