@@ -1,0 +1,91 @@
+.tab-view {
+    .control-group { //top tabs default for the control group
+        padding-left: @thirdline;
+        margin-bottom: 0;
+        
+        button { //shape the tabs for default top left-aligned layout
+            .border-radius(@thirdline @thirdline 0 0);
+            border: 1px solid transparent;
+            background-color: @white;
+            color: @gray;
+            
+            &:hover, &.active {
+                border-color: @grayLighter @grayLighter #ddd;
+                color: @gray;
+                background-color: @grayLighter;
+                border: 1px solid #ddd;
+                border-bottom-color: transparent;
+            }
+            &.active {
+                margin-bottom: -1px;
+                background-color: transparent;
+                border-bottom-color: white !important;
+            }
+        }
+    }
+    
+    .pane-group { //default styling of the pane group for a top tab layout
+        border: 1px solid #DDD;
+        padding: @halfline;
+        .border-radius(@thirdline);
+    }
+    
+    //Optional Tab Layouts - Begin
+    //top is default, no customization needed
+    &.layout-bottom { // bottom tabs customization, place control-group after pane-group in markup 
+        .control-group button {
+	        .border-radius(0 0 @thirdline @thirdline);
+	        border-bottom-color: #ddd !important;
+	        
+	        &.active {
+	            margin-top: -1px;
+	            border-top-color: white !important;
+	        }
+        }
+    }
+    &.layout-left, &.layout-right { //shared styles for right and left
+        .control-group {
+	        padding-left: 0px;
+	        padding-top: @thirdline;
+	        
+	        button { 
+	            text-align: left;
+                margin-bottom: @thirdline;
+                display: block;
+	            width: 100%;
+	            border-bottom-color: #ddd !important;
+	        }
+        }
+    }
+    
+    &.layout-left { //left side tabs customization
+        .control-group {
+            float: left;
+            button { 
+		        .border-radius(@thirdline 0 0 @thirdline);
+		        
+		        &.active {
+		            position: relative;
+		            right: -1px;
+		            border-right-color: white !important;
+		        }
+	        }
+        }
+    }
+    &.layout-right {  //right side tabs customization
+        .control-group {
+            float: right;
+            
+            button {
+		        .border-radius(0 @thirdline @thirdline 0);
+		        
+		        &.active {
+		            position: relative;
+		            left: -1px;
+		            border-left-color: white !important;
+		        }
+		    }
+        }
+    }
+    //Optional Tab Layouts - End
+}

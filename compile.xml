@@ -1,0 +1,6 @@
+<project basedir="." name="lessCompile">
+    <property name="wsf" location="builders\Less\less.wsf"/>
+    <exec dir="${basedir}" executable="cscript">
+        <arg line="${wsf} styles.less styles.css -compress"/>
+    </exec>
+</project>
