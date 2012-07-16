@@ -3,6 +3,7 @@
 @import "BootstrapLess/grid.less";
 @import "BootstrapLess/type.less";
 @import "BootstrapLess/layouts.less";
+@import "BootstrapLess/responsive.less";
 @import "BootstrapLess/navbar.less";
 @import "BootstrapLess/buttons.less";
 
@@ -80,12 +81,10 @@ footer, .footer {
         color: #f3f3f3;
     }
 }
-.container {
-    width: 960px;
-}
 
 .item {
     position: relative;
+    margin-bottom:  @baseline;
     
     img {
         width:  100%;
@@ -100,11 +99,9 @@ footer, .footer {
         
         color:      #f3f3f3;
         padding:    @thirdline;
-        #translucent > .background( #000, 0.5 );
+        #translucent > .background( #000, 0.8 );
         .transition( opacity .5s );
         .opacity( 0 );
-        
-        
     }
     
     &:hover {
@@ -114,17 +111,17 @@ footer, .footer {
     }
 }
 .about-box {
-    //background: #F2F2EC;
+    background: #F2F2EC;
     
-    //.border-radius( @thirdline );
-    //.box-shadow( -2px 2px @baseline #CCC );
+    .border-radius( @thirdline );
+    .box-shadow( -2px 2px @baseline #CCC );
     
     h2 {
-        //color:      white;
-        //padding:    0 @halfline;
+        color:      white;
+        padding:    0 @halfline;
         
-        //.gradientBar( darken(#F2F2EC, 10%), darken(#F2F2EC, 20%) );
-        //.border-radius( @thirdline @thirdline 0 0 );
+        .gradientBar( darken(#F2F2EC, 10%), darken(#F2F2EC, 20%) );
+        .border-radius( @thirdline @thirdline 0 0 );
     }
     img {
         float:    left;
@@ -188,10 +185,7 @@ footer, .footer {
 //Responsive Layout - abreviated for this project
 @responsiveStep:    320px;
 
-.row {
-    margin-left: 20px;
-}
-    
+/*
 @media (max-width: 939px) { //Item detail shrinks to match the display width
    
 }
@@ -271,3 +265,4 @@ footer, .footer {
         width: @responsiveStep * 6/3 - 20px;
     }
 }
+*/
