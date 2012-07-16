@@ -106,6 +106,15 @@ a {
 footer, .footer {
     font-size: @baseline !important;
     
+    a {
+        color: #fff;
+    }
+    img { 
+        height:     24px; 
+        width:      auto;
+        position:   relative;
+        top:        @thirdline;
+    }
     .sharing {
         text-align:     center;
         font-size:      @baseline - @thirdline;
@@ -113,13 +122,6 @@ footer, .footer {
     }
     .logo {
         text-align: right;
-        
-        img { 
-            height:     24px; 
-            width:      auto;
-            position:   relative;
-            top:        @thirdline;
-        }
     }
 }
 
@@ -212,7 +214,7 @@ footer, .footer {
     
     .clearfix();
     
-    &.woot-off-true h2 .sprite {
+    &.woot-off-true.sold-out-false h2 .sprite {
         display: block;
     }
     &.sold-out-true {
@@ -226,7 +228,7 @@ footer, .footer {
             display:    none;
         }
     }
-    &:hover {
+    &:hover.sold-out-false {
         button {
             display: block;
         }
@@ -416,6 +418,37 @@ footer, .footer {
         bottom: 0;
     }
 }
+@media (max-width: 639px) {
+    .container {
+        width: 100%;
+        min-width: 300px;
+    }
+    [id$=-thumb] {
+	    float: left;
+	    width: 100%;
+	    min-width: 300px;
+	    margin:    0 0 @halfline 0;
+	}
+	.navbar.fixed.bottom {
+        position:   relative !important;
+        z-index:    1;
+    }
+    #woot-detail-view {
+        bottom: 0;
+    }
+    .navbar {
+        font-size:  @baseline;
+    }
+    footer .span4 {
+        text-align: center;
+        line-height:    100%;
+        width:  100%;
+        margin-left:    0;
+        &.logo img {
+            top: 0;
+        }
+    }
+}
 @media (max-width: 440px) { //Item detail shrinks to match the display width
     [id$=-detail] {
         img {
@@ -432,36 +465,8 @@ footer, .footer {
     footer .span4 {
         font-size:      60%;
     }
-}
-@media (max-width: 639px) {
-    .container {
-        width: 100%;
-        min-width: 300px;
-    }
-    [id$=-thumb] {
-	    float: left;
-	    width: 100%;
-	    min-width: 300px;
-	    margin:    0;
-	}
-	.navbar.fixed.bottom {
-        position:   relative !important;
-        z-index:    1;
-    }
-    #woot-detail-view {
-        bottom: 0;
-    }
     .navbar {
-        font-size:  75%;
-    }
-    footer .span4 {
-        text-align: center;
-        line-height:    100%;
-        width:  100%;
-        margin-left:    0;
-        &.logo img {
-            top: 0;
-        }
+        font-size:  @baseline - 3px;
     }
 }
 @media (min-width: 640px) and (max-width: 959px) {

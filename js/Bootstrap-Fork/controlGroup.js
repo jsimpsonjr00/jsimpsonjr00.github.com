@@ -84,8 +84,8 @@
 			
 			return ready;
 		},
-		lock: function () {
-			this.bLocked = true;
+		lock: function () { //only allow locks if transitions are supported
+			Bootstrap.support.transition ? this.bLocked = true : null;
 		},
 		unlock: function () {
 			this.bLocked = false;
@@ -109,26 +109,39 @@
 	};
 	
 	Bootstrap.TabView = function ( element ) {
-		var $this  = $(element),
-			tabs  = $this.find(".control-group").singleSelectGroup( "button", true, true ),
+		var $this	= $(element),
+			$tabs 	= $this.find(".control-group"),
+			$panes 	= $this.find(".pane-group");
+		
+		
+		this.tabGroup = $tabs.singleSelectGroup( "button", true, true ).group;
+		this.paneGroup = $panes.singleSelectGroup( ".pane", true, false ).group;
+		
+		$panes.on( "transitionend webkitTransitionEnd oTransitionEnd", ".pane", { self: this }, this.transitionEnd );
+		$tabs.on( "click.tabView", "button", { self: this }, this.click ); //capture button clicks
+		/*var tabs  = $this.find(".control-group").singleSelectGroup( "button", true, true ),
 			panes = $this.find(".pane-group").singleSelectGroup( ".pane", true, false );
 		
 		tabs.$element.on( "click.tabView", "button", { self: this }, this.click ); //capture button clicks
-		panes.$element.on( "webkitTransitionEnd transitionend oTransitionEnd", ".pane", { self: this }, this.transitionEnd );
+		panes.$element.on( "transitionend webkitTransitionEnd oTransitionEnd", ".pane", { self: this }, this.transitionEnd );
+		panes.$element.on( "tEnd", {self: this }, this.transitionEnd );
 		this.tabGroup  = tabs.group;
+		*/
 	}
 	Bootstrap.TabView.prototype = {
 		constructor: Bootstrap.TabView,
+		tabGroup: null,
 		click: function ( e ) {
 			var $button = $(e.target);
 			$( $button.attr("data-pane") ).trigger("click", []);
 			e.data.self.lock();
 		},
 		lock: function () {
-			this.tabGroup.lock();
+			this.tabGroup ? this.tabGroup.lock() : null;
 		},
 		unlock: function () {
 			this.tabGroup.unlock();
+			this.paneGroup ? this.paneGroup.unlock() : null;
 		},
 		transitionEnd: function ( e ) {
 			if( $(e.target).hasClass("pane") ) {
