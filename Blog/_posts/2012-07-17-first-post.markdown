@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: First Post Titled
 tag-line: Teaser Text that expands on the post Title
 summary: This is a Test Summary

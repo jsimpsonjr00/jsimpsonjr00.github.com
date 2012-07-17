@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: A Real Post
 tag-line: This post is here to simulate real stuff
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper diam adipiscing lectus molestie sed.
