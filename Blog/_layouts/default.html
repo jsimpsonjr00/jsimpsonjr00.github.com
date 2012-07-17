@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel='stylesheet' type='text/css' href='../../styles.css'>
         <title>{{ page.title }}</title>
     </head>
     <body>
-        <h1>{{ page.title }}</h1>
-        {{ content }}
+        <header class='navbar'>
+            <div class='container'>
+                Standard Header 
+            </div>
+        </header>
+        <section class='container content'>
+            {{ content }}
+        </section>
+        <footer class='navbar'>
+            <div class='container'>
+                Standard Footer
+            </div>
+        </footer>
     </body>
 </html>
