@@ -2,10 +2,10 @@
 layout: default
 ---
 <div class='row'>
-    <section class='span8'>
+    <section class='portfolio-items'>
 {% for page in site.pages limit:5 %}
     {% if page.cat == 'portfolio' %}
-        <div class='item'>
+        <div class='span4 item'>
             <img src='{{page.image}}'>
             <div class='summary'>
                 <a href='{{ page.url }}'>{{ page.title }}</a> - {{page.content}}
