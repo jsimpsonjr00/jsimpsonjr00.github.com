@@ -4,12 +4,14 @@ layout: default
 <div class='row'>
     <section class='span8'>
 {% for page in site.pages.portfolio limit:5 %}
+    {% if page.cat == 'portfolio' %}
         <div class='item'>
             <img src='{{page.image}}'>
             <div class='summary'>
                 <a href='{{ page.url }}'>{{ page.title }}</a> - {{page.content}}
             </div>
         </div>
+    {% endif %}
 {% endfor %}
     </section>
 </div>
