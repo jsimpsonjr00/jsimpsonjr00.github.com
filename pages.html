@@ -3,7 +3,7 @@ layout: default
 ---
 <div class='row'>
     <section class='span8'>
-{% for page in site.portfolio.pages limit:5 %}
+{% for page in site.pages.portfolio limit:5 %}
         <div class='item'>
             <img src='{{page.image}}'>
             <div class='summary'>
