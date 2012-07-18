@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class='row'>
+    <section class='span8'>
+{% for post in site.pages limit:5 %}
+        <div class='item'>
+            <img src='{{page.image}}'>
+            <div class='summary'>
+                <a href='{{ page.url }}'>{{ page.title }}</a> - {{content}}
+            </div>
+        </div>
+{% endfor %}
+    </section>
+</div>
