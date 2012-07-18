@@ -5,10 +5,10 @@ layout: default
     <section class='portfolio-items'>
 {% for page in site.pages limit:5 %}
     {% if page.cat == 'portfolio' %}
-        <div class='span4 item'>
+        <div class='span6 item'>
             <img src='{{page.image}}'>
             <div class='summary'>
-                <a href='{{ page.url }}'>{{ page.title }}</a> - {{page.content}}
+                <a href='{{ page.link }}'>{{ page.title }}</a> - {{page.content}}
             </div>
         </div>
     {% endif %}
