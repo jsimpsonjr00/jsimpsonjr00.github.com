@@ -3,7 +3,7 @@ layout: default
 title: Github Portfolio of JSimpsonJr00
 ---
 <section class='container'>
-    <div class='row'>
+   <!--  <div class='row'>
         <section class='span8'>
             <h2>Work I've Done</h2>
             <h3>This page is a Work in Progress, excuse the raw utilitarian aesthetics.</h3>
@@ -75,4 +75,55 @@ title: Github Portfolio of JSimpsonJr00
             </div>
         </section>
     </div>
+     -->
+     <div class='about-box'>
+        <h2>James Simpson</h2>
+        <div class='about-inner'>
+            <div class='professional'> 
+                <img src='images/Headshot.jpg'>
+                <h3>Professional</h3>
+                <p>
+                    Freelance and speculative developer specializing in custom front end modular javascript with the 
+                    jQuery library.
+                </p>
+                <h4>Resume( <a href='Resume/'>HTML</a> <a href='Resume/Resume.pdf'>PDF</a> )</h4>
+            </div>
+            <h3>Personal</h3>
+            <ul>
+                <li>Runs for fun and fitness</li>
+                <li><a href='http://www.reddit.com' target='_external'>Reddits</a> often</li>
+                <li><a href='http://www.premierleague.com/en-gb.html' target='_external'>EPL</a> and <a href='http://www.nba.com' target='_external'>NBA</a> lover</li>
+                <li>Cooks well, Cooks often</li>
+                <li>Finds woodworking fun and challenging</li>
+                <li>Into green tech and simple living</li>
+            </ul>
+        </div>
+    </div>
+    <section class='main-content container'>
+        <div id='portfolio' class='row'></div>
+        <div id='lightbox' class='lightbox'></div>
+    </section>
 </section>
+<script type='text/html' id='project-thumb-tmpl'>
+    <div class='item span4' data-id='${id}'>
+        <img src='${image}' class='thumb zoom'>
+        <div class='summary'>
+            <a href='${link}'>${title}</a> - ${summary}
+        </div>
+    </div>
+</script>
+<script type='text/html' id='project-detail-tmpl'>
+    <div id='${id}-detail'>
+        <h2>${title}</h2>    
+        <div class='detail'>
+            <div class='summary'>
+                <div class='aside'>
+                  <img src='${image}'>
+                </div>       
+                <h3><a href='${link}' target='_detail'>${title}</a></h3>
+                <p>${description}</p>
+            </div>
+        </div>
+    </div>
+</script>
+<script src='portfolio/portfolio.js'></script>

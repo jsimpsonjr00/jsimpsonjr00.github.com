@@ -1,15 +1,15 @@
 <!doctype html>
 <html>
     <head>
-        <title>Speakers as Heroes - Quick Proto</title>
+        <title>James Simpson - Github Portfolio</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         
         <link rel="stylesheet/less" type="text/css" href="styles.less">
-        <script src='../../js/less-1.3.0.min.js'></script>
+        <script src='js/less-1.3.0.min.js'></script>
         <!-- <link rel='stylesheet' type='text/css' href='styles.css'>  -->
         
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'></script>
-        <script src='../../js/JSTemplates-min.js'></script>
+        <script src='js/JSTemplates-min.js'></script>
         
         <!--[if lt IE 9]>
             <script src="../../js/HTML5Shiv/html5shiv.js"></script>
@@ -17,43 +17,61 @@
     </head>
     <body>
         <header>
-            <h1>Quick Prototype - Heroes</h1>
+            <h1>Placeholder</h1>
         </header>
         <section class='main-content container'>
-            <section id="heroes">
-                <div class='hero span3' data-hero='#adam-fraser'>
-                    <div class='default'>
-                        <img src='headshot-adam-fraser.png'>
-                    </div>
-                    <div class='hover'>
-                        <img src='headshot-adam-fraser-mirror.png'>
-                        <div class='caption'>
-                            Test caption Text
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id='heroes-detail'>
-                <div id='adam-fraser' class='hero-detail'>
-                    <div class='dynamic-content'>
-                        <span class='placeholder'><img src='../../images/loader.gif'> Placeholder for AJAX detail</span>
-                    </div>
-                </div>
-            </section>
+            <div id='portfolio' class='row'></div>
+            <div id='lightbox' class='lightbox'></div>
         </section>
         <footer>
             
         </footer>
+<script type='text/html' id='project-thumb-tmpl'>
+    <div class='item span4' data-id='${id}'>
+        <img src='${image}' class='thumb zoom'>
+        <div class='summary'>
+            <a href='${link}'>${title}</a> - ${summary}
+        </div>
+    </div>
+</script>
+<script type='text/html' id='project-detail-tmpl'>
+    <div id='${id}-detail'>
+        <h2>${title}</h2>    
+        <div class='detail'>
+            <div class='summary'>
+                <div class='aside'>
+                  <img src='${image}'>
+                </div>       
+                <h3><a href='${link}' target='_detail'>${title}</a></h3>
+                <p>${description}</p>
+            </div>
+        </div>
+    </div>
+</script>
+        <script src='portfolio/projects.js'></script>
         <script type='text/javascript'>
             $(document).ready( function () {
-                var $heroes = $("#heroes");
+                var $portfolio  = $("#portfolio"),
+                    $lightbox   = $("#lightbox");
                 
-                $heroes.on( "click", ".hero", function ( e ) {
-                    var $target = $( e.currentTarget ),
-                        $detail = $( $target.attr( "data-hero" ) );
-                    
-                    $detail.addClass('active');
-                    $detail.html( "<h2>Adam Fraser</h2><h5>Example Dynamic content</h5>");
+                var $activeDetail = null;
+                
+                $portfolio.html( $("#project-thumb-tmpl").applyTemplate( portfolio.projects ) );
+                $lightbox.html(  $("#project-detail-tmpl").applyTemplate( portfolio.projects ) );
+                
+                $portfolio.on( "click", ".item", function ( e ) {
+                	var $item = $(this);
+                	
+                	$activeDetail = $( "#" + $item.attr("data-id") + "-detail" );
+                	$activeDetail.addClass( "active" );
+                	$lightbox.addClass( "active" );
+                    //$(this).find(".lightbox").addClass( "active" );	
+                });
+                
+                $lightbox.on( "click", "", function ( e ) {
+                    $lightbox.removeClass("active");
+                	$activeDetail.removeClass("active");
+                	e.stopPropagation();
                 });
             });
         </script>
