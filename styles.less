@@ -45,6 +45,9 @@ a {
         color:      @linkColorHover;
     }
 }
+section {
+    margin-bottom:  @baseline;
+}
 aside {
     float:  right;
 }
@@ -219,17 +222,17 @@ footer, .footer {
     }
 }
 .about-box {
-    background: #F2F2EC;
+    //background: #F2F2EC;
     
-    .border-radius( @thirdline );
-    .box-shadow( -2px 2px @baseline #CCC );
+    //.border-radius( @thirdline );
+    //.box-shadow( -2px 2px @baseline #CCC );
     
-    h2 {
+    h2, h3 {
         color:      white;
         padding:    0 @halfline;
         
         .gradientBar( darken(#F2F2EC, 10%), darken(#F2F2EC, 20%) );
-        .border-radius( @thirdline @thirdline 0 0 );
+        //.border-radius( @thirdline @thirdline 0 0 );
     }
     img {
         float:    left;
@@ -239,7 +242,7 @@ footer, .footer {
         .clearfix();
     }
     .about-inner {
-        padding: @thirdline;
+       // padding: @thirdline;
     }
     .professional {
         .clearfix();
