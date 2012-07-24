@@ -16,9 +16,9 @@
 @halfline:          @baseline / 2;
 @thirdline:         @baseline / 3;
 
-@primaryColor:      @red;
-@altLinkColor:         lighten( @primaryColor, 5% );
-@altLinkColorHover:    @primaryColor;
+@primaryColor:          @red;
+@altLinkColor:          lighten( @primaryColor, 5% );
+@altLinkColorHover:     @primaryColor;
 @font-face {
    // font-family: "Pico Black";
    // src: url("fonts/PICOBLA_.TTF")
@@ -107,6 +107,10 @@ footer, .footer {
         a {
             padding-bottom: @thirdline/2;
             margin-bottom:  @thirdline/2;
+        }
+        .sprite {
+            height:         @baseline;
+            margin-right:   @halfline;
         }
     }
     .logo {
@@ -301,54 +305,6 @@ footer, .footer {
     }
     .professional {
         .clearfix();
-        
-        h3 {
-            margin-left: 119px;
-        }
-    }
-}
-.percent-bar {
-    height:         @baseline;
-    width:          140px;
-    overflow:       hidden;
-    margin:         @halfline 0;
-    position:       relative;
-    text-align:     center;
-    
-    
-    //mixins
-    .border-radius(@halfline);
-    .box-shadow( 0 0 @thirdline #ccc );
-    #translucent > .background( #000, 0.3 );
-    
-    .underlay, .fill, label {
-	    position:   absolute;
-	    top:        0;
-	    left:       0;
-	    .border-radius(@halfline);
-	}
-    .underlay {
-        #translucent > .background( #000, 0.3 );
-	    width:  100%;
-	    height: 100%;
-	    z-index: 1;
-	}
-    .fill {
-	    background-color:   #c30;
-	    height:            100%;
-	    z-index:           2;
-	}
-	label {
-        float:      left;
-        
-        color:          white;
-        font-weight:    bold;
-        line-height:    17px;
-        text-align:     center;
-        
-        display:    inline;
-        min-width:  100%;
-        z-index:    3;
     }
 }
 
@@ -400,88 +356,3 @@ footer, .footer {
     font-size:      @baseline;
     line-height:    @baseline + @thirdline;
 }
-
-//Responsive Layout - abreviated for this project
-@responsiveStep:    320px;
-
-/*
-@media (max-width: 939px) { //Item detail shrinks to match the display width
-   
-}
-
-@media (max-height: 520px) {
-    .navbar.fixed.bottom {
-        position: relative !important;
-        z-index:    1;
-    }
-}
-@media (max-width: 440px) { //Item detail shrinks to match the display width
-    footer .span4 {
-        font-size:      60%;
-    }
-}
-@media (max-width: 639px) {
-    .container {
-        width: 100%;
-        min-width: 300px;
-    }
-	.navbar.fixed.bottom {
-        position:   relative !important;
-        z-index:    1;
-    }
-    .navbar {
-        font-size:  75%;
-    }
-    footer .span4 {
-        text-align: center;
-        line-height:    100%;
-        width:  100%;
-        margin-left:    0;
-        &.logo img {
-            top: 0;
-        }
-    }
-}
-@media (min-width: 640px) and (max-width: 959px) {
-    .container {
-        width: @responsiveStep * 2;
-    }
-    .row {
-        width: @responsiveStep * 2 - 20px;
-    }
-    .navbar {
-        font-size:  100%;
-    }
-    
-}
-@media (min-width: 960px) and (max-width: 1279px) {
-    .container {
-        width: @responsiveStep * 3;
-    }
-    
-}
-@media (min-width: 1280px) and (max-width: 1599px) {
-    .container {
-        width: @responsiveStep * 4;
-    }
-    .span4 {
-        width: @responsiveStep * 4/3 - 20px;
-    }
-}
-@media (min-width: 1600px) and (max-width: 1919px) {
-    .container {
-        width: @responsiveStep * 5;
-    }
-    .span4 {
-        width: @responsiveStep * 5/3 - 20px;
-    }
-}
-@media (min-width: 1920px) {
-    .container {
-        width: @responsiveStep * 6;
-    }
-    .span4 {
-        width: @responsiveStep * 6/3 - 20px;
-    }
-}
-*/
