@@ -12,18 +12,10 @@
         <![endif]-->
     </head>
     <body>
-        <header class='navbar'>
-            <div class='container'>
-                Standard Header 
-            </div>
-        </header>
+        {% include header.html %}
         <section class='container content'>
             {{ content }}
         </section>
-        <footer>
-            <div class='container'>
-                Standard Footer
-            </div>
-        </footer>
+        {% include footer.html %}
     </body>
 </html>
