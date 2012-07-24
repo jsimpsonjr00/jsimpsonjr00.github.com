@@ -22,54 +22,7 @@
    // src: url("fonts/PICOBLA_.TTF")
 }
 
-//Responsive Sizing elements
-@media (max-width: 480px) {
-    
-}
 
-// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
-// --------------------------------------------------
-
-@media (max-width: 767px) {
-    @baseline:  14px;
-    
-    font-size:      @baseline;
-    line-height:    @baseline * 1.3;
-}
-
-// PORTRAIT TABLET TO DEFAULT DESKTOP
-// ----------------------------------
-
-@media (min-width: 768px) and (max-width: 979px) {
-    @baseline:  14px;
-    font-size:  @baseline;
-}
-
-// TABLETS AND BELOW
-// -----------------
-@media (max-width: 979px) {
-    
-}
-
-// DEFAULT DESKTOP
-// ---------------
-
-@media (min-width: 980px) {
-
-}
-
-// LARGE DESKTOP & UP
-// ------------------
-
-@media (min-width: 1200px) and (max-width: 1440px) {
-    @baseline:  15px;
-    font-size:  @baseline;
-}
-
-@media (min-width: 1441px ) {
-    font-size:      @baseline;
-    line-height:    @baseline + @thirdline;
-}
 
 @doubleline:        @baseline * 2;
 @halfline:          @baseline / 2;
@@ -90,6 +43,9 @@ body {
         &:hover {
             color:      @linkColorHover;
         }
+    }
+    p {
+        font-size:  @baseline;
     }
 }
 header {
@@ -227,6 +183,9 @@ footer, .footer {
         }
     }
 }
+.linkedIn-sprite {
+    left:   -72px;
+}
 .item {
     position: relative;
     margin-bottom:  @baseline;
@@ -312,8 +271,9 @@ footer, .footer {
    margin-bottom: @baseline * 3;
     
     h3 {
-        color:      white;
-        padding:    0 @halfline;
+        color:          white;
+        padding:        0 @halfline;
+        margin-bottom:  @halfline;
         
         .box-shadow( 0 0 2px #999 );
         .border-radius( 2px );
@@ -325,6 +285,9 @@ footer, .footer {
         margin:   0 @halfline @halfline 0;
         
         .clearfix();
+    }
+    p {
+        padding-left: @halfline;
     }
     .professional {
         .clearfix();
@@ -377,6 +340,55 @@ footer, .footer {
         min-width:  100%;
         z-index:    3;
     }
+}
+
+//Responsive Sizing elements
+@media (max-width: 480px) {
+    
+}
+
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+    @baseline:  14px;
+    
+    font-size:      @baseline;
+    line-height:    @baseline * 1.3;
+}
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+
+@media (min-width: 768px) and (max-width: 979px) {
+    @baseline:  14px;
+    font-size:  @baseline;
+}
+
+// TABLETS AND BELOW
+// -----------------
+@media (max-width: 979px) {
+    
+}
+
+// DEFAULT DESKTOP
+// ---------------
+
+@media (min-width: 980px) {
+
+}
+
+// LARGE DESKTOP & UP
+// ------------------
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    @baseline:  15px;
+    font-size:  @baseline;
+}
+
+@media (min-width: 1441px ) {
+    font-size:      @baseline;
+    line-height:    @baseline + @thirdline;
 }
 
 //Responsive Layout - abreviated for this project
