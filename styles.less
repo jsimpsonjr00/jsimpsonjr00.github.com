@@ -32,7 +32,14 @@ body {
     margin:         0;
     font-family:    Trebuchet MS;
 }
-
+header {
+    margin-bottom:  18px;
+    
+    hr {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
 h3, h4 {
     margin: 0;
 }
@@ -227,12 +234,12 @@ footer, .footer {
     //.border-radius( @thirdline );
     //.box-shadow( -2px 2px @baseline #CCC );
     
-    h2, h3 {
+    h3 {
         color:      white;
         padding:    0 @halfline;
         
         .gradientBar( darken(#F2F2EC, 10%), darken(#F2F2EC, 20%) );
-        //.border-radius( @thirdline @thirdline 0 0 );
+        .border-radius( @thirdline );
     }
     img {
         float:    left;
@@ -246,6 +253,10 @@ footer, .footer {
     }
     .professional {
         .clearfix();
+        
+        h3 {
+            margin-left: 120px;
+        }
     }
 }
 .percent-bar {
@@ -292,7 +303,49 @@ footer, .footer {
         z-index:    3;
     }
 }
+@media (max-width: 480px) {
+    
+}
 
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+    font-size:      @baseline * .6;
+    line-height:    @baseline * .8;
+}
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+
+@media (min-width: 768px) and (max-width: 979px) {
+    font-size:  @baseline * .7;
+}
+
+// TABLETS AND BELOW
+// -----------------
+@media (max-width: 979px) {
+    
+}
+
+// DEFAULT DESKTOP
+// ---------------
+
+@media (min-width: 980px) {
+
+}
+
+// LARGE DESKTOP & UP
+// ------------------
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    font-size:  @baseline * .8;
+}
+
+@media (min-width: 1441px ) {
+    font-size:      @baseline;
+    line-height:    @baseline + @thirdline;
+}
 //Responsive Layout - abreviated for this project
 @responsiveStep:    320px;
 
