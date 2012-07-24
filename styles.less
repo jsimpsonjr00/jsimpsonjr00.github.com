@@ -12,7 +12,9 @@
 // Baseline grid
 @basefont:          13px;
 @baseline:          18px;
-
+@doubleline:        @baseline * 2;
+@halfline:          @baseline / 2;
+@thirdline:         @baseline / 3;
 
 @primaryColor:      @red;
 @altLinkColor:         lighten( @primaryColor, 5% );
@@ -21,12 +23,6 @@
    // font-family: "Pico Black";
    // src: url("fonts/PICOBLA_.TTF")
 }
-
-
-
-@doubleline:        @baseline * 2;
-@halfline:          @baseline / 2;
-@thirdline:         @baseline / 3;
 
 // Styles by ID
 
@@ -62,9 +58,6 @@ h3, h4 {
     margin: 0;
 }
 
-section {
-    margin-bottom:  @baseline;
-}
 aside {
     float:  right;
 }
@@ -118,6 +111,7 @@ footer, .footer {
     }
     .logo {
         text-align: right;
+        color:      #fff;
         
         img { 
             height:     24px; 
@@ -200,13 +194,14 @@ footer, .footer {
     }
 }
 .item {
-    position: relative;
-    margin-bottom:  @baseline;
+    position:   relative;
     text-align: center;
-    height: @baseline * 15;
+    
+    margin-bottom:  @baseline;
+    height:         @baseline * 15;
     
     .box-shadow( 0 0 5px #999 );
-    .border-radius( 9px );
+    .border-radius( 3px );
     #translucent > .background( #333, 0.2 );
     
     .thumb {
@@ -280,8 +275,11 @@ footer, .footer {
         display: block;
     }
 }
+.main-content {
+    margin-bottom: @baseline * 2;
+}
 .about-box {
-   margin-bottom: @baseline * 3;
+    margin-bottom: @baseline * 3;
     
     h3 {
         color:          white;
@@ -294,8 +292,7 @@ footer, .footer {
     }
     img {
         float:    left;
-        height:   128px;
-        margin:   0 @halfline @halfline 0;
+        margin-bottom:  @gridGutterWidth;
         
         .clearfix();
     }
