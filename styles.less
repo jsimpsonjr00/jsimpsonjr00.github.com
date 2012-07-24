@@ -83,21 +83,23 @@ body {
     font-family:    Trebuchet MS;
     
     a {
-        color:              @altLinkColor;
+        color:              @linkColor;
         font-weight:        bold;
         text-decoration:    none;
         
         &:hover {
-            color:      @altLinkColorHover;
+            color:      @linkColorHover;
         }
     }
 }
 header {
     margin-bottom:  @baseline;
+    background:     #F2F2F2;
+    border-bottom:  2px solid #ddd;
     
     hr {
-        width: 80%;
-        margin: 0 auto;
+        margin: 2px auto; 
+        height: 1px;
     }
 }
 h3, h4 {
@@ -112,7 +114,7 @@ aside {
 }
 footer, .footer {
     font-size: @baseline !important;
-    padding:  @halfline 0 @baseline * 2;
+    padding:  @thirdline 0 @baseline * 2;
     
     .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
     .gradientBar( darken(#F2F2EC, 15%), darken(#F2F2EC, 20%) );
@@ -120,9 +122,10 @@ footer, .footer {
     h3 {
         color:          #f3f3f3;
         font-size:      @baseline + @thirdline;
-        line-height:    @baseline + @halfline;
+        line-height:    @baseline * 2;
         text-align:     center;
         border-bottom:  2px dotted #999;
+        margin-bottom:  @halfline;
     }
     .contact {
         label {
@@ -131,7 +134,8 @@ footer, .footer {
     }
     .about {
         img {
-            float: left;
+            float:  left;
+            height: @baseline * 7;
             margin: 0 @halfline @halfline 0;
         }
         .clearfix();
@@ -141,8 +145,6 @@ footer, .footer {
         font-size:  @baseline - @thirdline;
     }
     .projects {
-        text-align: center;
-        
         ul {
             list-style:     none;
             margin-left:    0;
@@ -160,20 +162,6 @@ footer, .footer {
     }
 }
 
-//Styles by class name
-.navbar {
-    
-    color:          #f3f3f3;
-    font-weight:    bold;
-    line-height:    @baseline * 2;
-    font-size:      @baseline + @thirdline;
-    
-   .gradientBar( lighten(@primaryColor, 5%), darken(@primaryColor, 5%) );
-   
-    h1 {
-        color: #f3f3f3;
-    }
-}
 [id$=-detail] {
     display:    none;
     background: white;
@@ -312,28 +300,21 @@ footer, .footer {
     }
 }
 .about-box {
-    //background: #F2F2EC;
-    
-    //.border-radius( @thirdline );
-    //.box-shadow( -2px 2px @baseline #CCC );
-    margin-bottom: @baseline * 3;
+   margin-bottom: @baseline * 3;
     
     h3 {
         color:      white;
         padding:    0 @halfline;
         
-        .gradientBar( darken(#F2F2EC, 10%), darken(#F2F2EC, 20%) );
-        //.border-radius( @thirdline );
+        .box-shadow( 0 0 2px #999 );
+        .gradientBar( lighten(@linkColor, 10%), @linkColor );
     }
     img {
         float:    left;
         height:   128px;
-        margin:   0 @thirdline @thirdline;
+        margin:   0 @halfline @halfline 0;
         
         .clearfix();
-    }
-    .about-inner {
-       // padding: @thirdline;
     }
     .professional {
         .clearfix();
