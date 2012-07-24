@@ -30,7 +30,7 @@
 body {
     margin:         0;
     font-family:    Trebuchet MS;
-    
+    background-color:   #fcfcfc;
     a {
         color:              @linkColor;
         font-weight:        bold;
@@ -286,9 +286,7 @@ footer, .footer {
     margin-bottom: @baseline * 2;
 }
 .about-box {
-    margin-bottom: @baseline * 3;
-    
-    h3 {
+     h3 {
         color:          white;
         padding:        0 @halfline;
         margin-bottom:  @halfline;
@@ -308,6 +306,16 @@ footer, .footer {
     }
     .professional {
         .clearfix();
+    }
+    &:after {
+        background: #F2F2EC;
+        height: 1px;
+        width:  90%;
+        display: block;
+        content: "";
+        border-top: 1px solid darken(#F2F2EC, 5%);
+        border-bottom: 1px solid darken(#F2F2EC, 10%);
+        margin: @baseline*2 auto;
     }
 }
 
