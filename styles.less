@@ -114,7 +114,7 @@ aside {
 }
 footer, .footer {
     font-size: @baseline !important;
-    padding:  @thirdline 0 @baseline * 2;
+    padding:  1px 0 @baseline * 2;
     
     .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
     .gradientBar( darken(#F2F2EC, 15%), darken(#F2F2EC, 20%) );
@@ -126,6 +126,15 @@ footer, .footer {
         text-align:     center;
         border-bottom:  2px dotted #999;
         margin-bottom:  @halfline;
+    }
+    hr {
+        margin: 0;
+    }
+    a {
+        color:      white;
+        display:    inline-block;
+        padding-bottom: @thirdline/2;
+        margin-bottom:  @thirdline/2;
     }
     .contact {
         label {
@@ -307,6 +316,7 @@ footer, .footer {
         padding:    0 @halfline;
         
         .box-shadow( 0 0 2px #999 );
+        .border-radius( 2px );
         .gradientBar( lighten(@linkColor, 10%), @linkColor );
     }
     img {
