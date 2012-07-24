@@ -45,7 +45,7 @@ body {
         }
     }
     p {
-        font-size:  @baseline;
+        font-size:  15px;
     }
 }
 header {
@@ -69,7 +69,6 @@ aside {
     float:  right;
 }
 footer, .footer {
-    font-size: @baseline !important;
     padding:  1px 0 @baseline * 2;
     
     .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
@@ -89,10 +88,12 @@ footer, .footer {
     a {
         color:      white;
         display:    inline-block;
-        padding-bottom: @thirdline/2;
-        margin-bottom:  @thirdline/2;
     }
+    
     .contact {
+        table {
+           border-spaceing: 0;
+        }
         label {
             font-weight: bold;
         }
@@ -105,14 +106,14 @@ footer, .footer {
         }
         .clearfix();
     }
-    .sharing {
-        text-align: center;
-        font-size:  @baseline - @thirdline;
-    }
     .projects {
         ul {
             list-style:     none;
             margin-left:    0;
+        }
+        a {
+            padding-bottom: @thirdline/2;
+            margin-bottom:  @thirdline/2;
         }
     }
     .logo {
@@ -184,25 +185,25 @@ footer, .footer {
     }
 }
 .social-sprite {
-    height:     24px;
-    width:      24px;
+    height:     @baseline;
+    width:      @baseline;
     display:    inline-block;
     overflow:   hidden;
     position:   relative;
     
     img {
         position:   relative;
-        height: 24px;
+        height:     @baseline;
     }
     .linkedIn {
-        left:   -72px;
+        left:   -@baseline * 3;
     }
 }
 .item {
     position: relative;
     margin-bottom:  @baseline;
     text-align: center;
-    height: 270px;
+    height: @baseline * 15;
     
     .box-shadow( 0 0 5px #999 );
     .border-radius( 9px );
