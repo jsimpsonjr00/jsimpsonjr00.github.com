@@ -15,8 +15,8 @@
 
 
 @primaryColor:      @red;
-@linkColor:         lighten( @primaryColor, 5% );
-@linkColorHover:    @primaryColor;
+@altLinkColor:         lighten( @primaryColor, 5% );
+@altLinkColorHover:    @primaryColor;
 @font-face {
    // font-family: "Pico Black";
    // src: url("fonts/PICOBLA_.TTF")
@@ -79,9 +79,18 @@
 
 //Styles by tag name
 body {
-   // font-size:      15px;
     margin:         0;
     font-family:    Trebuchet MS;
+    
+    a {
+        color:              @altLinkColor;
+        font-weight:        bold;
+        text-decoration:    none;
+        
+        &:hover {
+            color:      @altLinkColorHover;
+        }
+    }
 }
 header {
     margin-bottom:  @baseline;
@@ -94,15 +103,7 @@ header {
 h3, h4 {
     margin: 0;
 }
-a {
-    color:              @linkColor;
-    font-weight:        bold;
-    text-decoration:    none;
-    
-    &:hover {
-        color:      @linkColorHover;
-    }
-}
+
 section {
     margin-bottom:  @baseline;
 }
@@ -111,15 +112,41 @@ aside {
 }
 footer, .footer {
     font-size: @baseline !important;
-    margin-bottom:  @baseline * 2;
+    padding:  @halfline 0 @baseline * 2;
+    
+    .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
+    .gradientBar( darken(#F2F2EC, 15%), darken(#F2F2EC, 20%) );
     
     h3 {
+        color:          #f3f3f3;
+        font-size:      @baseline + @thirdline;
+        line-height:    @baseline + @halfline;
         text-align:     center;
         border-bottom:  2px dotted #999;
+    }
+    .contact {
+        label {
+            font-weight: bold;
+        }
+    }
+    .about {
+        img {
+            float: left;
+            margin: 0 @halfline @halfline 0;
+        }
+        .clearfix();
     }
     .sharing {
         text-align: center;
         font-size:  @baseline - @thirdline;
+    }
+    .projects {
+        text-align: center;
+        
+        ul {
+            list-style:     none;
+            margin-left:    0;
+        }
     }
     .logo {
         text-align: right;
