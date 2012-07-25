@@ -293,6 +293,10 @@ footer {
 }
 .main-content {
     margin-bottom: @baseline * 2;
+    
+    h2 {
+        margin-bottom: @baseline;
+    }
 }
 .about-box {
     @highlightColor:    #19335c;
@@ -304,12 +308,25 @@ footer {
         
         .box-shadow( 0 0 2px #999 );
         .border-radius( 2px );
-        .gradientBar( lighten(@highlightColor, 10%), @highlightColor );
+        .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
+        
+        /*&:after {
+            content: "";
+            height: 1px;
+            background: @highlightColor;
+            display:    block;
+            margin:     0 -@halfline;
+            
+            border-top:     2px solid #E2E2E2;
+            border-bottom:  2px solid #EEE;
+            border-radius:  2px;
+        }*/
     }
     .avatar {
-        float:    left;
         margin-bottom:  @gridGutterWidth;
         
+        .border-radius( 3px );
+        .box-shadow( 0 0 @thirdline #aaa );
         .clearfix();
     }
     p {
