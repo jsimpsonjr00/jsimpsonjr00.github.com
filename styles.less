@@ -304,7 +304,7 @@ footer {
         .border-radius( 2px );
         .gradientBar( lighten(@linkColor, 10%), @linkColor );
     }
-    img {
+    .avatar {
         float:    left;
         margin-bottom:  @gridGutterWidth;
         
@@ -314,10 +314,25 @@ footer {
         padding-left: @halfline;
     }
     .professional {
+        position:   relative;
         .clearfix();
+    }
+    .content {
+        position:   absolute;
+        top:    0;
+        bottom: 0;
+        left:   0;
+        right:  0;
     }
     .tech-stack {
         text-align: center;
+        position:   absolute;
+        bottom: 0;
+        
+        background: #eee;
+        .border-radius( 3px );
+        
+        padding: @gridGutterWidth/2;
         
         img {
             height: @baseline * 2;
