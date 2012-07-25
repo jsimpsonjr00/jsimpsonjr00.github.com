@@ -295,6 +295,8 @@ footer {
     margin-bottom: @baseline * 2;
 }
 .about-box {
+    @highlightColor:    #19335c;
+    
      h3 {
         color:          white;
         padding:        0 @halfline;
@@ -302,7 +304,7 @@ footer {
         
         .box-shadow( 0 0 2px #999 );
         .border-radius( 2px );
-        .gradientBar( lighten(@linkColor, 10%), @linkColor );
+        .gradientBar( lighten(@highlightColor, 10%), @highlightColor );
     }
     .avatar {
         float:    left;
@@ -322,9 +324,10 @@ footer {
     .tech-stack {
         text-align: center;
         margin-top: @thirdline;
-        
         background: #eee;
+        
         .border-radius( 3px );
+        .box-shadow( 0 0 2px #999 );
         
         padding: @gridGutterWidth/2;
         
