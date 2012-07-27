@@ -149,7 +149,8 @@ footer {
     right:  0;
     
     margin:         @halfline auto;
-    width:          940px;
+    //width:          940px;
+    #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 12);
     
     .box-shadow( 0 0 @halfline #333 );
     .border-radius(@halfline);
@@ -380,6 +381,13 @@ footer {
         width:  @gridGutterWidth * 5;
         margin: 0 @halfline @halfline 0;
     }
+    [id$=-detail] {
+        width: 95%;
+    }
+    footer .inner {
+        height:         auto;
+        border-right:   none;
+    }
 }
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
@@ -399,6 +407,18 @@ footer {
         width:  @gridGutterWidth * 5;
         margin: 0 @halfline @halfline 0;
     }
+    [id$=-detail] {
+        width: 95%;
+    }
+    
+    footer .inner {
+        height:         auto;
+        border-right:   none;
+    }
+    
+    .item {
+        #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 3);
+    }
 }
 
 // PORTRAIT TABLET TO DEFAULT DESKTOP
@@ -406,15 +426,6 @@ footer {
 
 @media (min-width: 768px) and (max-width: 979px) {
     @baseline:  14px;
-    @gridGutterWidth:   20px;
-    
-    @import "Less Themes/index/responsiveSizing.less";
-}
-
-// TABLETS AND BELOW
-// -----------------
-@media (max-width: 979px) {
-    @baseline:          15px;
     @gridGutterWidth:   20px;
     
     @import "Less Themes/index/responsiveSizing.less";
