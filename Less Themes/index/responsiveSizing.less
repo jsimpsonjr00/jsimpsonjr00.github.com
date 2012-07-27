@@ -1,9 +1,16 @@
 @halfline:  @baseline/2;
 @thirdline: @baseline/3;
 
+.row > [class*="span"] {
+    margin-bottom: @baseline;
+}
 body {
     font-size:      @baseline;
     line-height:    @baseline + @thirdline;
+    
+    p {
+        font-size:  @baseline;
+    }
 }
 header {
     margin-bottom:  @baseline;
