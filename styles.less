@@ -381,7 +381,7 @@ footer {
         width:  @gridGutterWidth * 5;
         margin: 0 @halfline @halfline 0;
     }
-    [id$=-detail] {
+    [id$=-detail] .detail {
         width: 95%;
     }
     footer .inner {
@@ -417,6 +417,7 @@ footer {
     }
     
     .item {
+        float: left;
         #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 3);
     }
 }
