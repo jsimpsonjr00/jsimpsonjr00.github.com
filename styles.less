@@ -367,13 +367,7 @@ footer {
 }
 
 //Responsive Sizing elements
-@media (max-width: 400px) {
-    .item, footer .span3 {
-        width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+
 @media (max-width: 480px) {
     @baseline:          12px;
     @gridGutterWidth:   20px;
@@ -401,7 +395,13 @@ footer {
         margin-left:    @gridGutterWidth !important;
     }
 }
-
+@media (max-width: 400px) {
+    .item, footer .span3 {
+        width: 95% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
