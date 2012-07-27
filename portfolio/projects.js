@@ -4,7 +4,7 @@ portfolio.projects = [
         "id":       "AutoWoot",
         "title":     "Auto Woot!",
         "image":    "images/portfolio/auto-woot.png",
-        "thumb":    "images/portfolio/thumbs/auto-woot.png-360",
+        "thumb":    "images/portfolio/thumbs/auto-woot-360.png",
         "link":     "http://jsimpsonjr00.github.com/Woot/",
         "summary":  "Automatic updates on Woot! sales. Perfect for Woot! Offs.",
         "description":  "keep up with the latest deals on the woot.com network with this app or Chrome Extension"
