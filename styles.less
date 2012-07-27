@@ -367,7 +367,10 @@ footer {
 
 //Responsive Sizing elements
 @media (max-width: 480px) {
+    @baseline:  12px;
+    @gridGutterWidth:   20px;
     
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
@@ -375,12 +378,9 @@ footer {
 
 @media (max-width: 767px) {
     @baseline:  14px;
+    @gridGutterWidth:   20px;
     
-    body {
-        font-size:  @baseline;
-        line-height:    @baseline * 1.3;
-    }
-    
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 // PORTRAIT TABLET TO DEFAULT DESKTOP
@@ -388,37 +388,43 @@ footer {
 
 @media (min-width: 768px) and (max-width: 979px) {
     @baseline:  14px;
-    body {
-        font-size:  @baseline;
-    }
+    @gridGutterWidth:   20px;
+    
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 // TABLETS AND BELOW
 // -----------------
 @media (max-width: 979px) {
+    @baseline:          15px;
+    @gridGutterWidth:   20px;
     
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 // DEFAULT DESKTOP
 // ---------------
 
 @media (min-width: 980px) {
-
+    @baseline:          15px;
+    @gridGutterWidth:   20px;
+    
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 // LARGE DESKTOP & UP
 // ------------------
 
 @media (min-width: 1200px) and (max-width: 1440px) {
-    @baseline:  15px;
-    body {
-        font-size:  @baseline;
-    }
+    @baseline:          15px;
+    @gridGutterWidth:   30px;
+
+    @import "Less Themes/index/responsiveSizing.less";
 }
 
 @media (min-width: 1441px ) {
-    body {
-        font-size:  @baseline;
-        line-height:    @baseline + @thirdline;
-    }
+    @baseline:          18px;
+    @gridGutterWidth:   30px;
+    
+    @import "Less Themes/index/responsiveSizing.less";
 }

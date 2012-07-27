@@ -1,0 +1,138 @@
+@halfline:  @baseline/2;
+@thirdline: @baseline/3;
+
+body {
+    font-size:      @baseline;
+    line-height:    @baseline + @thirdline;
+}
+header {
+    margin-bottom:  @baseline;
+    padding-top:    @halfline;
+}
+footer {
+    padding:  1px 0 @baseline * 2;
+    
+    .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
+    
+    h3 {
+        color:          #f3f3f3;
+        font-size:      @baseline + @thirdline;
+        line-height:    @baseline * 2;
+        margin-bottom:  @halfline;
+    }
+    .about {
+        img {
+            height: @baseline * 7;
+            margin: 0 @halfline @halfline 0;
+        }
+        h4 {
+            margin-top: @halfline;        
+        }
+    }
+    .projects {
+        a {
+            padding-bottom: @thirdline/2;
+            margin-bottom:  @thirdline/2;
+        }
+        .sprite {
+            height:         @baseline;
+        }
+    }
+    .inner {
+        margin-right: -(@gridGutterWidth/2);
+        padding-right: (@gridGutterWidth/2);
+    }
+    .legal {
+        img { 
+            top:        @thirdline;
+        }
+    }
+}
+
+[id$=-detail] {    
+    margin:         @halfline auto;
+    
+    .box-shadow( 0 0 @halfline #333 );
+    .border-radius(@halfline);
+    
+    h2 {
+        padding:        @thirdline @halfline;
+        
+        .border-radius( @halfline @halfline 0 0 );
+    }
+    .detail {
+        position:   absolute;
+        top:        @baseline*2;
+        bottom:     @baseline;
+        
+        .summary {
+            margin: @halfline @baseline;
+        }
+        .aside {
+            
+            img {
+                margin: 0 0 @thirdline @thirdline;
+            }
+        }
+    }
+}
+.social-sprite {
+    height:     @baseline;
+    width:      @baseline;
+    
+    img {
+        height:     @baseline;
+    }
+    .linkedIn {
+        left:   -@baseline * 3;
+    }
+}
+.item {
+    margin-bottom:  @baseline;
+    height:         @baseline * 11;
+
+    .thumb {.border-radius( @thirdline );
+    }
+    
+    .summary {
+        padding:    @thirdline;
+    }
+    
+    .detail {
+        .container {
+            padding:    @baseline 0;
+        }
+    }
+}
+.main-content {
+    margin-bottom: @baseline * 2;
+    
+    h2 {
+        margin-bottom: @baseline;
+    }
+}
+.about-box {
+    h3 {
+        color:          white;
+        padding:        0 @halfline;
+        margin-bottom:  @halfline;
+    }
+    .avatar {
+        margin-bottom:  @gridGutterWidth;
+        .box-shadow( 0 0 @thirdline #aaa );
+    }
+    p {
+        padding-left: @halfline;
+    }
+    .tech-stack {
+        padding: @gridGutterWidth/2;
+        
+        img {
+            height: @baseline * 3;
+            margin-right: @halfline;
+        }
+    }
+    &:after {
+        margin: @baseline*2 auto;
+    }
+}
