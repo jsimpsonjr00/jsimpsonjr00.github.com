@@ -368,7 +368,7 @@ footer {
 
 //Responsive Sizing elements
 @media (max-width: 480px) {
-    @baseline:  12px;
+    @baseline:          12px;
     @gridGutterWidth:   20px;
     
     @import "Less Themes/index/responsiveSizing.less";
@@ -387,6 +387,12 @@ footer {
     footer .inner {
         height:         auto;
         border-right:   none;
+    }
+    .item {
+        float: left !important;
+        width: 45% !important;
+        margin-left:    @gridGutterWidth;
+        min-width:  220px;
     }
 }
 
@@ -417,8 +423,10 @@ footer {
     }
     
     .item {
-        float: left;
-        width: 48%;
+        float: left !important;
+        width: 45% !important;
+        margin-left:    @gridGutterWidth;
+        min-width:  220px;
     }
 }
 
