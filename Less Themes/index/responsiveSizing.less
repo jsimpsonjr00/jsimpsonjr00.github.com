@@ -61,6 +61,7 @@ footer {
     
     .box-shadow( 0 0 @halfline #333 );
     .border-radius(@halfline);
+    #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 12);
     
     h2 {
         padding:        @thirdline @halfline;
@@ -71,8 +72,6 @@ footer {
         position:   absolute;
         top:        @baseline*2;
         bottom:     @baseline;
-        
-        #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 12);
         
         .summary {
             margin: @halfline @baseline;
