@@ -1,12 +1,12 @@
 <project basedir="." name="lessCompile">
 	<!-- Node lessc compiler with yui compression -->
-	<property name="wsf" location="lessc"/> <!-- Eclipse doesn't recognize the ant script otherwise for some reason-->
+	<property name="wsf" location="lessc"/>  <!-- Eclipse doesn't recognize the ant script otherwise for some reason -->
 	<exec dir="${basedir}" executable="cmd">
-	   <arg line="/c lessc styles.less styles.css -x"/>
+	   <arg line="/c lessc styles.less styles.css -x --yui-compress"/>
 	</exec>
-    <!-- OLD Method 
+    <!-- OLD Method
     <property name="wsf" location="builders\Less\less.wsf"/>
     <exec dir="${basedir}" executable="cscript">
         <arg line="${wsf} styles.less styles.css -compress"/>
-    </exec> -->
+    </exec>  -->
 </project>
