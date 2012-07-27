@@ -2,7 +2,7 @@
 	<!-- Node lessc compiler with yui compression -->
 	<property name="wsf" location="lessc"/> <!-- Eclipse doesn't recognize the ant script otherwise for some reason-->
 	<exec dir="${basedir}" executable="cmd">
-	   <arg line="/c lessc styles.less styles.css -x --yui-compress"/>
+	   <arg line="/c lessc styles.less styles.css -x"/>
 	</exec>
     <!-- OLD Method 
     <property name="wsf" location="builders\Less\less.wsf"/>
