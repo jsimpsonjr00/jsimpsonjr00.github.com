@@ -279,18 +279,6 @@ footer {
         .box-shadow( 0 0 2px #999 );
         .border-radius( 2px );
         .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
-        
-        /*&:after {
-            content: "";
-            height: 1px;
-            background: @highlightColor;
-            display:    block;
-            margin:     0 -@halfline;
-            
-            border-top:     2px solid #E2E2E2;
-            border-bottom:  2px solid #EEE;
-            border-radius:  2px;
-        }*/
     }
     .avatar {
         margin-bottom:  @gridGutterWidth;
@@ -336,13 +324,15 @@ footer {
 }
 
 //Responsive Sizing elements
-
 @media (max-width: 480px) {
     @baseline:          12px;
     @gridGutterWidth:   20px;
     
     @import "Less Themes/index/responsiveSizing.less";
     
+    header h1 small {
+        display: block;
+    }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
     }
@@ -373,6 +363,9 @@ footer {
     
     @import "Less Themes/index/responsiveSizing.less";
     
+    header h1 small {
+        display: block;
+    }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
     }
