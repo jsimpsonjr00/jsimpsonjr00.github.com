@@ -19,6 +19,8 @@
 @primaryColor:          @red;
 @altLinkColor:          lighten( @primaryColor, 5% );
 @altLinkColorHover:     @primaryColor;
+
+@highlightColor:    #19335c;
 @font-face {
    // font-family: "Pico Black";
    // src: url("fonts/PICOBLA_.TTF")
@@ -54,6 +56,16 @@ header {
         margin: 2px auto; 
         height: 1px;
     }
+}
+h2:after {
+    background: #F2F2EC;
+    height: 1px;
+    width:  100%;
+    display: block;
+    content: "";
+    border-top: 1px solid darken(#F2F2EC, 5%);
+    border-bottom: 1px solid darken(#F2F2EC, 10%);
+    margin: @thirdline 0 @baseline;
 }
 h3, h4 {
     margin: 0;
@@ -136,6 +148,22 @@ footer {
             float:      right;
         }
     }
+    .social-sprite {
+        height:     @baseline;
+        width:      @baseline;
+        display:    inline-block;
+        overflow:   hidden;
+        position:   relative;
+        top:        2px;
+        
+        img {
+            position:   relative;
+            height:     @baseline;
+        }
+        .linkedIn {
+            left:   -@baseline * 3;
+        }
+    }
 }
 
 [id$=-detail] {
@@ -163,7 +191,7 @@ footer {
         font-family:    ITC Highlander Bold, Trebuchet MS;
         
         .border-radius( @halfline @halfline 0 0 );
-        .gradientBar( lighten(@primaryColor, 5%), darken(@primaryColor, 5%) );
+        .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
     }
     
     &.active {
@@ -195,21 +223,7 @@ footer {
         }
     }
 }
-.social-sprite {
-    height:     @baseline;
-    width:      @baseline;
-    display:    inline-block;
-    overflow:   hidden;
-    position:   relative;
-    
-    img {
-        position:   relative;
-        height:     @baseline;
-    }
-    .linkedIn {
-        left:   -@baseline * 3;
-    }
-}
+
 .item {
     margin-bottom:  @gridGutterWidth;
     cursor:         pointer;   
@@ -261,17 +275,20 @@ footer {
         display: block;
     }
 }
-.main-content {
+
+#solo-projects {
     margin-bottom: @baseline * 2;
     
     h2 {
         margin-bottom: @baseline;
+        border-bottom: 3px double @highlightColor;
     }
 }
+#demos {
+    display: none;
+}
 .about-box {
-    @highlightColor:    #19335c;
-    
-     h3 {
+    h3 {
         color:          white;
         padding:        0 @halfline;
         margin-bottom:  @halfline;
@@ -304,7 +321,7 @@ footer {
         .border-radius( 3px );
         .box-shadow( 0 0 2px #999 );
         
-        padding: @gridGutterWidth/2;
+        padding: @baseline;
         
         img {
             height: @baseline * 3;
@@ -331,7 +348,7 @@ footer {
     @import "Less Themes/index/responsiveSizing.less";
     
     header h1 small {
-        display: block;
+        display: inline-block;
     }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
@@ -364,7 +381,7 @@ footer {
     @import "Less Themes/index/responsiveSizing.less";
     
     header h1 small {
-        display: block;
+        display: inline-block;
     }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
