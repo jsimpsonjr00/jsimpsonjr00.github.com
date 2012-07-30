@@ -181,7 +181,6 @@ footer {
     right:  0;
     
     margin:         @halfline auto;
-    //width:          940px;
     #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 12);
     
     .box-shadow( 0 0 @halfline #333 );
@@ -191,11 +190,15 @@ footer {
         margin:         0;
         padding:        @thirdline @halfline;
         color:          white;
-        line-height:    24px;
+        line-height:    @baseline + @thirdline;
         font-family:    ITC Highlander Bold, Trebuchet MS;
         
         .border-radius( @halfline @halfline 0 0 );
         .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
+        
+        &:after {
+            display: none;
+        }
     }
     
     &.active {
@@ -205,7 +208,7 @@ footer {
         overflow-y: auto;
         
         position:   absolute;
-        top:        @baseline*2;
+        top:        @baseline + ( @thirdline * 3 );
         left:       0;
         bottom:     @baseline;
         right:      0;
