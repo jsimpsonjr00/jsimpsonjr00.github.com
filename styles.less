@@ -155,6 +155,7 @@ footer {
         overflow:   hidden;
         position:   relative;
         top:        2px;
+        margin-right:   @thirdline;
         
         img {
             position:   relative;
@@ -162,6 +163,9 @@ footer {
         }
         .linkedIn {
             left:   -@baseline * 3;
+        }
+        .github {
+            border-radius: 3px;
         }
     }
 }
@@ -278,11 +282,6 @@ footer {
 
 #solo-projects {
     margin-bottom: @baseline * 2;
-    
-    h2 {
-        margin-bottom: @baseline;
-        border-bottom: 3px double @highlightColor;
-    }
 }
 #demos {
     display: none;
