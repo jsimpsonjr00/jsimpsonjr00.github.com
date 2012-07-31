@@ -6,6 +6,7 @@
 @import "BootstrapLess/type.less";
 @import "BootstrapLess/navbar.less";
 @import "BootstrapLess/buttons.less";
+@import "BootstrapLess/code.less";
 
 //Variables
 
@@ -190,6 +191,7 @@ footer {
         margin:         0;
         padding:        @thirdline @halfline;
         color:          white;
+        font-size:      @baseline + @thirdline;
         line-height:    @baseline + @thirdline;
         font-family:    ITC Highlander Bold, Trebuchet MS;
         
@@ -239,6 +241,10 @@ footer {
        
         .box-shadow( 0 0 6px #aaa );
         .border-radius( 6px );
+        
+        &:hover {
+            .box-shadow( 0 0 9px @highlightColor );
+        }
     }
     /*
     .summary {

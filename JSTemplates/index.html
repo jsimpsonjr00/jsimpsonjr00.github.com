@@ -1,59 +1,119 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Github Portfolio of JSimpsonJr00</title>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        
-        <link rel='stylesheet' href='../MiTwi.css'> 
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'></script>
-        <script src='../js/JSTemplates-min.js'></script>
-        
-        <script src='modules/twitter.js'></script>
-        <script src='modules/nbaTeamNews.js'></script>
-        <style>
-            #tmpl-source {
-                overflow:   scroll;
-                padding:    0;
-                margin:     0;
-                display:    none;
-            }
-            #tmpl-source.active {
-                display:    block;
-            }
-            .nba-team-news-item {
-                padding: 5px;
-                font-size: 12px;
-                font-family: arial;
-                border-bottom: 1px solid #C00;
-            }
-            .nba-team-news-item h3, .nba-team-news-item p {
-                margin: 5px 0;
-            }
-        </style>
-    </head>
-    <body>
+---
+layout: miTwi
+title: JS Templates - by James Simpson on Github
+---
+<script src='/JSTemplates/modules/newsView.js'></script>
+<script src='/JSTemplates/modules/twitter.js'></script>
+<style>
+    #news-view {
+        border: none;
+        height: 625px;
+    }
+</style>
         <div class='container'>
-            <h2>JS Template - Example</h2>
-            In this Example my JS Template jQuery plugin is used to display a Twitter Timeline and a listing of Miami
-            Heat team news from NBA.com. Logic used in generating the data is separated from the markup presentation.
+            <h2>JS Templates <small>a jQuery plugin for simple client side templating</small></h2>
+<aside>
+
+
+</aside> 
+            <p>
+                AJAX heavy applications frequently have a need to transform API provided JSON data into user HTML markup.
+                In many cases this has lead developers to mix the presentation layer with logic leading to code that looks
+                something like the code on the left below. Although functional, the code is a needlessly complex jumble of string
+                concatination and logic. JS Templates attempts to simply and elegantly separate data processing logic from the presentation
+                markup resulting in the code to the right below.
+            </p>
             <div class='row'>
-                <div class='span8'>
-                    <h4>Miami Heat on Twitter</h4>
-                    <div id='twtr-template-example' class='jstk-mitwi twtr-tmln'></div>
-                    <br/>
-                    <button class='btn view-source' data-source="#twtr-tweet-tmpl" title='Twitter Tweet Template'>View Template Source</button>
+                <div class='span6'>
+                    <h3>JavaScript without JS Templates</h3>
+<pre>
+function outputTweets( tweets ) {
+    var $tmln = $("#tweet-tmln"),
+        html  = "";
+    
+    tweets = prepTweetData( tweets ); //make data ready for presentation
+    
+    for( i = 0; i < tweets.length; i++ ) {
+        html = "&lt;div class='twtr-tweet'&gt;" + tweets[i].status_text + "&lt;/div&gt;" +
+           "&lt;span class='tweet-timestamp'&gt;" + tweets[i].timestamp + "&lt;/span&gt;";
+        $tmln.append( html );
+    }
+}
+</pre>
                 </div>
-                <div class='span8'>
-                    <h4>Miami Heat news on NBA.com</h4>
-                    <div id='nba-team-news' class='jstk-mitwi'></div>
-                    <br/>
-                    <button class='btn view-source' data-source="#nba-team-news-tmpl" title='NBA Team News Template'>View Template Source</button>
+                <div class='span6'>
+                    <h3>JavasScript with JS Templates</h3>
+<pre>
+function outputTweets( tweets ) {
+    tweets = prepTweetData( tweets ); //make data ready for presentation
+    
+    var $tmpl   = $("#twtr-tweet-tmpl"),        //select the data's template
+        $tweets = $tmpl.applyTemplate( tweets );//process data with template
+    $("#tweet-tmln").append( $tweets );         //insert markup into the DOM
+}
+</pre>
+<h3>Twitter Tweet Template <small>markup</small></h3>
+<pre>
+&lt;script type='text/html' id='twtr-tweet-tmpl'&gt;
+    &lt;div class='twtr-tweet'&gt;${status_text}&lt;/div&gt;
+    &lt;span class='tweet-timestamp'&gt;${timestamp}&lt;/span&gt;
+&lt;/script&gt;
+</pre>
                 </div>
             </div>
-            <div id="tmpl-source">
-                <h3>Template Source</h3>
-                <pre></pre>
+            <h2>JS Templates Demo <small>Live Miami Heat team tweets on Twitter</small></h2>
+            <p>
+                This live demonstration uses the Twitter API to obtain the most recent tweets from members of the 
+                Miami Heat organization. To the left below are the status updates, while to its right is the template
+                used. As you can see there is no logic done within the presentation layer, only substitution aliases
+                denoted by the ${dataMapName} pattern.
+            </p>
+            <div class='row'>
+                <div class='span5' style='position: relative;'>
+                    <h3>Miami Heat on Twitter</h3>
+                    <div id='news-view' class='jstk-mitwi twtr-tmln'></div>
+                </div>
+                <div id="tmpl-source" class='span7'>
+                    <h3>Twitter Tweet Template</h3>
+                    <pre></pre>
+                </div>
             </div>
+            <section>
+                <h2>Embedded Reference and Inline Templates <small>additional power features</small></h2>
+                <p>
+                    The previous demonstration showed the basic functionality of JS Templates, but sometimes the 
+                    data we're working with contains an array of items related to a parent object. For instance
+                    a blog post with various tags. In these instances it's very useful to have a way to process
+                    these items through their own template. JS Templates allows this through embedded reference and 
+                    inline templating.
+                </p>
+                <div class='row'>
+                    
+                    <div class='span6'>
+                        <h3>Embedded Reference</h3>
+<pre>
+    &lt;div class='tags'&gt;
+            ${my-tag-template:tags}
+    &lt;/div&gt;
+</pre>
+                    </div>
+                    <div class='span6'>
+                        <h3>Inline Template</h3>
+<pre>
+    &lt;template data='map.full.path.key'&gt;
+        ${data.relative.path.key}
+    &lt;/template&gt;
+</pre>
+                    </div>
+                </div>
+                <p>
+                    JS Templates traverses down a data relative path when encountering an embedded template reference
+                    then processes the array of items or object with the template id specified. Inline Templates on 
+                    the other hand are themselves a template and work on the array/object specified by the template 
+                    data attribute. These power features allow processing of intricate data. In fact an entire UI 
+                    derived from a single JSON object is possible with this method. 
+                </p>
+            </section>
         </div>
 <script type='text/html' id='twtr-tweet-tmpl'>
     <div class='twtr-tweet' data-id='${id_str}'>
@@ -64,15 +124,25 @@
         </div>
         <div class='twtr-tweet-text'>
             <div class='tweet-row'>
-                <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>${user_screen_name}</a>${user_real_name}
+                <a href='http://www.twitter.com/intent/user?screen_name=${user_screen_name}'>
+                    ${user_screen_name}
+                </a>${user_real_name}
             </div>
             <div class='status-text'>${status_text}</div>
         </div>
-        <a class='tweet-timestamp' data-timestamp='${timestamp}' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'>${since_time}</a>
+        <a class='tweet-timestamp' data-timestamp='${timestamp}' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'>
+            ${since_time}
+        </a>
         <span class='tweet-actions'>
-            <a class='tweet-reply' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'><span class='sprite'></span>reply</a>
-            <a class='tweet-retweet' href='http://www.twitter.com/intent/retweet?tweet_id=${id_str}'><span class='sprite'></span>retweet</a>
-            <a class='tweet-favorite' href='http://www.twitter.com/intent/favorite?tweet_id=${id_str}'><span class='sprite'></span>favorite</a>
+            <a class='tweet-reply' href='http://www.twitter.com/intent/tweet?in_reply_to=${id_str}'>
+                <span class='sprite'></span>reply
+            </a>
+            <a class='tweet-retweet' href='http://www.twitter.com/intent/retweet?tweet_id=${id_str}'>
+                <span class='sprite'></span>retweet
+            </a>
+            <a class='tweet-favorite' href='http://www.twitter.com/intent/favorite?tweet_id=${id_str}'>
+                <span class='sprite'></span>favorite
+            </a>
         </span>
         <div style='clear: both;'></div>
     </div>
@@ -100,17 +170,10 @@
             }
         };
     	$(document).trigger( "twitterActive", [] );
-    	$(document).trigger( "nbaActive", [ teamOpts ] );
     	
-    	var $tmplSrc = $("#tmpl-source");
-    	$(".view-source").on( "click", function () {
-    		var $btn  = $(this),
-    		   $tmpl = $( $btn.attr("data-source") );
-    		$tmplSrc.addClass("active");
-    		$tmplSrc.find("pre").text( $tmpl.html() );
-    		$tmplSrc.find("h3").text( $btn.attr("title") );
-    	});
+        var $tmplSrc = $("#tmpl-source"),
+            $tmpl    = $("#twtr-tweet-tmpl");
+    	
+        $tmplSrc.find("pre").text( $.trim( $tmpl.html() ) );
     });
 </script>
-    </body>
-</html>
