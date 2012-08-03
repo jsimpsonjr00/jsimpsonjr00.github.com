@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: Mid-tower Computer Case
 tag-line: Recently retired from service and looking for work.
-image: /images/computer-case.jpg
-thumb: /images/thumbs/computer-case-360.jpg
+image: /ForSale/images/computer-case.jpg
+thumb: /ForSale/images/thumbs/computer-case-360.jpg
 price:  $25
 ---
 

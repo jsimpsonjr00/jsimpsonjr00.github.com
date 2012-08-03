@@ -1,6 +1,15 @@
 ---
-layout: default
+layout: ForSale
 title: 
 tag-line: All the Stuff I want rid of
 ---
-Testing1234567891234567891234567891234
+<div class='row'>
+    {% for post in site.posts %}
+        <div class='span3 item'>
+            <a href="{{ post.url }}" title="{{ post.title }}">
+                <img src='{{ post.thumb }}' class='item-thumb'>
+                <h3>{{ post.title }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+</div>

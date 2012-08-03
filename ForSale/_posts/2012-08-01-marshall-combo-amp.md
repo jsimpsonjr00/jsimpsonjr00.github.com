@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: Marshall VS100 Amp Combo
 tag-line: Collecting dust for several years in the AC, ready for some attention
-image: /images/Marshall-amp.jpg
-thumb: /images/thumbs/Marshall-amp-360.jpg
+image: /ForSale/images/Marshall-amp.jpg
+thumb: /ForSale/images/thumbs/Marshall-amp-360.jpg
 price:  $280
 ---
 

@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: Saitek Flight Stick
 tag-line: take to the sky from the comfort of your computer chair
-image: /images/flightstick.jpg
-thumb: /images/thumbs/flightstick-360.jpg
+image: /ForSale/images/flightstick.jpg
+thumb: /ForSale/images/thumbs/flightstick-360.jpg
 price:  $20
 image-layout: 
 ---

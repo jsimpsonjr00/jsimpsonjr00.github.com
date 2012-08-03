@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: Red CP Bongos
 tag-line: Rarely used, minor cosmetic defects and AC stored
-image: /images/bongos.jpg
-thumb: /images/thumbs/bongos-360.jpg
+image: /ForSale/images/bongos.jpg
+thumb: /ForSale/images/thumbs/bongos-360.jpg
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper diam adipiscing lectus molestie sed.
 price:  $35
 ---

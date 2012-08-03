@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: Multi-media Storage Shelving
 tag-line: a home for your blu-ray, dvd, cd and vhs media
-image: /images/storage-rack.jpg
-thumb: /images/thumbs/storage-rack-360.jpg
+image: /ForSale/images/storage-rack.jpg
+thumb: /ForSale/images/thumbs/storage-rack-360.jpg
 price:  $20
 image-layout: 
 ---

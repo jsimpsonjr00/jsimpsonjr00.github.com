@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: ForSale-post
 title: 6x9" Speaker Boxes
 tag-line: perfect for trucks that want a little more oomph
-image: /images/speaker-boxes.jpg
-thumb: /images/thumbs/speaker-boxes-360.jpg
+image: /ForSale/images/speaker-boxes.jpg
+thumb: /ForSale/images/thumbs/speaker-boxes-360.jpg
 price:  $15
 ---
 
