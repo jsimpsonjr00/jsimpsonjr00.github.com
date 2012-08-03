@@ -152,7 +152,9 @@
     				item.PercentAvailable = 100 - item.SoldOutPercentage;
     			}
     			
-    			item.WootOff === true ? wootOff = true : null;
+    			if( item.WootOff === true ) {
+    				wootOff = true;
+    			}
     			
     			item = { 
     				"ThemeName": item.ThemeName,

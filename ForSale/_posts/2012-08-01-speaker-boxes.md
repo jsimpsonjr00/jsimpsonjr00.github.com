@@ -1,0 +1,11 @@
+---
+layout: post
+title: 6x9" Speaker Boxes
+tag-line: perfect for trucks that want a little more oomph
+image: /images/speaker-boxes.jpg
+thumb: /images/thumbs/speaker-boxes-360.jpg
+price:  $15
+---
+
+Grey upholstered 6x9" speaker boxes perfect for trucks wanting a little more oomph in their stereo available. In 
+excellent condition after many years in a closet. 

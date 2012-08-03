@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class='row'>
+    <div class='span9 post-image'>
+        <img src='{{ page.image }}' class='item-image {{ page.image-layout }}'>
+    </div>
+    <div class='span3 sidebar'>
+        <h2>Item Details</h2>
+        <div class='item-details'>
+            <p>
+                {{ content }}
+                <h3 class='pricing'><label>Asking Price:</label>{{ page.price }}</h3>
+            </p>
+            <h2>Contact me</h2>
+            <p>
+                <label>E-mail: <a href='mailto:jsimpsonjr00@gmail.com?subject={{ page.title }}'>jsimpsonjr00@gmail.com</a></label><br/>
+                <label>Voicemail: 444 - 4076</label><br/>
+                <small>Local Cash Only as is no refunds, no warranty</small>
+            </p>
+        </div>
+        
+        {% include sidebar.html %}
+    </div>
+</div>

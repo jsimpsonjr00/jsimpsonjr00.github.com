@@ -1,0 +1,12 @@
+<h2>More Sales</h2>
+<ul>
+    {% for post in site.posts %}
+        {% if post.url != page.url %}
+            <li>
+              <a href="{{ post.url }}" title="{{ post.title }}">
+                <span class="title">{{ post.title }}</span>
+              </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

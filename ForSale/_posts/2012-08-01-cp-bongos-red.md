@@ -1,0 +1,14 @@
+---
+layout: post
+title: Red CP Bongos
+tag-line: Rarely used, minor cosmetic defects and AC stored
+image: /images/bongos.jpg
+thumb: /images/thumbs/bongos-360.jpg
+summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper diam adipiscing lectus molestie sed.
+price:  $35
+---
+
+These Red Bongos by Cosmic Percussion have had a very relaxed life. Over the years they've spent most of their 
+time in an air conditioned space just hanging out in a closet. Very rarely played and never abused. There are a 
+couple of minor cosmetic dings on the back side and likely in need of a tension adjustment. Otherwise, this 
+set of Bongos are in excellent condition.
