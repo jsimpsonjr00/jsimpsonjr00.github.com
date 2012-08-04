@@ -16,7 +16,8 @@ tag-line: All the Stuff I want rid of
     {% for tag in site.tags %}
         <ul>
             <h5>{{ tag | first }}</h5>
-            {% for post in site.tags.[tag | first] %}
+            {% assign curTag = tag | first %}
+            {% for post in site.tags.[curTag] %}
                 <li>
                     <a href="{{ post.url }}" title="{{ post.title }}">
                         {{ post.title }}
