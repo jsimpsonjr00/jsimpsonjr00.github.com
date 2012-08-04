@@ -6,8 +6,8 @@ tag-line: All the Stuff I want rid of
 <div class='row'>
     {% for category in site.categories %}
         {% if category != 'ForSale' %}
-            <h3>{{ category }}</h3>
-            {% for post in site.categories.{{ category }} %}
+            <h3>{{ category | first }}</h3>
+            {% for post in site.categories.category %}
                 <div class='span3 item'>
                     <a href="{{ post.url }}" title="{{ post.title }}">
                         <img src='{{ post.thumb }}' class='item-thumb'>
