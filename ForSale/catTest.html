@@ -14,6 +14,13 @@ tag-line: All the Stuff I want rid of
         </div>
     {% endfor %}
     {% for tag in site.tags %}
-        <h5>{{ tag }}</h5>
+        <ul>
+            <h5>{{ tag | first }}</h5>
+            {% for post in tag | last %}
+                <li href="{{ post.url }}" title="{{ post.title }}">
+                    {{ post.title }}
+                </li>
+            {% endfor %}
+        </ul>
     {% endfor %}
 </div>
