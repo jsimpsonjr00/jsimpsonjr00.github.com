@@ -4,17 +4,13 @@ title:
 tag-line: All the Stuff I want rid of
 ---
 <div class='row'>
-    {% for category in site.categories %}
-        {% if {{ category | first }} != 'ForSale' %}
-            <h3>{{ category | first }}</h3>
-            {% for post in site.categories.[category | first] %}
-                <div class='span3 item'>
-                    <a href="{{ post.url }}" title="{{ post.title }}">
-                        <img src='{{ post.thumb }}' class='item-thumb'>
-                        <h3>{{ post.title }}</h3>
-                    </a>
-                </div>
-            {% endfor %}
-        {% endif %}
+    <h3>Video Games</h3>
+    {% for post in site.categories.['Video Games'] %}
+        <div class='span3 item'>
+            <a href="{{ post.url }}" title="{{ post.title }}">
+                <img src='{{ post.thumb }}' class='item-thumb'>
+                <h3>{{ post.title }}</h3>
+            </a>
+        </div>
     {% endfor %}
 </div>
