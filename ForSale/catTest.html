@@ -13,4 +13,7 @@ tag-line: All the Stuff I want rid of
             </a>
         </div>
     {% endfor %}
+    {% for tag in site.tags %}
+        <h5>{{ tag }}</h5>
+    {% endfor %}
 </div>
