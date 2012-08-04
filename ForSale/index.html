@@ -4,7 +4,7 @@ title:
 tag-line: All the Stuff I want rid of
 ---
 <div class='row'>
-    {% for post in site.posts %}
+    {% for post in site.categories.ForSale %}
         <div class='span3 item'>
             <a href="{{ post.url }}" title="{{ post.title }}">
                 <img src='{{ post.thumb }}' class='item-thumb'>
