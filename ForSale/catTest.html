@@ -5,9 +5,9 @@ tag-line: All the Stuff I want rid of
 ---
 <div class='row'>
     {% for category in site.categories %}
-        {% assign cat = category | first %}
+        {% assign cat = {{ category | first }} %}
         {% if cat != 'ForSale' %}
-            <h3>cat</h3>
+            <h3>{{ cat }}</h3>
             {% for post in site.categories.cat %}
                 <div class='span3 item'>
                     <a href="{{ post.url }}" title="{{ post.title }}">
