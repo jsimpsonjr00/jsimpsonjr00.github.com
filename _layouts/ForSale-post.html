@@ -2,10 +2,10 @@
 layout: ForSale
 ---
 <div class='row'>
-    <div class='span9 post-image'>
+    <section class='span9 post-image'>
         <img src='{{ page.image }}' class='item-image {{ page.image-layout }}'>
-    </div>
-    <div class='span3 sidebar'>
+    </section>
+    <section class='span3 sidebar'>
         <h2>Item Details</h2>
         <div class='item-details'>
             <p>
@@ -15,13 +15,18 @@ layout: ForSale
                 <label>Asking Price:</label>{{ page.price }}<br/>
                 <small>All offers considered</small>
             </p>
-            <h2>Contact me</h2>
+            <section class='trading'>
+                <h3>Accepting trade proposals of</h3>
+                <ul class='wanted'>
+                    <li>Android Phone or Tablet</li>
+                    <li>Intel Core i3 or better Laptop</li>
+                </ul>
+            </section>
             <p>
                 <label>E-mail: <a href='mailto:jsimpsonjr00@gmail.com?subject={{ page.title }}'>jsimpsonjr00@gmail.com</a></label><br/>
                 <label>Voicemail: 444 - 4076</label><br/>
                 <small>Local Cash Only as is no refunds, no warranty</small>
             </p>
         </div>
-        {% include ForSale/sidebar.html %}
-    </div>
+    </section>
 </div>

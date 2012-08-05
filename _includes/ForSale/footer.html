@@ -1,72 +1,30 @@
 <footer>
     <hr/>
     <div class='container'>
+        <h2>More Sales</h2>
         <div class='row'>
-            <div class='span3 contact'>
-                <h3>Contact James</h3>
-                <div class='inner'>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><label>E-mail:</label></td>
-                                <td><a href='mailto:jsimpsonjr00@gmail.com'>jsimpsonjr00</a></td>
-                            </tr>
-                            <tr>
-                                <td><label>Phone:</label></td>
-                                <td>(423) 444 - 4076</td>
-                            </tr>
-                            <tr>
-                                <td><label>Social:</label></td>
-                                <td>
-                                    <a class='social-sprite' href="http://www.linkedin.com/pub/james-simpson/35/744/937" target="_external">
-                                        <img class="linkedIn" src="/images/cute-social-sprites.png">
-                                    </a>
-                                    <a class='social-sprite' href="http://www.github.com/jsimpsonjr00" target="_external">
-                                        <img class="github" src="/images/github-social-sprite.png">
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class='span3 about'>
-                <h3>About James</h3>
-                <div class='inner'>
-                    <img src='/images/Headshot.jpg'>
-                    Freelance and speculative developer specializing in custom front end modular javascript with the 
-                    jQuery library.
-                    <h4>Resume( <a href='/Resume/'>HTML</a> <a href='/Resume/Resume.pdf'>PDF</a> )</h4>
-                </div>
-            </div>
-            <div class='span3 projects'>
-                <h3>James' Projects</h3>
-                <div class='inner'>
-                    <ul>
-                        <li>
-                            <img class='sprite' src='/images/auto-woot-favicon.png'>
-                            <a href='http://jsimpsonjr00.github.com/Woot/'>Auto Woot</a>
-                        </li>
-                        <li><a href='http://midealshop.appspot.com'>Mi Deal Shop</a></li>
-                        <li>
-                            <img class='sprite' src='/images/mi-twidget-favicon.png'>
-                            <a href='http://mitwidget.appspot.com/'>Mi Twidget</a>
-                        </li>
-                        <li>
-                            <img class='sprite' src='/images/js-blog-stop-favicon.png'>
-                            <a href='http://www.jsblogstop.com'>JS Blog Stop</a>
-                            
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class='span3'>
-                <h3>Legal</h3>
-                <p class='legal'>
-                    Trademarks and copyrighted materials are property of their respective owner.
-                    <img src='/images/logoJNVWhite.png'>
-                </p>
-            </div>
+            {% for tag in site.tags %}
+                <ul class='span3'>
+                    <h3>{{ tag | first }}</h3>
+                    {% for posts in tag %}
+                        {% for post in posts %}
+                            {% if post.url %}
+                                {% if post.url != page.url %}
+                                    <li>
+                                        <a href="{{ post.url }}" title="{{ post.title }}">
+                                            {{ post.title }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        {{ post.title }}
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endfor %}
         </div>
     </div>
 </footer>

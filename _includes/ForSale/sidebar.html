@@ -1,15 +1,21 @@
-<h2>More Sales</h2>
+<h2>Other Sales</h2>
 {% for tag in site.tags %}
     <ul>
         <h3>{{ tag | first }}</h3>
         {% for posts in tag %}
             {% for post in posts %}
-                {% if post.url and post.url != page.url %}
-                    <li>
-                        <a href="{{ post.url }}" title="{{ post.title }}">
+                {% if post.url %}
+                    {% if post.url != page.url %}
+                        <li>
+                            <a href="{{ post.url }}" title="{{ post.title }}">
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
                             {{ post.title }}
-                        </a>
-                    </li>
+                        </li>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endfor %}

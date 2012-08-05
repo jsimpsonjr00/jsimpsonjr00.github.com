@@ -25,3 +25,9 @@
     font-weight: bold;
     margin-right: 10px;
 }
+
+.trading .wanted {
+    color:          #999;
+    font-weight:    bold;
+    font-size:      90%;	
+}
