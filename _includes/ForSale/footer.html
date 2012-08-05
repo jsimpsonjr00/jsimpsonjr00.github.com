@@ -1,10 +1,9 @@
 <footer>
     <hr/>
     <div class='container'>
-        <h2>More Sales</h2>
         <div class='row'>
             {% for tag in site.tags %}
-                <ul class='span3'>
+                <ul class='span3 sales'>
                     <h3>{{ tag | first }}</h3>
                     {% for posts in tag %}
                         {% for post in posts %}
