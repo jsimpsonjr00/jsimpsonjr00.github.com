@@ -1,4 +1,4 @@
-.post-image {
+.item, .post-image {
     text-align: center;
     background: #f2f2f2;
     
@@ -16,8 +16,14 @@
     margin:     10px auto;
 }
 .item {
-    text-align: center;
     height: 320px;
+}
+.item .inner {
+	display:   block;
+    margin:    10px;	
+}
+.item h3 {
+    margin-bottom: 10px;	
 }
 .item-image.portrait {
     float: left;
