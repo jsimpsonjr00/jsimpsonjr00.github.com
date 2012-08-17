@@ -3,7 +3,7 @@
     <div class='container'>
         <div class='row'>
             {% for tag in site.tags %}
-                {% if { tag | first } != 'Chrome_Extension' %}
+                {% if tag | first != 'Chrome_Extension' %}
                     <ul class='span3 sales'>
                         <h3>{{ tag | first }}</h3>
                         {% for posts in tag %}
