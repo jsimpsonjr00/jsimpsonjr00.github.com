@@ -3,9 +3,9 @@
     <div class='container'>
         <div class='row'>
             {% for tag in site.tags %}
-                {% if tag | first != 'Chrome_Extension' %}
+                {% if tag[0] != 'Chrome_Extension' %}
                     <ul class='span3 sales'>
-                        <h3>{{ tag | first }}</h3>
+                        <h3>{{ tag[0] }}</h3>
                         {% for posts in tag %}
                             {% for post in posts %}
                                 {% if post.url %}
