@@ -45,8 +45,11 @@ title: "James Simpson - Github Portfolio"
 </section>
 <section id='solo-projects'>
     <h2>Personal Website Projects <small>my own concept, design and implementation</small></h2>
-    <div id='portfolio' class='row'></div>
-    <div id='lightbox' class='lightbox'></div>
+    <div class='row'>
+        {% for post in site.tags.Personal_Website %}
+            {% include portfolio/thumb.html %}
+        {% endfor %}
+    </div>
 </section>
 <section id='chrome-extensions'>
     <h2>Chrome Extensions <small>JavaScript, HTML, CSS for Chrome</small></h2>
@@ -85,5 +88,3 @@ title: "James Simpson - Github Portfolio"
         </div>
     </div>
 </script>
-<script src='portfolio/projects.js'></script>
-<script src='portfolio/portfolio.js'></script>
