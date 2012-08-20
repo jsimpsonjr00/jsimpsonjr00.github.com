@@ -51,6 +51,10 @@ body {
     p {
         font-size:  15px;
     }
+    
+    .content section {
+        margin-bottom: @baseline + @halfline;
+    }
 }
 img {
     border: none;
@@ -300,9 +304,6 @@ footer {
 #solo-projects {
     margin-bottom: @baseline * 2;
 }
-#demos, #chrome-extensions {
-    display: none;
-}
 .about-box {
     h3 {
         color:          white;
@@ -352,7 +353,7 @@ footer {
         content: "";
         border-top: 1px solid darken(#F2F2EC, 5%);
         border-bottom: 1px solid darken(#F2F2EC, 10%);
-        margin: @baseline*2 auto;
+        margin: @baseline*2 auto 0;
     }
 }
 

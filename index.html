@@ -44,28 +44,24 @@ title: "James Simpson - Github Portfolio"
     </div>
 </section>
 <section id='solo-projects'>
-    <h2>Solo Projects <small>conception, design and full stack implementation</small></h2>
+    <h2>Personal Website Projects <small>my own concept, design and implementation</small></h2>
     <div id='portfolio' class='row'></div>
     <div id='lightbox' class='lightbox'></div>
 </section>
+<section id='chrome-extensions'>
+    <h2>Chrome Extensions <small>JavaScript, HTML, CSS for Chrome</small></h2>
+    <div class='row'>
+        {% for post in site.tags.Chrome_Extension %}
+            {% include portfolio/thumb.html %}
+        {% endfor %}
+    </div>
+</section>
 <section id='demos'>
-    <h2>Open Source Projects on Github</h2>
+    <h2>Open Source on Github <small>demos of my open source projects</small></h2>
     <p>
         <a href='http://jsimpsonjr00.github.com/JSTemplates/'>JS Templates</a> - a simple client side templating plugin to jQuery
         aimed at JSON to markup transformation for AJAX applications.
     </p>
-</section>
-<section id='chrome-extensions'>
-    <div class='row'>
-        {% for post in site.categories.portfolio %}
-            <div class='span4 item'>
-                <a class='inner' href="{{ post.url }}" title="{{ post.title }}">
-                    <h3>{{ post.title }}</h3>
-                    <img src='{{ post.thumb }}' class='thumb'>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
 </section>
 <script type='text/html' id='project-thumb-tmpl'>
     <div class='item span4' data-id='${id}'>
