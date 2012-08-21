@@ -1,4 +1,5 @@
 <project basedir="." name="AutoWoot">
+    <property name="wsf" location="lessc"/>  <!-- Eclipse doesn't recognize the ant script otherwise for some reason -->
     <concat destfile="auto-woot-source.js">
         <fileset dir="src\" includes="*.js"/>
     </concat>

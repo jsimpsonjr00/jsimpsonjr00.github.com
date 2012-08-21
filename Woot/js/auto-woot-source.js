@@ -152,7 +152,7 @@
     				item.PercentAvailable = 100 - item.SoldOutPercentage;
     			}
     			
-    			if( item.WootOff === true ) {
+    			if( item.WootOff ) {
     				wootOff = true;
     			}
     			
