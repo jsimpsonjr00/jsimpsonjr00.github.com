@@ -16,7 +16,7 @@
     margin:     10px auto;
 }
 .item {
-    height:     320px;
+    height:     260px;
     position:   relative;
 }
 .item .inner {
@@ -24,6 +24,7 @@
     margin:    10px;
     
     overflow:   hidden;
+    height:     230px;
     position:   absolute;
     top:        0;
     bottom:     0;
@@ -56,7 +57,7 @@
 }
 .woot img {
     height:     24px;
-    position:    relative;
+    position:   relative;
     top:        7px;	
 }
 footer .sales {
