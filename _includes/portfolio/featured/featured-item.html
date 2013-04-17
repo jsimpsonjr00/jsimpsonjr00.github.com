@@ -1,7 +1,8 @@
-<div class="item">
+
+<div class="item {% if forLoop.first %}active{% endif %}">
 	<img src='/images/featured/{{ post.image-name }}.png'>
 	<div class="carousel-caption">
-		<h4>{{ post.title }}</h4>
+		<a href="{{ post.link }}" target='_external'><h4>{{ post.title }}</h4></a>
 		<p>{{ post.summary }}</p>
 	</div>
 </div>
