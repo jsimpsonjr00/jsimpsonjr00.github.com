@@ -43,6 +43,16 @@ title: "James Simpson - Github Portfolio"
         </ul>
     </div>
 </section>
+<section id='featured-projects'>
+	TODO: Place a max 1k PX wide carousel in this space
+	<div id="featuredCarousel" class="carousel slide" data-interval='false'>
+		 <div class="carousel-inner">
+			{% for post in site.tags.Featured_Project %}
+	            {% include portfolio/featured-item.html %}
+	        {% endfor %}
+	     </div>
+	</div>
+</section>
 <section id='solo-projects'>
     <h2>Personal Website Projects <small>my own concept, design and implementation</small></h2>
     <div class='row'>
