@@ -1,5 +1,5 @@
 
-<div class="item {% if forLoop.index == 1 %}active{% endif %}">
+<div class="item {{ forLoop.index }} {% if forLoop.index == 1 %}active{% endif %}">
 	<img src='/images/featured/{{ post.image-name }}.png'>
 	<div class="carousel-caption">
 		<a href="{{ post.link }}" target='_external'><h4>{{ post.title }}</h4></a>
