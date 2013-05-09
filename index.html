@@ -47,11 +47,14 @@ title: "James Simpson - Github Portfolio"
 	<script src='js/Bootstrap-Fork/bootstrap.js'></script>
 	<h2>Featured Projects <small>professional client projects</small></h2>
     <div id="featuredCarousel" class="carousel slide" data-interval='false'>
-		 <div class="carousel-inner">
+		<div class="carousel-inner">
 			{% for post in site.tags.Featured_Project %}
-	            {% include portfolio/featured/featured-item.html %}
+	        	{% include portfolio/featured/featured-item.html %}
 	        {% endfor %}
-	     </div>
+		</div>
+	    <!-- Carousel nav -->
+		<a class="carousel-control left" href="#featuredCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#featuredCarousel" data-slide="next">&rsaquo;</a>
 	</div>
 </section>
 <section id='solo-projects'>
