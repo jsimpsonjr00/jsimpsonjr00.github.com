@@ -307,6 +307,7 @@ footer {
 		max-height: 800px;
 		overflow: hidden;
 		cursor: auto;
+		margin: 0 !important;
 		
 		p {
 			max-height: 40px;
@@ -425,10 +426,15 @@ footer {
     #prof-head {
     	margin-left: (@gridGutterWidth * 5) + 5;
     }
-    .about-box .avatar {
-        float:  left;
-        width:  @gridGutterWidth * 5;
-        margin: 0 @halfline @halfline 0;
+    .about-box {
+    	.professional {
+    		margin-left: 0;
+    	}
+    	.avatar {
+        	float:  left;
+        	width:  @gridGutterWidth * 5;
+        	margin: 0 @halfline @halfline 0;
+        }
     }
     [id$=-detail] {
         width: 95%;
@@ -439,10 +445,13 @@ footer {
         border-right:   none;
     }
     
+    .row {
+    	margin-left: -3%;
+    }
     .item, footer .span3  {
         float: left !important;
-        width: 45% !important;
-        margin-right:    @gridGutterWidth !important;
+        width: 47% !important;
+        margin-left:    3% !important;
     }
 }
 
