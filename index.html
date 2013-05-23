@@ -9,10 +9,11 @@ title: "James Simpson - Github Portfolio"
             <div class='content span10'>
                 <h3 id='prof-head'>Professional</h3>
                 <p>
-                    Freelance and speculative developer specializing in custom front end modular javascript with the 
+                    I am a Freelance and speculative developer specializing in custom front end modular javascript with the 
                     jQuery library. At current I'm most focused on HTML5, CSS3 and jQuery development, but have experience
-                    with PHP, classic ASP, some Java and JSP as well as SQL. Interested in freelance remote
-                    opportunities and relocation for on-site employment in select US and western European cities.
+                    with PHP, classic ASP, some Java on Google App Engine, dabbling in native Android development 
+                    and JSP as well as SQL. Interested in freelance remote opportunities and relocation 
+                    for on-site employment in select US and western European cities.
                 </p>
                 <h4>Resume( <a href='Resume/'>HTML</a> <a href='Resume/Resume.pdf'>PDF</a> ) Rates (<a href='/Rates/Freelance Rate Sheet.pdf'>PDF</a>)</h4>
                 <div class='tech-stack'>
@@ -32,15 +33,6 @@ title: "James Simpson - Github Portfolio"
                 </div>
             </div>
         </div>
-        <h3>Personal</h3>
-        <ul>
-            <li>Athletic, ran Track competitively and played basketball recreationally when younger. I run for fun and fitness as the weather permits.</li>
-            <li><a href='http://www.premierleague.com/en-gb.html' target='_external'>EPL</a> and <a href='http://www.nba.com' target='_external'>NBA</a> fan. I support Manchester United and the Miami Heat.</li>
-            <li><a href='http://www.reddit.com' target='_external'>Reddit</a> is one of my favorite time sinks</li>
-            <li>Cooking is an integral part of my life. I stick to mostly fresh whole foods and love to experiment. Working on going low carb, but I love my rice and potatos.</li>
-            <li>Woodworking is a favored hobby. I find it fun and challenging to create something from simple lumber.</li>
-            <li>Into green tech and simplified efficient living</li>
-        </ul>
     </div>
 </section>
 <section id='featured-projects'>
@@ -61,7 +53,7 @@ title: "James Simpson - Github Portfolio"
     <h2>Personal Website Projects <small>my own concept, design and implementation</small></h2>
     <div class='row'>
         {% for post in site.tags.Personal_Website %}
-            {% include portfolio/thumb.html %}
+            {% include portfolio/medium-thumb.html %}
         {% endfor %}
     </div>
 </section>
@@ -69,7 +61,7 @@ title: "James Simpson - Github Portfolio"
     <h2>Chrome Extensions <small>JavaScript, HTML, CSS for Chrome</small></h2>
     <div class='row'>
         {% for post in site.tags.Chrome_Extension %}
-            {% include portfolio/thumb.html %}
+            {% include portfolio/medium-thumb.html %}
         {% endfor %}
     </div>
 </section>
