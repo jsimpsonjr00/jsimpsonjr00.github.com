@@ -515,6 +515,26 @@ footer {
         		line-height: 	1;
         		font-size:		@baseline;
         	}
+        	.social {
+		    	a {
+		    		height: @baseline;
+		    		width:	@baseline;
+			        
+		    		img {
+		    			height:	@baseline;
+		    			
+		    			&.email {
+		    				height: auto;
+		    				width:	100%;
+		    			}
+		    			&.linkedIn {
+			            	left:   	-(@baseline * 3);
+			            	position: 	relative;
+				        }
+		    		}
+		    		
+		    	}
+		    }
         }
     }
 }
