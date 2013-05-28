@@ -518,3 +518,24 @@ footer {
     
     @import "Less Themes/index/responsiveSizing.less";
 }
+@media (min-width: 1200px) {
+	#featuredCarousel {
+    	.item img {
+			width: 70%;
+			margin: 0;
+		}
+	    .carousel-caption {
+			position: absolute;
+			top: 	0;
+			left: 	auto;
+			right: 	0;
+			bottom: 0;
+			padding: @halfline 0;
+			width: 	30%;
+			
+			h4 {
+				padding-left: @halfline;
+			}
+		}
+	}
+}
