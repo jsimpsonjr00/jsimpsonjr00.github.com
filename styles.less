@@ -37,6 +37,14 @@ section, header, footer {
     display: block;
 }
 
+// DIRTY BOOTSTRAP Styles added
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+
 //Styles by tag name
 body {
     margin:         ( @headerLineHeight + (@halfline * 3) ) 0 0;
@@ -71,6 +79,24 @@ body {
         font-size:  15px;
     }
     
+    .social {
+    	a {
+    		height: @headerLineHeight;
+    		width:	@headerLineHeight;
+    		
+    		img {
+    			height:	@headerLineHeight;
+    			
+    			&.linkedIn {
+	            	left:   -@baseline * 3;
+		        }
+		        &.github {
+		            border-radius: 3px;
+		        }
+    		}
+    		
+    	}
+    }
     .content section {
         margin-bottom: @baseline + @halfline;
     }
@@ -351,7 +377,7 @@ footer {
         .clearfix();
     }
     p {
-        padding-left: @halfline;
+        //padding-left: @halfline;
     }
     .professional {
         .clearfix();
@@ -398,6 +424,7 @@ footer {
     }
     header h1 small {
         display: inline-block;
+        line-height: 1;
     }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
@@ -534,7 +561,9 @@ footer {
 			width: 	30%;
 			
 			h4 {
-				padding-left: @halfline;
+				padding-left: 	@halfline;
+				font-size:		@baseline;
+				line-height:	@baseline * 1.5;
 			}
 			
 			p {
