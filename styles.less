@@ -425,8 +425,12 @@ footer {
     
     @import "Less Themes/index/responsiveSizing.less";
     
-    header h1 small {
-        display: inline-block;
+    body {
+    	> header {
+    		h1 small {
+        		display: inline-block;
+        	}
+        }
     }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
@@ -460,6 +464,17 @@ footer {
         float: 			left;
         width: 			47%;
         margin-left:    3%;
+    }
+}
+//BELOW DESKTOP
+@media (max-width: 767px) {
+    body {
+    	> header {
+    		h1 {
+        		line-height: 	1;
+        		font-size:		@baseline;
+        	}
+        }
     }
 }
 
