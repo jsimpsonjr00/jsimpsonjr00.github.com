@@ -5,9 +5,28 @@
     margin-bottom: @baseline;
 }
 body {
+	@headerLineHeight: @baseline * 2.5;
+	
+    margin:         ( @headerLineHeight + (@baseline * 3) ) 0 0;
     font-size:      @baseline;
     line-height:    @baseline + @thirdline;
     
+    > header {
+    	padding:    	@baseline 0;
+	    
+	    .avatar {
+			height: @headerLineHeight;
+			margin: 0 @baseline 0 0;
+		}
+	    h1 {
+	        font-size:      @baseline * 2;
+	        line-height:    @headerLineHeight;
+	        
+	        small {
+	            font-size:  @baseline;
+	        }
+	    }
+	}
     p {
         font-size:  @baseline;
     }
@@ -20,19 +39,7 @@ h2:after {
     margin: @thirdline 0 @baseline;
 }
 
-header {
-    margin-bottom:  @baseline;
-    padding-top:    @halfline;
-    
-    h1 {
-        font-size:      @baseline * 2;
-        line-height:    @baseline * 2.5;
-        
-        small {
-            font-size:  @baseline;
-        }
-    }
-}
+
 footer {
     padding:  1px 0 @baseline * 2;
     
@@ -132,9 +139,6 @@ footer {
     .avatar {
         margin-bottom:  @gridGutterWidth;
         .box-shadow( 0 0 @thirdline #aaa );
-    }
-    p {
-        padding-left: @halfline;
     }
     .tech-stack {
         padding: @baseline;
