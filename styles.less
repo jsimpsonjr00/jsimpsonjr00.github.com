@@ -60,6 +60,10 @@ body {
 			float: left;
 			margin: 0 @halfline 0 0;
 			height: @headerLineHeight;
+			
+			.border-radius( 3px );
+        	.box-shadow( 0 0 @thirdline #aaa );
+        	.clearfix();
 		}
 	    hr {
 	        margin: 2px auto; 
@@ -382,13 +386,6 @@ footer {
         .box-shadow( 0 0 2px #999 );
         .border-radius( 2px );
         .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
-    }
-    .avatar {
-        margin-bottom:  @gridGutterWidth;
-        
-        .border-radius( 3px );
-        .box-shadow( 0 0 @thirdline #aaa );
-        .clearfix();
     }
     p {
         //padding-left: @halfline;

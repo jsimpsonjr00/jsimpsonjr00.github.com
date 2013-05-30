@@ -17,6 +17,7 @@ body {
 	    .avatar {
 			height: @headerLineHeight;
 			margin: 0 @baseline 0 0;
+			.box-shadow( 0 0 @thirdline #aaa );
 		}
 	    h1 {
 	        font-size:      @baseline * 2;
@@ -152,10 +153,6 @@ footer {
         color:          white;
         padding:        0 @halfline;
         margin-bottom:  @halfline;
-    }
-    .avatar {
-        margin-bottom:  @gridGutterWidth;
-        .box-shadow( 0 0 @thirdline #aaa );
     }
     .tech-stack {
         padding: @baseline;
