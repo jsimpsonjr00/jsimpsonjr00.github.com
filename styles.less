@@ -433,9 +433,14 @@ footer {
     #prof-head {
     	margin-left: (@gridGutterWidth * 5) + 5;
     }
-    header h1 small {
-        display: inline-block;
-        line-height: 1;
+    header {
+    	h1 small {
+        	display: inline-block;
+        	line-height: 1;
+        }
+        .avatar {
+        	display: none;
+        }
     }
     .container .container { //override default responsive grid
         padding:    0 @halfline;
