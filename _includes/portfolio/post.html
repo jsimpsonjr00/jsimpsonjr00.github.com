@@ -34,7 +34,11 @@
                 {{ page.summary }}
             </p>
             <p>
-                <a class='btn btn-warning' href='{{ page.link }}' target='_external'>Get on Chrome Web Store</a>
+            	{% if page.link == nil %}
+					<h4>{{ page.title }}</h4>
+				{% else %}
+					<a class='btn btn-primary' href="{{ page.link }}" target='_external'>Get on Chrome Web Store</a>
+				{% endif %}
             </p>
         </div>
         <nav>

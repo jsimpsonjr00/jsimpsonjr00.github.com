@@ -2,7 +2,7 @@
 	<img src='/images/featured/{{ post.image-name }}.png'>
 	<div class="carousel-caption">
 		{% if post.link == nil %}
-			{{ post.title }}
+			<h4>{{ post.title }}</h4>
 		{% else %}
 			<a href="{{ post.link }}" target='_external'><h4>{{ post.title }}</h4></a>
 		{% endif %}
