@@ -1,10 +1,10 @@
 <div class="item {{ forloop.index }} {% if forloop.index == 1 %}active{% endif %}">
 	<img src='/images/featured/{{ post.image-name }}.png'>
 	<div class="carousel-caption">
-		{% if post.link != empty %}
-			<a href="{{ post.link }}" target='_external'><h4>{{ post.title }}</h4></a>
-		{% else %}
+		{% if post.link == nil %}
 			{{ post.title }}
+		{% else %}
+			<a href="{{ post.link }}" target='_external'><h4>{{ post.title }}</h4></a>
 		{% endif %}
 		<p>{{ post.summary }}</p>
 	</div>
