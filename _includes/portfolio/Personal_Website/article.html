@@ -1,5 +1,5 @@
-<article>
-	<section class='span6'>
+<article class='clearfix'>
+	<section class='span6 {% cycle 'pull-right', '' %}'>
 		<h3>{{ post.title }}</h3>
 		<p>
 			{{ post.summary }}
@@ -9,7 +9,7 @@
 		</p>
 	</section>
 	<section class='span6 item'>
-		<a href='{{ page.link }}' target='_external'>
+		<a href='{{ post.link }}' target='_external'>
 	    	<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
 	    </a>
 	</section>
