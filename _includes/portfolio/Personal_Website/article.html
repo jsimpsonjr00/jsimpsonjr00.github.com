@@ -1,14 +1,16 @@
 <article>
 	<section class='span6'>
-		<h4>{{ post.title }}</h4>
+		<h3>{{ post.title }}</h3>
 		<p>
 			{{ post.summary }}
 		</p>
 		<p>
-			<a class='btn btn-primary' href='{{ page.link }}' target='_external'>Visit {{ page.title }}</a>
+			<a class='btn btn-primary' href='{{ page.link }}' target='_external'>Visit {{ post.title }}</a>
 		</p>
 	</section>
-	<section class='span6'>
-	    <img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+	<section class='span6 item'>
+		<a href='{{ page.link }}' target='_external'>
+	    	<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+	    </a>
 	</section>
 </article>
