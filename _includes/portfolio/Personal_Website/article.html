@@ -5,12 +5,20 @@
 			{{ post.summary }}
 		</p>
 		<p>
-			<a class='btn btn-primary' href='{{ post.link }}' target='_external'>Visit {{ post.title }}</a>
+			{% if post.link == nil %}
+			
+			{% else %}
+				<a class='btn btn-primary' href='{{ post.link }}' target='_external'>Visit {{ post.title }}</a>
+			{% endif %}
 		</p>
 	</section>
 	<section class='span6 item'>
-		<a href='{{ post.link }}' target='_external'>
-	    	<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
-	    </a>
+		{% if post.link == nil %}
+			<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+		{% else %}
+			<a href='{{ post.link }}' target='_external'>
+		    	<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+		    </a>
+		{% endif %}
 	</section>
 </article>
