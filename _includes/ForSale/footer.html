@@ -3,7 +3,7 @@
     <div class='container'>
         <div class='row'>
             {% for tag in site.tags %}
-                {% if tag[0] != 'Chrome_Extension' and tag[0] != 'Personal_Website' && tag[0] != 'Inactive_Chrome_Extension' && tag[0] != 'Featured_Project' %}
+                {% if tag[0] != 'Chrome_Extension' and tag[0] != 'Personal_Website' and tag[0] != 'Inactive_Chrome_Extension' and tag[0] != 'Featured_Project' %}
                     <ul class='span3 sales'>
                         <h3>{{ tag[0] }}</h3>
                         {% for posts in tag %}
