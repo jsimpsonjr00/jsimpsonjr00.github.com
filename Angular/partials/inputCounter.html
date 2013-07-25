@@ -1,4 +1,4 @@
-<section ng-controller='DemoCtrl'>
+<section>
 	<h3>Demonstration</h3>
 	<textarea ng-model='demo.text' js-maxlength='50'></textarea> {{ demo.text.length }} / {{ demo.jsMaxLength }}
 </section>
@@ -50,11 +50,6 @@ app.directive('jsMaxlength', function() {
 	    	ngModelCtrl.$parsers.push( fromUser );
 	    }
 	}; 
-});
-app.controller( "DemoCtrl", function( $scope ) {
-	$scope.demo = {
-		text: ""
-	};
 });
 </script>
 

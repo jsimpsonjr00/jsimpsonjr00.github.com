@@ -7,7 +7,9 @@ app.config( [
 			when( '/inputCounter/', {
 				templateUrl: 'partials/inputCounter.html',
 				controller: function ( $scope, $routeParams ) {
-					
+					$scope.demo = {
+						text: ""
+					};
 				}
 			} ).
 			when( '/weekly/:storeId/', {
