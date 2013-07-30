@@ -18,6 +18,17 @@
         	header.navbar-fixed-top .avatar {
         		box-shadow: none;
         	}
+        	ul.nav {
+        		list-style: 	none;
+        		margin-left: 	9px;
+        	}
+        	.nav li {
+        		margin-bottom: 9px;
+        	}
+        	.nav li a.active {
+        		color: #333;
+        		cursor: default;
+        	}
         </style>
     </head>
     <body ng-app='app'>
@@ -30,8 +41,18 @@
 		    </div>
 		</header>
         <section class='container content'>
-        	<div ng-view>
-			</div>
+        	<div class='row'>
+        		<div class='span2'>
+        			<h3>My Demos</h3>
+        			<ul class='nav' ng-controller='MainMenuCtrl' js-location-spy >
+			    		<li ng-repeat='demo in Demos'>
+			    			<a href='#/{{demo.id}}/'>{{demo.id}}</a>
+			    		</li>
+			    	</ul>
+        		</div>
+        		<div class='span10'ng-view></div>
+        	</div>
+        	
         </section>
         <script type="text/javascript">
           var _gaq = _gaq || [];
@@ -45,7 +66,9 @@
           })();
         
         </script>
+        <script src='js/jsLocationSpy.js'></script>
         <script src='app.js'></script>
         <script src='js/jsMaxLength.js'></script>
+        <script src='js/jsInputCounter.js'></script>
     </body>
 </html>

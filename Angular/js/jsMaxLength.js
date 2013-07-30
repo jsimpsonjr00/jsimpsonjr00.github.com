@@ -4,7 +4,6 @@ app.directive('jsMaxlength', function() {
 		require: 'ngModel',
 		link: function (scope, element, attrs, ngModelCtrl) {
 			var maxlength = Number( attrs.jsMaxlength );
-			scope[ attrs.ngModel.split( ".")[0] ].jsMaxLength = maxlength;
 			
 			function fromUser( text ) {
 				var transformedInput = text;

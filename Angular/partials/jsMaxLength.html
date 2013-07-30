@@ -1,24 +1,21 @@
 <article>
 	<section>
-		<h3>Directive js-maxlength <small>input length restriction with counter</small></h3>
-		<article id='demo'>
-			<textarea ng-model='demo.text' js-maxlength='50'></textarea> 
+		<h3>{{ Demo.type | uppercase }} {{ Demo.id }} <small>{{ Demo.subtitle }}</small></h3>
+		<article>
+			<div id='demo'><textarea id='demoText' ng-model='demo.text' js-maxlength='50'></textarea></div>
 			<div>
-				{{ demo.text.length }} / {{ demo.jsMaxLength }} Max Chars
+				<js-input-counter input='#demoText' text='{{demo.text}}'></js-input-counter> Total Chars
 			</div>
 		</article>
+		
 	</section>
 	<section>
 		<h3>The Markup</h3>
-		<pre>
-{{ markupSRC }}
-		</pre>
+		<pre>{{ markupSRC }}</pre>
 	</section>
 	<section>
 		<h3>The Code</h3>
-		<pre>
-{{ scriptSRC }}
-		</pre>
+		<pre>{{ scriptSRC }}</pre>
 	</section>
 </article>
 
