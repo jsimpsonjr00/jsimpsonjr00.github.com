@@ -9,7 +9,7 @@ angular.module( "jsLocationSpy", [] )
 		        
 		        function setActive( newPath ) {
 		        	var $links = $ul.find( "a" );
-		        	$active.removeClass( "active" );
+		        	$active ? $active.removeClass( "active" ) : null;
 		        	
 		        	$links.each(function() {
 			        	var $link 	= $(this),
