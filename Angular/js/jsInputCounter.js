@@ -1,4 +1,4 @@
-app.directive( 'jsInputCounter', function () {
+angular.module( 'jsInputCounter', [] ).directive( 'jsInputCounter', function () {
 	return {
 		restrict: "E",
 		scope: {

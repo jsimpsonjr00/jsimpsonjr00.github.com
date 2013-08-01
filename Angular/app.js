@@ -1,4 +1,4 @@
-var app = angular.module( "app", [ "jsLocationSpy" ] );
+var app = angular.module( "app", [ "jsLocationSpy", "jsMaxLength", "jsInputCounter" ] );
 
 app.value( "Demos", {
 	"jsMaxLength" : {
@@ -24,19 +24,30 @@ app.config( [
 	'$routeProvider',
 	function( $routeProvider ) {
 		$routeProvider.
-			when( '/demo/:demoName', {
+			when( '/directive/:demoName/', {
 				templateUrl: "partials/demo.html",
-				controller: function( $scope, $routeParams ) {
-					$scope.markupSRC = $("#demo").html();
-					$scope.scriptSRC = "";
-					$.getScript( "js/" + $routeParams.demoName + ".js", function ( script ) {
-						$scope.scriptSRC = script;
-						$scope.$digest();
-					});
-					
-					switch( $routeParams.demoName ) {
-						default: 
-							break;
+				controller: function( $scope, $routeParams, $location ) {
+					if( Demos[$routeParams.type] ) {
+						$scope.Demo = Demos[$routeParams.type][ $routeParams.demoName.replace(/\//g, "") ];
+						
+						if( $scope.Demo !== undefined ) {
+							$scope.markupSRC = $("#demo").html();
+							$scope.scriptSRC = "";
+							$.getScript( "js/" + $routeParams.demoName + ".js", function ( script ) {
+								$scope.scriptSRC = script;
+								$scope.$digest();
+							});
+							
+							switch( $routeParams.demoName ) {
+								default: 
+									break;
+							}
+							
+						} else { //invalid url get out
+							
+						}
+					} else { //invalid url get out
+						
 					}
 				}
 			}).
@@ -44,9 +55,7 @@ app.config( [
 				templateUrl: 'partials/jsMaxLength.html',
 				controller: function ( $scope, $routeParams, Demos, $location ) {
 					$scope.Demo = Demos[ $location.path().replace(/\//g, "") ]; 
-					$scope.demo = {
-						text: ""
-					};
+					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = $("#demo").html().replace(/\t/g,"  ");
 					
@@ -60,9 +69,7 @@ app.config( [
 				templateUrl: 'partials/jsInputCounter.html',
 				controller: function ( $scope, $routeParams, Demos, $location) {
 					$scope.Demo = Demos[ $location.path().replace(/\//g, "") ];
-					$scope.demo = {
-						text: ""
-					};
+					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = "<js-input-counter input='#demoText' text='{{demo.text}}'></js-input-counter>";
 					
@@ -98,6 +105,12 @@ app.config( [
 					
 				}
 			} ).
+			when( '/', {
+				templateUrl: 'partials/landing-page.html',
+				controller: function ( $scope ) {
+					
+				}
+			}).
 			otherwise( { 
 			//	redirectTo: '/daily/woot/' 
 			} );

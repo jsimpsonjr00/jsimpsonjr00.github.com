@@ -1,4 +1,4 @@
-app.directive('jsMaxlength', function() {
+angular.module( 'jsMaxLength', [] ).directive('jsMaxlength', function() {
 	return {
 		restrict: "A",
 		require: 'ngModel',
