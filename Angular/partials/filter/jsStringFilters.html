@@ -1,0 +1,63 @@
+<article>
+	<section>
+		<h3>Filter {{ Demo.id }} <small>jsStringFilters</small></h3>
+		<article>
+			<p>
+				Below are a collection of String Filters used to modify strings prior to reaching the view.
+			</p>
+		</article>
+	</section>
+	<section>
+		<h3>Camel to Capitals</h3>
+		<p>
+			Transforms a camel cased string to a series of first letter capitalized words.
+		</p>
+		<div class='row'>
+			<div class='span5'>
+				<h4>Markup</h4>
+				<pre>{{ markup.camelToCaps }}</pre>
+			</div>
+			<div class='span5'>
+				<h4>Result</h4>
+				<pre>{{ "jsStringFilters" | camelToCapitals }}</pre>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h3>jsCurrency</h3>
+		<p>
+			A custom currency filter built to work with values that include comma seperators.
+		</p>
+		<div class='row'>
+			<div class='span5'>
+				<h4>Markup</h4>
+				<pre>{{ markup.jsCurrency }}</pre>
+			</div>
+			<div class='span5'>
+				<h4>Result</h4>
+				<pre>{{ "10,000" | jsCurrency }}</pre>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h3>Click to See</h3>
+		<p>
+			Implemented to handle situations where currency values for prices were not valid numbers. Chained with
+			the jsCurrency filter an invalid number is replaced with the "Click to See" text.
+		</p>
+		<div class='row'>
+			<div class='span5'>
+				<h4>Markup</h4>
+				<pre>{{ markup.clickToSee }}</pre>
+			</div>
+			<div class='span5'>
+				<h4>Result</h4>
+				<pre>{{ "undefined" | jsCurrency | clickToSee  }}</pre>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h3>The Code</h3>
+		<pre>{{ scriptSRC }}</pre>
+	</section>
+</article>

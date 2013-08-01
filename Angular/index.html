@@ -47,11 +47,12 @@
 		</header>
         <section class='container content'>
         	<div class='row'>
-        		<div class='span2'>
-        			<h3>My Demos</h3>
-        			<ul class='nav' ng-controller='MainMenuCtrl' js-location-spy >
-			    		<li ng-repeat='demo in Demos'>
-			    			<a href='#/{{demo.id}}/'>{{demo.id}}</a>
+        		<div class='span2' ng-controller='MainMenuCtrl' >
+        			<h2>My Demos</h2>
+        			<ul class='nav' js-location-spy ng-repeat='(key,Type) in Demos'>
+        				<h3>{{ key | uppercase }}</h3>
+			    		<li ng-repeat='demo in Type'>
+			    			<a href='#/{{key}}/{{demo.id}}/'>{{demo.id}}</a>
 			    		</li>
 			    	</ul>
         		</div>
@@ -71,6 +72,7 @@
           })();
         
         </script>
+        <script src='js/filter/jsStringFilters.js'></script>
         <script src='js/jsLocationSpy.js'></script>
         <script src='js/jsMaxLength.js'></script>
         <script src='js/jsInputCounter.js'></script>

@@ -1,6 +1,26 @@
-var app = angular.module( "app", [ "jsLocationSpy", "jsMaxLength", "jsInputCounter" ] );
+var app = angular.module( "app", [ "jsStringFilters", "jsLocationSpy", "jsMaxLength", "jsInputCounter" ] );
 
 app.value( "Demos", {
+	"directive": {
+		"jsMaxLength" : {
+			id: "jsMaxLength",
+			subtitle: "Enforce a maximum input length"
+		},
+		"jsInputCounter" : {
+			id: 		"jsInputCounter",
+			subtitle: 	"Counts the length of an input against the js-maxlength"
+		},
+		"jsLocationSpy" : {
+			id:			"jsLocationSpy",
+			subtitle:	"Sets child A element active when a route change matches the href"
+		}
+	},
+	"filter": {
+		"jsStringFilters.js": {
+			id: "jsStringFilters",
+			subtitle: "modify strings before they reach the view"
+		}
+	}/*,
 	"jsMaxLength" : {
 		id: "jsMaxLength",
 		type: "directive",
@@ -15,7 +35,7 @@ app.value( "Demos", {
 		id:			"jsLocationSpy",
 		type:		"directive",
 		subtitle:	"Sets child A element active when a route change matches the href"
-	}
+	}*/
 });
 app.controller( "MainMenuCtrl", function( $scope, Demos ) {
 	$scope.Demos = Demos;
@@ -24,10 +44,11 @@ app.config( [
 	'$routeProvider',
 	function( $routeProvider ) {
 		$routeProvider.
-			when( '/directive/:demoName/', {
+			when( '/directiveS/:demoName/', {
 				templateUrl: "partials/demo.html",
-				controller: function( $scope, $routeParams, $location ) {
-					if( Demos[$routeParams.type] ) {
+				controller: function( $scope, $routeParams, Demos, $location ) {
+					//WIP to standardize if possible
+					if( Demos["directive"] ) { //$routeParams.type] ) {
 						$scope.Demo = Demos[$routeParams.type][ $routeParams.demoName.replace(/\//g, "") ];
 						
 						if( $scope.Demo !== undefined ) {
@@ -51,10 +72,10 @@ app.config( [
 					}
 				}
 			}).
-			when( '/jsMaxLength/', {
+			when( '/directive/jsMaxLength/', {
 				templateUrl: 'partials/jsMaxLength.html',
 				controller: function ( $scope, $routeParams, Demos, $location ) {
-					$scope.Demo = Demos[ $location.path().replace(/\//g, "") ]; 
+					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ]; 
 					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = $("#demo").html().replace(/\t/g,"  ");
@@ -65,10 +86,10 @@ app.config( [
 					});
 				}
 			} ).
-			when( '/jsInputCounter/', {
+			when( '/directive/jsInputCounter/', {
 				templateUrl: 'partials/jsInputCounter.html',
 				controller: function ( $scope, $routeParams, Demos, $location) {
-					$scope.Demo = Demos[ $location.path().replace(/\//g, "") ];
+					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ];
 					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = "<js-input-counter input='#demoText' text='{{demo.text}}'></js-input-counter>";
@@ -79,10 +100,11 @@ app.config( [
 					});
 				}
 			} ).
-			when( '/jsLocationSpy/', {
+			when( '/directive/jsLocationSpy/', {
 				templateUrl: 'partials/jsLocationSpy.html',
 				controller: function ( $scope, $routeParams, Demos, $location) {
-					$scope.Demo = Demos[ $location.path().replace(/\//g, "") ];
+					$scope.Demos = Demos;
+					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ];
 					$scope.demo = {
 						text: ""
 					};
@@ -99,6 +121,21 @@ app.config( [
 					});
 				}
 			} ).
+			when( '/filter/jsStringFilters/', {
+				templateUrl: "partials/filter/jsStringFilters.html",
+				controller: function( $scope ) {
+					$scope.markup = {
+						camelToCaps: "{{ 'jsStringFilters' | camelToCapitals }}",
+						jsCurrency: "{{ '10,000' | jsCurrency }}",
+						clickToSee: '{{ "undefined" | jsCurrency | clickToSee  }}'
+					};
+					
+					$.getScript( "js/filter/jsStringFilters.js", function ( script ) {
+						$scope.scriptSRC = script;
+						$scope.$digest();
+					});
+				}
+			}).
 			when( '/weekly/:storeId/', {
 				templateUrl: 'partials/deals.html',
 				controller: function ( $scope, $routeParams ) {
@@ -112,7 +149,11 @@ app.config( [
 				}
 			}).
 			otherwise( { 
-			//	redirectTo: '/daily/woot/' 
+			//	redirectTo: '/daily/woot/'
+				templateUrl: 'partials/error.html',
+				controller: function ( $scope ) {
+			        console.log( "otherwise" );
+			    }
 			} );
 	 	}
 ] );
