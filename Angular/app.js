@@ -75,7 +75,7 @@ app.config( [
 			when( '/directive/jsMaxLength/', {
 				templateUrl: 'partials/jsMaxLength.html',
 				controller: function ( $scope, $routeParams, Demos, $location ) {
-					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ]; 
+					$scope.Demo = Demos.directive.jsMaxLength; 
 					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = $("#demo").html().replace(/\t/g,"  ");
@@ -89,7 +89,7 @@ app.config( [
 			when( '/directive/jsInputCounter/', {
 				templateUrl: 'partials/jsInputCounter.html',
 				controller: function ( $scope, $routeParams, Demos, $location) {
-					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ];
+					$scope.Demo = Demos.directive.jsInputCounter;
 					
 					$scope.scriptSRC = "";
 					$scope.markupSRC = "<js-input-counter input='#demoText' text='{{demo.text}}'></js-input-counter>";
@@ -104,7 +104,7 @@ app.config( [
 				templateUrl: 'partials/jsLocationSpy.html',
 				controller: function ( $scope, $routeParams, Demos, $location) {
 					$scope.Demos = Demos;
-					$scope.Demo = Demos.directive[ $location.path().replace(/\//g, "") ];
+					$scope.Demo = Demos.directive.jsLocationSpy;
 					$scope.demo = {
 						text: ""
 					};
