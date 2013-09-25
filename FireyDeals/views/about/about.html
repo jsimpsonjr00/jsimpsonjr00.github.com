@@ -1,0 +1,24 @@
+<div class='row'>
+	<section class='span8'>
+		<h4>About {{ brand }}</h4>
+		<p>
+			{{ brand }} is a collaborative community site for sharing shopping deals in real time. Completely
+			managed by its members with the goal of providing up to the minute information on the best the net 
+			has to offer in consumer products. All users are equals here and the content reflects the qualities of its
+			members. As such, security and user restrictions are kept to a bare minimum for this technology demonstration
+			project.
+		</p>
+		<h5>The Technology</h5>
+		<p>
+			{{ brand }} is a demonstration project built using <a href='http://angularjs.org'>Angular JS</a> on
+			the <a href='http://angularfire.com'>Angular Fire</a> implementation of <a href='http://firebaseio.com'>Firebase</a>.
+			Further <a href='http://yeoman.io/'>Yeoman</a> assists with project setup, development and
+			building while <a href='http://getbootstrap.com/2.3.2/'>Twitter Bootstrap</a> provides a front end boost.
+		</p>
+	</section>
+	<aside class='span4'>
+		<div class=' hero-unit'>
+			<ng-include src="'views/about/deal-statuses.html'"></ng-include>
+		</div>
+	</aside>
+</div>

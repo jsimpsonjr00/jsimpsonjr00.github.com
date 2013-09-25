@@ -1,0 +1,72 @@
+<div class="row">
+	<aside class="sidebar span4 pull-right">
+		<div id="not-logged-in">
+			<form ng-class="{'error': authError.email || authError.pwd || authError.alias }">
+				<ng-switch on="$parent.registering">
+					<legend ng-switch-when="false">Member Login - <a ng-click="toggleRegister()">[ register ]</a></legend>
+					<legend ng-switch-when="true">Registration - <a ng-click="toggleRegister()">[ login ]</a></legend>
+				</ng-switch>
+				<div class="control-group" ng-class="{'error': authError.email}">
+					<label class="control-label" for="email">Email:</label>
+					<input type="text" ng-model="$parent.user.email" id="username">
+				</div>
+				<div class="control-group" ng-class="{'error': authError.alias}" ng-hide="!$parent.registering">
+					<label class="control-label" for="alias">Alias:</label>
+					<input type="text" ng-model="$parent.user.alias" id="alias" placeholder="Name Others will see you as">
+				</div>
+				<div class="control-group" ng-class="{'error': authError.pwd}">
+					<label class="control-label" for="password">Password:<small ng-show="$parent.registering"> 8 Character Minimum</small></label>
+					<ng-switch on="$parent.registering">
+						<input ng-switch-when="false" type="password" ng-model="$parent.user.password" id="password" name="password">
+						<input ng-switch-when="true" type="password" ng-model="$parent.user.password" id="password" name="password" ng-minlength="8">
+					</ng-switch>
+				</div>
+				<div class="alert alert-error">
+					Invalid Credentials
+				</div>
+				<div class="control-group" ng-switch="$parent.registering">
+					<button ng-switch-when="false" ng-click="login()" class="btn btn-primary">Login</button>
+					<button ng-switch-when="true" ng-click="register()" class="btn btn-primary">Register</button>
+				</div>
+			</form>
+		</div>
+	</aside>
+	<section id="deals" class="span8">
+		<div ng-cloak="" ng-repeat="deal in filteredDeals = ( deals[filter.collection] | toArray | orderBy:sort.field:sort.reverse )">
+			<div class="deal clearfix" ng-show="$index >= startIndex">
+        		<div class="scoring pull-left" ng-class="{loggedIn: user.id}">
+       				<div ng-show="deal.score > 0 ">
+						<i class="icon-thumbs-up"></i>
+					</div>
+					<div class="score">
+						{{ deal.score }}
+					</div>
+       				<div ng-show="deal.score < 0">
+       					<i class="icon-thumbs-down"></i>
+       				</div>
+       			</div>
+       			<div class="info">
+       				<a href="{{deal.url}}" target="_dealio">
+       					<h4>
+       						<span class="deal-flags" ng-switch="deal.flags.dead.count">
+       							<i title="Reported Dead by 1 user" class="icon-flag-alt" ng-switch-when="1"></i>
+       							<i title="Reported Dead by 2 users" class="icon-flag-checkered" ng-switch-when="2"></i>
+       							<i title="Reported Dead by 3 users" class="icon-flag" ng-switch-when="3"></i> 
+       						</span>
+       						{{ deal.title }}
+       					</h4>
+       				</a>
+        			<p>
+        				{{ deal.detail }}
+        				<div>
+        					{{ deal.timestamp | jsSinceTime }} - {{ deal.owner.alias }}
+        				</div>
+        			</p>	
+       			</div>
+      		</div>
+    	</div>
+    	<div ng-show="!filteredDeals || filteredDeals.length <= 0" id="no-results-info">
+    		<ng-include src="'views/no-results-info.html'"></ng-include>
+		</div>
+   	</section>
+</div>

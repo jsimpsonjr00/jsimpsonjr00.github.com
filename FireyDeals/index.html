@@ -1,0 +1,161 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Firey Deals - deals in realtime</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	
+        <link rel="stylesheet" href="styles/a8065397.main.css">
+        
+   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	
+</head>
+  <body ng-app="FireyApp" ng-controller="Dealio">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <header class="navbar navbar-fixed-top">
+    	<div class="navbar-inner">
+    		<section class="container">
+    			<span class="brand">
+    				<a ng-click="navToRoot()">{{ brand }}</a>
+    				<a href="#/about/" title="Learn more About {{ brand }}">
+						<i class="icon-info-sign"></i>
+					</a>
+    			</span>
+    			<span id="sort-form" class="form-inline">
+    				<div class="pull-left">
+	    				<i class="icon-filter" title="Filter By Deal Status"></i>
+	    				<label>
+	    					<input type="radio" ng-model="filter.collection" value="firey">
+	    					<span title="Highly Upvoted Deals">Firey</span>
+	    				</label>
+				   		<label>
+				   			<input type="radio" ng-model="filter.collection" value="fresh" ng-click="ageDeals()">
+				   			<span title="Freshly Sumbitted deals awaiting votes">Fresh</span>
+				   		</label>
+				   		<label>
+				   			<input type="radio" ng-model="filter.collection" value="aging">
+				   			<span title="Deals getting a little moldy from age">Aging</span>
+				   		</label>
+				   		<label>
+				   			<input type="radio" ng-model="filter.collection" value="dead">
+				   			<span title="Deals Flagged Dead by the Community">Dead</span>
+				   		</label>
+				   		<label>
+				   			<input type="radio" ng-model="filter.collection" value="hated">
+				   			<span title="The Worst of the Worst awaiting execution">Hated</span>
+				   		</label>
+			  		</div>
+			  		<div class="pull-left">
+					   	<i class="icon-sort" title="Sorting Options"></i>
+						<label><input type="radio" ng-model="sort.field" value="timestamp"><span>Date</span></label>
+					   	<label><input type="radio" ng-model="sort.field" value="score"><span>Score</span></label>
+					   	<label class="btn btn-primary" ng-switch="sort.reverse" ng-click="orderToggle()" title="Toggle Ascending/Descending results">
+					   		<i class="icon-sort-up" ng-switch-when="false"></i>
+					   		<i class="icon-sort-down" ng-switch-default=""></i>
+					   	</label>
+				   	</div>
+			   	</span>
+			   	<div class="user-box pull-right">
+	    			<h4 ng-hide="user.firebaseAuthToken">
+	    				Guest, login to contribute.
+	    			</h4>
+	    			<h4 ng-show="user.firebaseAuthToken">
+	    				<ng-show on="user.alias">{{ user.alias }}</ng-show> | <a href="" ng-click="logout()">Logout</a>
+	    			</h4>
+	    		</div>
+    		</section>
+    	</div>
+	</header>
+	<section id="main-content">
+		<div class="alert affix alert-block alert-{{ alert.status }} fade" ng-class="{in: alert.status}" ng-show="alert.status">
+			<button type="button" class="close" ng-click="alert.status = null">&times;</button>
+			<h4>Status Changed</h4>
+			Deal changed to <em>{{ alert.status | uppercase}}</em> status.
+		</div>
+		<div ng-view="" class="container"></div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="row">
+						<section class="span4">
+					<h4>{{ brand }} <small>deals in realtime</small></h4>
+					<table class="table">
+						<tr>
+							<td>
+								<a href="#/about/">About</a>
+							</td>
+							<td>
+								<a href="#/how-it-works/">How It Works</a>
+							</td>
+						</tr>
+						<tr>
+						</tr>
+					</table>
+				</section>
+				<section class="span4">
+					<h4>Technology <small>making it go</small></h4>
+					<table class="table">
+						<tr>
+							<td>
+								<a href="http://angularfire.com/" target="_external">AngularFire</a>
+							</td>
+							<td>
+								<a href="http://angularjs.org" target="_external">Angular JS</a>
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<a href="http://yeoman.io" target="_external">Yeoman</a>
+							</td>
+							<td>
+								<a href="http://getbootstrap.com/2.3.2/" target="_external">Bootstrap</a>
+							</td>
+						</tr>
+					</table> 
+				</section>
+				<section class="span4">
+					<h4 class="pull-right">&copy; 2013 JNV</h4>
+				</section>
+			</div>
+		</div>
+	</footer>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	
+		<!-- Angularfire -->
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  		<script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+  		<script src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.js"></script>
+  		
+
+        <script src="scripts/8d56b1d2.modules.js"></script>
+
+        <script src="scripts/cbce16d9.scripts.js"></script>
+</body>
+</html>

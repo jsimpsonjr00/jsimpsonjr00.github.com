@@ -1,0 +1,15 @@
+<form id="sort-form" class="form-inline clearfix">
+	<i class="icon-sort" title="Sorting Options"></i>
+	<label><input type="radio" ng-model="sort.field" value="timestamp"><span>Date</span></label>
+   	<label><input type="radio" ng-model="sort.field" value="score"><span>Score</span></label>
+   	<label class="btn" ng-switch="sort.reverse" ng-click="orderToggle()" title="Toggle Ascending/Descending results">
+   		<i class="icon-sort-up" ng-switch-when="false"></i>
+   		<i class="icon-sort-down" ng-switch-default=""></i>
+   	</label>
+   	<section class="pull-right">
+   		<label><input type="radio" ng-model="filter.collection" value="active"><span>Active</span></label>
+   		<label><input type="radio" ng-model="filter.collection" value="dead"><span>Dead</span></label>
+   		<label><input type="radio" ng-model="filter.collection" value="hated"><span>Hated</span></label>
+   		<i class="icon-filter" title="Filter By Deal Status"></i>
+   	</section>
+</form>
