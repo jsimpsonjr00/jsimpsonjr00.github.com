@@ -1,0 +1,82 @@
+---
+layout: default
+title: "James Simpson - Github Portfolio"
+---
+<section id='about' class='about-box'>
+    <div class='about-inner'>
+        <div class='professional row'> 
+            <img class='span2 avatar' src='images/Headshot.jpg'>
+            <div class='content span10'>
+                <p>
+                    I am a Freelance and speculative developer specializing in custom front end development. 
+                    At current I'm most focused on HTML5, CSS3(LESS and SASS), AngularJS and jQuery development, but have experience
+                    with PHP, classic ASP, some Java on Google App Engine, dabbling in native Android development 
+                    and JSP as well as SQL. Interested in Freelance remote opportunities and relocation 
+                    for On-site employment in the US and Europe.
+                </p>
+                <h4>Resume( <a href='Resume/'>HTML</a> <a href='Resume/Resume.pdf'>PDF</a> ) Rates (<a href='/Rates/Freelance Rate Sheet.pdf'>PDF</a>)</h4>
+                <div class='tech-stack'>
+                    <a href='http://www.html5rocks.com' target='_external'>
+                        <img src='images/tech-logos/html5.png'>
+                    </a>
+                    <img src='images/tech-logos/CSS3.png'>
+                    <a href='http://www.lesscss.org' target='_external'>
+                        <img src='images/tech-logos/less.png'>
+                    </a>
+                    <a href='http://www.jquery.com' target='_external'>
+                        <img src='images/tech-logos/jquery.png'>
+                    </a>
+                    <a href='http://www.github.com' target='_external'>
+                        <img src='images/tech-logos/github.png'>
+                    </a>
+                    <a href='http://www.angularjs.org' target='_external'>
+                        <img src='images/tech-logos/angularjs.png'>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id='featured-projects'>
+	<script src='/js/bootstrap.carousel.min.js'></script>
+	<h2>Featured Projects <small>professional client projects</small></h2>
+    <div id="featuredCarousel" class="carousel slide" data-interval='false'>
+		<div class="carousel-inner">
+			{% for post in site.tags.Featured_Project %}
+	        	{% include portfolio/featured/featured-item.html %}
+	        {% endfor %}
+		</div>
+	    <!-- Carousel nav -->
+		<a class="carousel-control left" href="#featuredCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#featuredCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+</section>
+<section id='solo-projects'>
+    <h2>Personal Website Projects <small>my own concept, design and implementation</small></h2>
+    <section class='row'>
+        {% for post in site.tags.Personal_Website %}
+            {% include portfolio/Personal_Website/article.html %}
+        {% endfor %}
+    </section>
+</section>
+<section id='chrome-extensions'>
+    <h2>Chrome Extensions <small>JavaScript, HTML, CSS for Chrome</small></h2>
+    <div class='row'>
+        {% for post in site.tags.Chrome_Extension %}
+            {% include portfolio/medium-thumb.html %}
+        {% endfor %}
+    </div>
+</section>
+<section id='demos'>
+    <h2>Demos <small>open source, AngularJS, Fiddles, etc.</small></h2>
+   	<p>
+    	<a href='/Angular/'>AngularJS</a> - a growing collection of demos featuring AngularJS
+    </p>
+    <p>
+        <a href='/JSFiddles/'>JSFiddles</a> - my growing collection of JSFiddle experiments.
+    </p>
+     <p>
+        <a href='/JSTemplates/'>JS Templates</a> - a simple client side templating plugin to jQuery
+        aimed at JSON to markup transformation for AJAX applications.
+    </p>
+</section>

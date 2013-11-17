@@ -1,0 +1,51 @@
+//Responsive Sizing elements
+@media (max-width: 480px) {
+    @baseline:          12px;
+    @gridGutterWidth:   20px;
+
+    .responsiveSizing( 12px, 20px );
+
+    #prof-head {
+    	margin-left: (@gridGutterWidth * 5) + 5;
+    }
+    body {
+        h2 small {
+            display: none;
+        }
+
+        > header {
+            &.navbar .nav {
+                float:  none;
+                margin: 0 auto;
+                width:  280px;
+            }
+
+            .navbar-inner {
+            	.brand {
+	                float: 		none;
+	                text-align: center;
+	                margin: 	0;
+	                padding:	0;
+                }
+            }
+        }
+    }
+    .container .container { //override default responsive grid
+        padding:    0 @halfline;
+    }
+    .about-box .avatar {
+        float:  left;
+        width:  @gridGutterWidth * 5;
+        margin: 0 @halfline @halfline 0;
+    }
+    
+    footer .inner {
+        height:         auto;
+        border-right:   none;
+    }
+    .item, footer .span3 {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel='stylesheet' type='text/css' href='../styles.css'>
+        <title>James Simpson - AngularJS Playground</title>
+        
+        <script src='../js/jquery-1.8.3.min.js'></script>
+        <script src='../js/angular.min.1.0.7.js'></script>
+        
+        <!--[if lt IE 9]>
+            <script src="../js/HTML5Shiv/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        	textarea {
+        		width: 100%;
+        	}
+        	body > header {
+        		background: #333;
+        	}
+        	header.navbar-fixed-top .avatar {
+        		box-shadow: none;
+        	}
+        	ul.nav {
+        		list-style: 	none;
+        		margin-left: 	0px;
+        	}
+        	
+        	.nav li a {
+        		padding: 8px;
+        		display: block;
+        		transition: all 0.6s;
+        	}
+        	.nav li a.active {
+        		color: #333;
+        		cursor: default;
+        		background: #f5f5f5;
+        		border-right: 2px solid #333;
+        	}
+        </style>
+    </head>
+    <body ng-app='app'>
+        <header class='navbar-fixed-top'>
+		    <div class='container'>
+		    	<img class="avatar" src="../images/tech-logos/angularjs.png">
+		    	<h1>
+		    		<a href='/'>James Simpson</a> <small>AngularJS Playground</small>
+		    	</h1>
+		    </div>
+		</header>
+        <section class='container content'>
+        	<div class='row'>
+        		<div class='span2' ng-controller='MainMenuCtrl' >
+        			<h2>My Demos</h2>
+        			<ul class='nav'>
+			    		<h3>Projects</h3>
+			    		<li>
+			    			<a href='http://fireydeals.appspot.com/' target='_blank'>Firey Deals</a>
+			    		</li>
+			    	</ul>
+        			<ul class='nav' js-location-spy ng-repeat='(key,Type) in Demos'>
+        				<h3>{{ key | uppercase }}</h3>
+			    		<li ng-repeat='demo in Type'>
+			    			<a href='#/{{key}}/{{demo.id}}/'>{{demo.id}}</a>
+			    		</li>
+			    	</ul>
+        		</div>
+        		<div class='span10' ng-view></div>
+        	</div>
+        	
+        </section>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33551566-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <script src='js/filter/jsStringFilters.js'></script>
+        <script src='js/jsLocationSpy.js'></script>
+        <script src='js/jsMaxLength.js'></script>
+        <script src='js/jsInputCounter.js'></script>
+        <script src='app.js'></script>
+    </body>
+</html>

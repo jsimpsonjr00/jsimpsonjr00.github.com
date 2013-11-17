@@ -1,0 +1,50 @@
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+@media (min-width: 481px) and  (max-width: 767px) {
+    @baseline:          14px;
+    @gridGutterWidth:   20px;
+    
+    .responsiveSizing( 14px, 20px );
+    
+    body {
+    	> header {
+    		h1 small {
+        		display: inline-block;
+        	}
+        }
+    }
+    .container .container { //override default responsive grid
+        padding:    0 @halfline;
+    }
+    #prof-head {
+    	margin-left: (@gridGutterWidth * 5) + 5;
+    }
+    .about-box {
+    	.professional {
+    		margin-left: 0;
+    	}
+    	.avatar {
+        	float:  left;
+        	width:  @gridGutterWidth * 5;
+        	margin: 0 @halfline @halfline 0;
+        }
+    }
+    [id$=-detail] {
+        width: 95%;
+    }
+    
+    footer .inner {
+        height:         auto;
+        border-right:   none;
+    }
+    
+    .row {
+    	margin-left: -3%;
+    }
+    .row .item, footer .row .span3  {
+        float: 			left;
+        width: 			47%;
+        margin-left:    3%;
+    }
+}

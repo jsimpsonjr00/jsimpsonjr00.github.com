@@ -1,0 +1,400 @@
+@import "bootstrap/2.3.2/less/variables.less";
+@import "bootstrap/2.3.2/less/mixins.less";
+@import "bootstrap/2.3.2/less/layouts.less";
+@import "bootstrap/2.3.2/less/grid.less";
+@import "bootstrap/2.3.2/less/type.less";
+@import "bootstrap/2.3.2/less/navs.less";
+@import "bootstrap/2.3.2/less/navbar.less";
+@import "bootstrap/2.3.2/less/forms.less";
+@import "bootstrap/2.3.2/less/buttons.less";
+@import "bootstrap/2.3.2/less/code.less";
+@import "bootstrap/2.3.2/less/carousel.less";
+@import "bootstrap/2.3.2/less/component-animations.less";
+@import "bootstrap/2.3.2/less/responsive.less";
+
+//Variables
+
+// Baseline grid
+@basefont:          13px;
+@baseline:          18px;
+@doubleline:        @baseline * 2;
+@halfline:          @baseline / 2;
+@thirdline:         @baseline / 3;
+
+@grid-gutter-width:	@gridGutterWidth;
+
+@primaryColor:          @red;
+@altLinkColor:          lighten( @primaryColor, 5% );
+@altLinkColorHover:     @primaryColor;
+
+@highlightColor:    #19335c;
+@font-face {
+   // font-family: "Pico Black";
+   // src: url("fonts/PICOBLA_.TTF")
+}
+
+@headerLineHeight:	46px;
+
+// Styles by ID
+
+//HTML5 Shiv Styling
+section, header, footer {
+    display: block;
+}
+
+// DIRTY BOOTSTRAP Styles added
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+
+.clickable {
+	cursor:	pointer;
+}
+//Styles by tag name
+body {
+    margin:         	( @baseline * 3 ) 0;
+    font-family:    	Trebuchet MS;
+    background-color:   #fcfcfc;
+    
+    h2 {
+	    border-bottom: 	1px solid #F2F2EC;
+	    padding-bottom:	@thirdline;
+	}
+    .navbar {
+    	.navbar-inner {
+			background:     #000;
+		}
+		.brand {
+			text-shadow: 	none;
+			color:			#fff;
+			padding:		5px 20px;
+			line-height:	30px;
+		}
+    	.nav {
+    		margin-right: 0;
+    		
+    		.fa {
+    			display: 		block;
+    			font-size:		14px;
+    			margin-bottom:	2px;
+    		}
+    		
+    		> li {
+    			text-align: center;
+    			padding: 	5px 15px 5px 0;
+    			
+    			&:last-child {
+    				padding-right: 0;
+    			}
+    			&.active {
+    				a {
+    					.box-shadow( none );
+    					background:	transparent;
+    					color:		#fff;
+    					
+    					&:focus,
+						&:hover {
+							color: 		#fff;
+							background:	transparent;
+						}
+    				}
+    			}
+    			a {
+    				font-size: 		12px;
+					line-height: 	14px;
+					padding: 		0;
+					text-shadow: none;
+					color: #AAA;
+					
+					&:focus,
+					&:hover {
+						color: #ccc;
+					}
+    			}
+    		}
+    	}
+    }
+    > header {
+	    .avatar {
+			float: left;
+			margin: 0 @halfline 0 0;
+			height: @headerLineHeight;
+			
+			.border-radius( 3px );
+        	.box-shadow( 0 0 @thirdline #aaa );
+        	.clearfix();
+		}
+	    hr {
+	        margin: 2px auto; 
+	        height: 1px;
+	    }
+	    small {
+	    	line-height: 1;
+	    }
+	    .social {
+	    	height:	@headerLineHeight;
+	    	
+	    	a {
+	    		height: @headerLineHeight;
+	    		width:	@headerLineHeight;
+	    		display:    inline-block;
+		        overflow:   hidden;
+		        margin-left:   @thirdline;
+		        
+	    		img {
+	    			height:	@headerLineHeight;
+	    			
+	    			&.email {
+	    				height: auto;
+	    				width:	100%;
+	    			}
+	    			&.linkedIn {
+		            	left:   	-(@headerLineHeight * 3);
+		            	position: 	relative;
+			        }
+			        &.github {
+			            border-radius: 3px;
+			        }
+	    		}
+	    		
+	    	}
+	    }
+	}
+    a {
+        color:              @linkColor;
+        font-weight:        bold;
+        text-decoration:    none;
+        
+        &:hover {
+            color:      @linkColorHover;
+        }
+    }
+    p {
+        font-size:  15px;
+    }
+    
+    
+    .content section {
+        margin-bottom: @baseline + @halfline;
+    }
+}
+#contact-form {
+	position: 	fixed;
+	left: 		0;
+	bottom: 	0;
+	padding: 	0 @halfline;
+	text-align: left;
+	background: #F5F5DC;
+	margin-bottom: 0;
+	
+	box-sizing:	border-box;
+	width: 		100%;
+	max-width: 	400px;
+	
+	&.in {
+		border: 1px solid #CCC;
+		border-top-right-radius: 5px;
+	}
+	input, textarea {
+		width: 		100%;
+		box-sizing: border-box;
+		min-height: 30px;
+	}
+	legend {
+		margin-bottom:	0;
+		
+		i {
+			cursor: pointer;
+		}
+	}
+	fieldset {
+		padding: 	@halfline 0;
+	}
+}
+img {
+    border: none;
+}
+
+
+h3, h4 {
+    margin: 0;
+}
+
+aside {
+    float:  right;
+}
+footer {
+   text-align: center;
+    
+    .social {
+		background: #F5F5DC;
+		margin: 0 auto;
+		width: 158px;
+		border: 1px solid #CCC;
+		border-bottom: none;
+		border-radius: 5px 5px 0 0;
+
+		a {
+			color:	#333;
+		}
+		
+		.fa {
+			font-size:	20px;
+			margin:		5px 10px;
+		}    
+    }
+    h3 {
+        color:          #f3f3f3;
+        font-size:      @baseline + @thirdline;
+        line-height:    @baseline * 2;
+        text-align:     center;
+        border-bottom:  2px dotted #999;
+        margin-bottom:  @halfline;
+    }
+    hr {
+        margin: 0;
+    }
+    a {
+        color:      white;
+        display:    inline-block;
+    }
+    
+    .contact {
+        table {
+           border-spaceing: 0;
+        }
+        label {
+            font-weight: bold;
+        }
+    }
+    .about {
+        img {
+            float:  left;
+            height: @baseline * 7;
+            margin: 0 @halfline @halfline 0;
+        }
+        h4 {
+            margin-top: @halfline;        
+        }
+        .clearfix();
+    }
+    .projects {
+        ul {
+            list-style:     none;
+            margin-left:    0;
+        }
+        a {
+            padding-bottom: @thirdline/2;
+            margin-bottom:  @thirdline/2;
+        }
+        .sprite {
+            position:       relative;
+            top:            3px;
+            
+            height:         @baseline;
+            margin-right:   3px;
+        }
+    }
+    .inner {
+        border-right: 2px groove #F2F2F2;
+        margin-right: -(@gridGutterWidth/2);
+        padding-right: (@gridGutterWidth/2);
+        height: 150px;
+    }
+    .legal {
+         
+        img { 
+            height:     24px; 
+            width:      auto;
+            position:   relative;
+            top:        @thirdline;
+            float:      right;
+        }
+    }
+}
+
+
+.item {
+    margin-bottom:  @gridGutterWidth;
+    cursor:         pointer;   
+    .thumb {
+        width:  100%;
+       
+        .box-shadow( 0 0 6px #aaa );
+        .border-radius( 6px );
+        
+        &:hover {
+            .box-shadow( 0 0 9px @highlightColor );
+        }
+    }
+}
+.lightbox {
+   // z-index:    -1;
+    display:    none;
+    position:   fixed;
+    z-index:    100000;
+    top:    0;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    
+    #translucent > .background( #000, 0.8 );
+    
+    .transition( all 0.5s );
+    &.active {
+        display: block;
+    }
+}
+
+.about-box {
+    h3 {
+        color:          white;
+        padding:        0 @halfline;
+        margin-bottom:  @halfline;
+        
+        .box-shadow( 0 0 2px #999 );
+        .border-radius( 2px );
+        .gradientBar( lighten(@highlightColor, 30%), @highlightColor );
+    }
+    .professional {
+        .clearfix();
+    }
+    .content {
+        
+    }
+    .tech-stack {
+        text-align: center;
+        margin-top: @thirdline;
+        background: #eee;
+        
+        .border-radius( 3px );
+        .box-shadow( 0 0 2px #999 );
+        
+        padding: @baseline;
+        
+        img {
+            height: @baseline * 3;
+            margin-right: @halfline;
+        }
+    }
+    &:after {
+        background: #F2F2EC;
+        height: 1px;
+        width:  90%;
+        display: block;
+        //content: "";
+        border-top: 1px solid darken(#F2F2EC, 5%);
+        border-bottom: 1px solid darken(#F2F2EC, 10%);
+        margin: @baseline*2 auto 0;
+    }
+}
+
+@import "responsive/large-desktop.less";
+@import "responsive/desktop.less";
+@import "responsive/landscape-tablet.less";
+@import "responsive/below-desktop.less";
+@import "responsive/large-mobile.less";
+@import "responsive/mobile.less";

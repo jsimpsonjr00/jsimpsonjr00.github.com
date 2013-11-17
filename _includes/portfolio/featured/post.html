@@ -25,17 +25,17 @@
 <div class='row'>
     <section class='span9 post-image'>
         <h2>{{ page.title }} <small>{{ page.tag-line }}</small></h2> 
-        <img src='/images/featured/{{ page.image-name }}.png' class='item-image'>
+        <img src='/images/featured/large/{{ page.image-name }}.png' class='item-image'>
     </section>
     <section class='span3 sidebar'>
-        <h2>About {{ page.title }}</h2>
+        <h2>About</h2>
         <div class='item-details'>
             <p>
                 {{ page.summary }}
             </p>
             <p>
             	{% if page.link == nil %}
-					<h4>{{ page.title }}</h4>
+					
 				{% else %}
 					<a class='btn btn-primary' href="{{ page.link }}" target='_external'>{{ page.title }}</a>
 				{% endif %}

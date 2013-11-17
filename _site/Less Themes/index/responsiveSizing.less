@@ -1,0 +1,138 @@
+@halfline:  @baseline/2;
+@thirdline: @baseline/3;
+
+.row > [class*="span"] {
+    margin-bottom: @baseline;
+}
+body {
+	@headerLineHeight: @baseline * 2.5;
+	
+    margin:         ( @headerLineHeight + (@halfline * 4) ) 0 0;
+    font-size:      @baseline;
+    line-height:    @baseline + @thirdline;
+    
+    h3 {
+		font-size:      @baseline;
+		line-height:    @baseline + @thirdline;
+	}
+    p {
+        font-size:  @baseline;
+    }
+
+    > header {
+    	.avatar {
+			height: @headerLineHeight;
+			margin: 0 @baseline 0 0;
+			.box-shadow( 0 0 @thirdline #aaa );
+		}
+	    h1 {
+	        font-size:      @baseline * 2;
+	        line-height:    @headerLineHeight;
+	        
+	        small {
+	            font-size:  @baseline;
+	        }
+	    }
+	    .social {
+	    	height:	@headerLineHeight;
+	    	
+	    	a {
+	    		height: @headerLineHeight;
+	    		width:	@headerLineHeight;
+	    		
+	    		img {
+	    			height:	@headerLineHeight;
+	    			
+	    			&.linkedIn {
+		            	left:   -(@headerLineHeight * 3);
+			        }
+	    		}
+	    		
+	    	}
+	    }
+	}
+    
+    .content section {
+        margin-bottom: @baseline + @halfline;
+    }
+}
+h2:after {
+    margin: @thirdline 0 @baseline;
+}
+
+
+footer {
+    h3 {
+        color:          #f3f3f3;
+        font-size:      @baseline + @thirdline;
+        line-height:    @baseline * 2;
+        margin-bottom:  @halfline;
+    }
+    .about {
+        img {
+            height: @baseline * 7;
+            margin: 0 @halfline @halfline 0;
+        }
+        h4 {
+            margin-top: @halfline;        
+        }
+    }
+    .projects {
+        a {
+            padding-bottom: @thirdline/2;
+            margin-bottom:  @thirdline/2;
+        }
+        .sprite {
+            height:         @baseline;
+        }
+    }
+    .inner {
+        margin-right: -(@grid-gutter-width/2);
+        padding-right: (@grid-gutter-width/2);
+    }
+    .legal {
+        img { 
+            top:        @thirdline;
+        }
+    }
+}
+
+
+.item {
+    margin-bottom:  @grid-gutter-width;
+
+    .thumb {
+        .border-radius( @thirdline );
+    }
+    
+    .summary {
+        padding:    @thirdline;
+    }
+    
+    .detail {
+        .container {
+            padding:    @baseline 0;
+        }
+    }
+}
+#solo-projects {
+    margin-bottom: @baseline * 2;
+}
+.about-box {
+    h3 {
+        color:          white;
+        padding:        0 @halfline;
+        margin-bottom:  @halfline;
+    }
+    .tech-stack {
+        padding: @baseline;
+        
+        img {
+            height: @baseline * 3;
+            margin-right: @halfline;
+        }
+    }
+    &:after {
+        margin: @baseline*2 auto 0;
+    }
+}

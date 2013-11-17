@@ -1,0 +1,6 @@
+<project basedir="." name="lessCompile">
+    <property name="wsf" location="..\..\builders\Less\less.wsf"/>
+	<exec dir="${basedir}" executable="cmd">
+       <arg line="/c lessc theme.less theme.css -x --yui-compress"/>
+    </exec>
+</project>

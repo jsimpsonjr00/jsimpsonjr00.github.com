@@ -1,0 +1,25 @@
+---
+layout: angular-view
+---
+<section id='featured-projects'>
+	<h2>Client Projects <small>professional work for freelance clients</small></h2>
+    <section class='row'>
+        {% for post in site.tags.Featured_Project %}
+            {% include portfolio/featured/article.html %}
+        {% endfor %}
+    </section>
+    <!-- 
+	<script src='/js/bootstrap.carousel.min.js'></script>
+	<h2>Client Projects <small>professional client projects</small></h2>
+    <div id="featuredCarousel" class="carousel slide" data-interval='false'>
+		<div class="carousel-inner">
+			{% for post in site.tags.Featured_Project %}
+	        	{% include portfolio/featured/featured-item.html %}
+	        {% endfor %}
+		</div>
+	    <!-- Carousel nav
+		<a class="carousel-control left" href="#featuredCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#featuredCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+	 -->
+</section>

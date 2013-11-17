@@ -141,6 +141,6 @@
 		else {
 			html = $.JSTemplates.substitute( template, data );
 		}
-		return $(html);
+		return $( $.parseHTML( html ) );
 	};
 })( jQuery );

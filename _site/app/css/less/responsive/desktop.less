@@ -1,0 +1,25 @@
+// DEFAULT DESKTOP
+// ---------------
+
+@media ( max-width: 979px ) {
+    body {
+        margin: 0;
+
+        .navbar-fixed-top {
+            margin-bottom: @halfline;
+
+            .navbar-inner {
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+@media screen and ( min-width: 980px ){
+
+    @baseline: 15px;
+    @gridGutterWidth: 20px;
+
+    //@import "responsiveSizing.less";
+    .responsiveSizing( 15px, 20px );
+}

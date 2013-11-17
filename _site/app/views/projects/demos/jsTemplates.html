@@ -1,0 +1,350 @@
+<style>
+    #news-view {
+        border: none;
+        height: 400px;
+    }
+    #github-links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .clearfix{zoom:1;}.clearfix:before,.clearfix:after{display:block;content:"";}
+.clearfix:after{clear:both;}
+.center-block{display:block;margin:0 auto;}
+.jstk-lightbox{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100000;background-color:rgba(0, 0, 0, 0.6);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#99000000", EndColorStr="#99000000");display:none;}
+.jstk-status-msg.overlay{z-index:1000;position:absolute;width:100%;display:none;color:white !important;font-weight:bold;text-align:center;background-color:rgba(0, 0, 0, 0.7);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#b3000000", EndColorStr="#b3000000");}.jstk-status-msg.overlay.full{height:100%;}
+.jstk-modal{display:none;}.jstk-modal .overlay{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}
+.jstk-modal .close-btn{float:right;width:24px;height:22px;right:0;top:0;cursor:pointer;padding:6px;-webkit-border-radius:0 6px 0 0;-moz-border-radius:0 6px 0 0;border-radius:0 6px 0 0;text-align:center;font-weight:bold;font-size:18px;}
+.jstk-modal .inner{background-color:#f2f2f2;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#ffffff', EndColorStr='#f2f2f2', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#f2f2f2', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f2f2));background-image:-moz-linear-gradient(#ffffff, #f2f2f2);background-image:-ms-linear-gradient(#ffffff, #f2f2f2);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));background-image:-webkit-linear-gradient(#ffffff, #f2f2f2);background-image:-o-linear-gradient(#ffffff, #f2f2f2);background-image:linear-gradient(#ffffff, #f2f2f2);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#f2f2f2 #f2f2f2 #cccccc;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);margin:0 auto;position:relative;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 0 3px 2px #666666;-moz-box-shadow:0 0 3px 2px #666666;box-shadow:0 0 3px 2px #666666;}.jstk-modal .inner h3{-webkit-border-radius:6px 6px 0 0;-moz-border-radius:6px 6px 0 0;border-radius:6px 6px 0 0;padding:9px;background:#049cdb;background-color:#0378a9;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#049cdb', EndColorStr='#0378a9', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#049cdb', EndColorStr='#0378a9', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0378a9));background-image:-moz-linear-gradient(#049cdb, #0378a9);background-image:-ms-linear-gradient(#049cdb, #0378a9);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0378a9));background-image:-webkit-linear-gradient(#049cdb, #0378a9);background-image:-o-linear-gradient(#049cdb, #0378a9);background-image:linear-gradient(#049cdb, #0378a9);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#0378a9 #0378a9 #02435e;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);color:#fff;}
+.jstk-modal .inner .content{padding:18px;text-align:center;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+.jstk-modal .inner .modal-controls{border-top:1px solid #ccc;padding-top:18px;}.jstk-modal .inner .modal-controls .btn{margin-right:9px;}
+.jstk-page-control-view{zoom:1;position:absolute;width:100%;padding:0 0;}.jstk-page-control-view:before,.jstk-page-control-view:after{display:block;content:"";}
+.jstk-page-control-view:after{clear:both;}
+.jstk-page-control-view .control{-webkit-transition:0.1s linear all;-moz-transition:0.1s linear all;transition:0.1s linear all;color:white;background-color:#df261d;cursor:pointer;display:inline-block;}.jstk-page-control-view .control.active,.jstk-page-control-view .control:hover{background-color:#851711;}
+.jstk-page-control-view.arrows{left:0;}
+.jstk-page-control-view.buttons .control{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;margin-right:9px;padding:6px 9px;font-weight:bold;-webkit-box-shadow:0 0 3px #aaaaaa;-moz-box-shadow:0 0 3px #aaaaaa;box-shadow:0 0 3px #aaaaaa;}.jstk-page-control-view.buttons .control:last-child{margin:0;}
+.jstk-page-control-view.bars .control{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;margin:0;padding:6px 9px;font-weight:bold;border-right:1px solid white;}.jstk-page-control-view.bars .control:first-child{border-left:1px solid white;}
+.jstk-page-control-view.dots .control{color:transparent;margin-right:6px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;height:18px;width:18px;display:inline-block;-webkit-box-shadow:0 0 3px #aaaaaa;-moz-box-shadow:0 0 3px #aaaaaa;box-shadow:0 0 3px #aaaaaa;}.jstk-page-control-view.dots .control:last-child{margin:0;}
+.jstk-page-control-view.tabs .control{-webkit-border-radius:9px 9px 0 0;-moz-border-radius:9px 9px 0 0;border-radius:9px 9px 0 0;padding:6px 9px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin-right:9px;font-weight:bold;font-size:18px;border:1px solid #e6e6e6;border-bottom:none;}
+.jstk-page-control-view.jstk-slider{position:absolute;}.jstk-page-control-view.jstk-slider .jstk-page-view.arrows-left-right{margin:0 22px;}
+.jstk-page-control-view.jstk-slider .jstk-page-view.arrows-top-bottom{margin:22px 0;}
+.jstk-page-control-view.jstk-slider .page-prev,.jstk-page-control-view.jstk-slider .page-next{top:0 !important;padding:0 !important;line-height:28px;-webkit-border-radius:6px 0 0 6px;-moz-border-radius:6px 0 0 6px;border-radius:6px 0 0 6px;}
+.jstk-page-control-view.jstk-slider .page-next{line-height:28px;-webkit-border-radius:0 6px 6px 0;-moz-border-radius:0 6px 6px 0;border-radius:0 6px 6px 0;}
+.jstk-page-control-view.jstk-slider .jstk-page{margin:0;}
+.jstk-page-control-view.jstk-slider .control{width:auto;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;margin:0;padding:6px 9px;font-weight:bold;border-right:1px solid white;}
+.jstk-page{display:none;width:auto;overflow:hidden;}
+.no-paging{padding:0 !important;}.no-paging .jstk-page-control-view{display:none;}
+.jstk-blogger-feed .post{zoom:1;margin:18px 9px;padding:9px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}.jstk-blogger-feed .post:before,.jstk-blogger-feed .post:after{display:block;content:"";}
+.jstk-blogger-feed .post:after{clear:both;}
+.jstk-summaryThumbSmall img{float:left;margin-right:9px;}
+.jstk-page.active{display:block;}
+.jstk-page-view{position:relative;}.jstk-page-view.sidebar-control{padding-left:240px;height:400px;}.jstk-page-view.sidebar-control>.jstk-page-control-view{width:220px;left:0;top:0;padding:0;text-align:left !important;border-right:1px solid #e6e6e6;height:100%;}.jstk-page-view.sidebar-control>.jstk-page-control-view .control{color:#df261d;font-weight:bold;font-size:18px;background:none;display:block;margin-bottom:9px;width:100%;height:auto;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}.jstk-page-view.sidebar-control>.jstk-page-control-view .control.active{background:none;color:#851711;}
+.jstk-page-view.sidebar-control>.jstk-page-control-view .control .sprite{display:inline-block;width:25px;height:12px;margin-right:6px;background-image:url(androidHead-black.png);}
+.jstk-page-view.tabs-control.above-control{padding-top:30px;}
+.jstk-page-view.tabs-control .control{width:auto;height:auto;-webkit-border-radius:9px 9px 0 0;-moz-border-radius:9px 9px 0 0;border-radius:9px 9px 0 0;background:#df261d;padding:6px 9px;color:white;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin-right:9px;font-weight:bold;font-size:18px;border:1px solid #e6e6e6;border-bottom:none;}.jstk-page-view.tabs-control .control.active,.jstk-page-view.tabs-control .control:hover{background:#b21e17;}
+.jstk-page-view.tabs-control .jstk-page{padding:9px;border:1px solid #e6e6e6;}
+.jstk-page-view.above-control{padding-top:27px;}.jstk-page-view.above-control .jstk-page-control-view{top:0;}
+.jstk-page-view.top-control .jstk-page-control-view{top:9px;}
+.jstk-page-view.below-control{margin-bottom:27px;}.jstk-page-view.below-control>.jstk-page-control-view{bottom:-27px;}
+.jstk-page-view.bottom-control .jstk-page-control-view{bottom:9px;}
+.jstk-slider{overflow:hidden;position:relative;}.jstk-slider .inner{position:relative;}
+.jstk-slider .jstk-page-view{position:static;overflow:hidden;}.jstk-slider .jstk-page-view.arrows-left-right{margin:0 27px;}
+.jstk-slider .jstk-page-view.arrows-top-bottom{margin:27px 0;}
+.jstk-slider .jstk-page-control-view{z-index:100;}.jstk-slider .jstk-page-control-view .btn{width:20px;padding:40px 0;margin:0;color:white;font-weight:bold;font-size:20px;top:18px;}
+.jstk-slider .jstk-page-control-view .page-prev{position:absolute;left:0;}
+.jstk-slider .jstk-page-control-view .page-next{position:absolute;right:0;}
+.jstk-slider .jstk-page{float:left;display:block;margin-right:20px;}
+.jstk-blogger-thumbs .post img{max-width:100%;height:auto;}
+.jstk-blogger-featured{width:600px;margin:0px auto;}.jstk-blogger-featured .jstk-page-view{width:540px;height:405px;margin:30px;-webkit-box-shadow:0 0 3px 6px #404040,0 0 0 24px #ac9575,0 0 6px 30px #404040;-moz-box-shadow:0 0 3px 6px #404040,0 0 0 24px #ac9575,0 0 6px 30px #404040;box-shadow:0 0 3px 6px #404040,0 0 0 24px #ac9575,0 0 6px 30px #404040;}
+.jstk-blogger-featured .jstk-page{background-color:#f2f2f2;}
+.jstk-blogger-featured .post{margin:0;position:relative;}.jstk-blogger-featured .post .jstk-overlay{position:absolute;bottom:0;background-color:#000;background-color:rgba(0, 0, 0, 0.6);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#99000000", EndColorStr="#99000000");color:#b3b3b3;padding:9px 0;width:100%;}.jstk-blogger-featured .post .jstk-overlay h3{margin-bottom:6px;padding:0 9px;}
+.jstk-blogger-featured .post .jstk-overlay a:hover{color:#e74f48;}
+.jstk-blogger-featured .post .jstk-overlay .summary{padding:0 9px;}
+.jstk-blogger-featured .post img{height:100%;width:auto;max-width:100%;display:block;-webkit-box-shadow:0 0 4px #333333;-moz-box-shadow:0 0 4px #333333;box-shadow:0 0 4px #333333;}
+.jstk-blogger-thumb-stack .post{zoom:1;margin-bottom:18px;padding:6px;-webkit-box-shadow:0 0 2px 3px #808080;-moz-box-shadow:0 0 2px 3px #808080;box-shadow:0 0 2px 3px #808080;}.jstk-blogger-thumb-stack .post:before,.jstk-blogger-thumb-stack .post:after{display:block;content:"";}
+.jstk-blogger-thumb-stack .post:after{clear:both;}
+.jstk-blogger-thumb-stack .post img{float:left;margin-right:9px;}
+.jstk-blogger-recent .post{margin-bottom:9px;}.jstk-blogger-recent .post .thumb{margin-right:9px;float:left;}
+.jstk-mitwi{height: 400px; overflow-y: scroll;position:relative;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;border-color:#e60000 #e60000 #990000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border:1px solid #cc0000;text-align:left;}.jstk-mitwi .twidget-icon{margin:0 9px 3px 0;height:48px;width:auto;float:left;}
+.jstk-mitwi .head,.jstk-mitwi .foot{zoom:1;padding:3px 6px;font-weight:bold;}.jstk-mitwi .head:before,.jstk-mitwi .foot:before,.jstk-mitwi .head:after,.jstk-mitwi .foot:after{display:block;content:"";}
+.jstk-mitwi .head:after,.jstk-mitwi .foot:after{clear:both;}
+.jstk-mitwi .head h2,.jstk-mitwi .foot h2,.jstk-mitwi .head h4,.jstk-mitwi .foot h4,.jstk-mitwi .head a,.jstk-mitwi .foot a{color:white;}
+.jstk-mitwi .head a,.jstk-mitwi .foot a{text-decoration:none;}
+.jstk-mitwi .head{padding-top:6px;color:white;}
+.jstk-mitwi .overlay{z-index:1000;position:absolute;padding:6px 0px;width:100%;display:none;border-top:1px solid #ffffff;color:white !important;font-weight:bold;text-align:center;background-color:rgba(0, 0, 0, 0.7);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#b3000000", EndColorStr="#b3000000");}.jstk-mitwi .overlay .btn{margin-right:6px;}
+.jstk-mitwi .overlay.full{height:100%;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;padding:0;border:none;}.jstk-mitwi .overlay.full .inner{padding:6px;}
+.jstk-mitwi .jstk-page-control-view{border-top:1px solid #333333;}.jstk-mitwi .jstk-page-control-view .control{background-color:#990000;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#cc0000', EndColorStr='#990000', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#cc0000', EndColorStr='#990000', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#cc0000), to(#990000));background-image:-moz-linear-gradient(#cc0000, #990000);background-image:-ms-linear-gradient(#cc0000, #990000);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #cc0000), color-stop(100%, #990000));background-image:-webkit-linear-gradient(#cc0000, #990000);background-image:-o-linear-gradient(#cc0000, #990000);background-image:linear-gradient(#cc0000, #990000);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#990000 #990000 #4d0000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}.jstk-mitwi .jstk-page-control-view .control:hover,.jstk-mitwi .jstk-page-control-view .control.active{background-color:#cc0000;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#ff0000', EndColorStr='#cc0000', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#ff0000', EndColorStr='#cc0000', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#ff0000), to(#cc0000));background-image:-moz-linear-gradient(#ff0000, #cc0000);background-image:-ms-linear-gradient(#ff0000, #cc0000);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff0000), color-stop(100%, #cc0000));background-image:-webkit-linear-gradient(#ff0000, #cc0000);background-image:-o-linear-gradient(#ff0000, #cc0000);background-image:linear-gradient(#ff0000, #cc0000);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#cc0000 #cc0000 #800000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi .jstk-page-control-view.jstk-slider{border:none;}.jstk-mitwi .jstk-page-control-view.jstk-slider .btn{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;background-color:#660000;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#990000', EndColorStr='#660000', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#990000', EndColorStr='#660000', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#990000), to(#660000));background-image:-moz-linear-gradient(#990000, #660000);background-image:-ms-linear-gradient(#990000, #660000);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #990000), color-stop(100%, #660000));background-image:-webkit-linear-gradient(#990000, #660000);background-image:-o-linear-gradient(#990000, #660000);background-image:linear-gradient(#990000, #660000);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#660000 #660000 #1a0000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi .jstk-twitter-view{height:400px;}
+.jstk-mitwi .twtr-tweet{padding:5px;font-size:12px;font-family:arial;border-bottom:1px solid #cc0000;}.jstk-mitwi .twtr-tweet a{text-decoration:none;font-weight:normal;color:#ff0000;}
+.jstk-mitwi .twtr-tweet:hover .tweet-actions,.jstk-mitwi .twtr-tweet:hover .user-actions{visibility:visible;}
+.jstk-mitwi .twtr-tweet:hover,.jstk-mitwi .twtr-tweet.max-id,.jstk-mitwi .twtr-tweet.since-id{background-color:rgba(255, 0, 0, 0.1);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#1aff0000", EndColorStr="#1aff0000");}
+.jstk-mitwi .timeline{height:100%;width:100%;overflow-x:hidden;overflow-y:scroll;background-color:white;color:#333333;z-index:0;position:absolute;display:block;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+.jstk-mitwi .foot{text-align:center;}.jstk-mitwi .foot .mitwi-shopping{float:right;display:none;}
+.jstk-mitwi .foot .logo{position:relative;top:3px;}
+.jstk-mitwi .foot .mitwi-get{float:right;}
+.jstk-mitwi.twitter{background-color:#038ac2;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#0378a9', EndColorStr='#038ac2', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#0378a9', EndColorStr='#038ac2', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#0378a9), to(#038ac2));background-image:-moz-linear-gradient(#0378a9, #038ac2);background-image:-ms-linear-gradient(#0378a9, #038ac2);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #0378a9), color-stop(100%, #038ac2));background-image:-webkit-linear-gradient(#0378a9, #038ac2);background-image:-o-linear-gradient(#0378a9, #038ac2);background-image:linear-gradient(#0378a9, #038ac2);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#038ac2 #038ac2 #025477;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border:1px solid #0378a9;}.jstk-mitwi.twitter .twtr-tweet{border-bottom:1px solid #0378a9;}.jstk-mitwi.twitter .twtr-tweet a{color:#049cdb;}
+.jstk-mitwi.twitter .twtr-tweet:hover,.jstk-mitwi.twitter .twtr-tweet.max-id,.jstk-mitwi.twitter .twtr-tweet.since-id{background-color:rgba(3, 156, 221, 0.1);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#1a049cdb", EndColorStr="#1a049cdb");}
+.jstk-mitwi.twitter .jstk-page-control-view{border-top:1px solid #333333;}.jstk-mitwi.twitter .jstk-page-control-view .control{background-color:#0378a9;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#049cdb', EndColorStr='#0378a9', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#049cdb', EndColorStr='#0378a9', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0378a9));background-image:-moz-linear-gradient(#049cdb, #0378a9);background-image:-ms-linear-gradient(#049cdb, #0378a9);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0378a9));background-image:-webkit-linear-gradient(#049cdb, #0378a9);background-image:-o-linear-gradient(#049cdb, #0378a9);background-image:linear-gradient(#049cdb, #0378a9);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#0378a9 #0378a9 #02435e;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}.jstk-mitwi.twitter .jstk-page-control-view .control:hover,.jstk-mitwi.twitter .jstk-page-control-view .control.active{background-color:#049cdb;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#17b8fb', EndColorStr='#049cdb', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#17b8fb', EndColorStr='#049cdb', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#17b8fb), to(#049cdb));background-image:-moz-linear-gradient(#17b8fb, #049cdb);background-image:-ms-linear-gradient(#17b8fb, #049cdb);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #17b8fb), color-stop(100%, #049cdb));background-image:-webkit-linear-gradient(#17b8fb, #049cdb);background-image:-o-linear-gradient(#17b8fb, #049cdb);background-image:linear-gradient(#17b8fb, #049cdb);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#049cdb #049cdb #036690;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi.twitter .jstk-page-control-view.jstk-slider .btn{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;background-color:#013145;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#025477', EndColorStr='#013145', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#025477', EndColorStr='#013145', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#025477), to(#013145));background-image:-moz-linear-gradient(#025477, #013145);background-image:-ms-linear-gradient(#025477, #013145);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #025477), color-stop(100%, #013145));background-image:-webkit-linear-gradient(#025477, #013145);background-image:-o-linear-gradient(#025477, #013145);background-image:linear-gradient(#025477, #013145);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#013145 #013145 #000000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi.twitter.dark .twtr-tweet:hover,.jstk-mitwi.twitter.dark .twtr-tweet.max-id,.jstk-mitwi.twitter.dark .twtr-tweet.since-id{background-color:rgba(255, 255, 255, 0.3);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#4dffffff", EndColorStr="#4dffffff");}
+.jstk-mitwi.twitter.dark .twtr-tweet a{color:#7bd6fd;}
+.jstk-mitwi.facebook{background-color:#344e86;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#2d4373', EndColorStr='#344e86', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#2d4373', EndColorStr='#344e86', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#2d4373), to(#344e86));background-image:-moz-linear-gradient(#2d4373, #344e86);background-image:-ms-linear-gradient(#2d4373, #344e86);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #2d4373), color-stop(100%, #344e86));background-image:-webkit-linear-gradient(#2d4373, #344e86);background-image:-o-linear-gradient(#2d4373, #344e86);background-image:linear-gradient(#2d4373, #344e86);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#344e86 #344e86 #1e2e4f;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border:1px solid #2d4373;}.jstk-mitwi.facebook .twtr-tweet{border-bottom:1px solid #2d4373;}.jstk-mitwi.facebook .twtr-tweet a{color:#3b5998;}
+.jstk-mitwi.facebook .twtr-tweet:hover,.jstk-mitwi.facebook .twtr-tweet.max-id,.jstk-mitwi.facebook .twtr-tweet.since-id{background-color:rgba(59, 88, 151, 0.1);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#1a3b5998", EndColorStr="#1a3b5998");}
+.jstk-mitwi.facebook .jstk-page-control-view{border-top:1px solid #333333;}.jstk-mitwi.facebook .jstk-page-control-view .control{background-color:#2d4373;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#3b5998', EndColorStr='#2d4373', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#3b5998', EndColorStr='#2d4373', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#3b5998), to(#2d4373));background-image:-moz-linear-gradient(#3b5998, #2d4373);background-image:-ms-linear-gradient(#3b5998, #2d4373);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #3b5998), color-stop(100%, #2d4373));background-image:-webkit-linear-gradient(#3b5998, #2d4373);background-image:-o-linear-gradient(#3b5998, #2d4373);background-image:linear-gradient(#3b5998, #2d4373);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#2d4373 #2d4373 #17233c;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}.jstk-mitwi.facebook .jstk-page-control-view .control:hover,.jstk-mitwi.facebook .jstk-page-control-view .control.active{background-color:#3b5998;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#4c70ba', EndColorStr='#3b5998', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#4c70ba', EndColorStr='#3b5998', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#4c70ba), to(#3b5998));background-image:-moz-linear-gradient(#4c70ba, #3b5998);background-image:-ms-linear-gradient(#4c70ba, #3b5998);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #4c70ba), color-stop(100%, #3b5998));background-image:-webkit-linear-gradient(#4c70ba, #3b5998);background-image:-o-linear-gradient(#4c70ba, #3b5998);background-image:linear-gradient(#4c70ba, #3b5998);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#3b5998 #3b5998 #263961;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi.facebook.dark .twtr-tweet:hover,.jstk-mitwi.facebook.dark .twtr-tweet.max-id,.jstk-mitwi.facebook.dark .twtr-tweet.since-id{background-color:rgba(255, 255, 255, 0.3);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#4dffffff", EndColorStr="#4dffffff");}
+.jstk-mitwi.facebook.dark .twtr-tweet a{color:#96abd6;}
+.jstk-mitwi.tumblr{background-color:#243a50;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#1c2d3f', EndColorStr='#243a50', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#1c2d3f', EndColorStr='#243a50', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#1c2d3f), to(#243a50));background-image:-moz-linear-gradient(#1c2d3f, #243a50);background-image:-ms-linear-gradient(#1c2d3f, #243a50);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c2d3f), color-stop(100%, #243a50));background-image:-webkit-linear-gradient(#1c2d3f, #243a50);background-image:-o-linear-gradient(#1c2d3f, #243a50);background-image:linear-gradient(#1c2d3f, #243a50);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#243a50 #243a50 #0c141c;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border:1px solid #1c2d3f;}.jstk-mitwi.tumblr .twtr-tweet{border-bottom:1px solid #1c2d3f;}.jstk-mitwi.tumblr .twtr-tweet a{color:#2c4762;}
+.jstk-mitwi.tumblr .twtr-tweet:hover,.jstk-mitwi.tumblr .twtr-tweet.max-id,.jstk-mitwi.tumblr .twtr-tweet.since-id{background-color:rgba(44, 71, 99, 0.1);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#1a2c4762", EndColorStr="#1a2c4762");}
+.jstk-mitwi.tumblr .jstk-page-control-view{border-top:1px solid #333333;}.jstk-mitwi.tumblr .jstk-page-control-view .control{background-color:#1c2d3f;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#2c4762', EndColorStr='#1c2d3f', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#2c4762', EndColorStr='#1c2d3f', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#2c4762), to(#1c2d3f));background-image:-moz-linear-gradient(#2c4762, #1c2d3f);background-image:-ms-linear-gradient(#2c4762, #1c2d3f);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #2c4762), color-stop(100%, #1c2d3f));background-image:-webkit-linear-gradient(#2c4762, #1c2d3f);background-image:-o-linear-gradient(#2c4762, #1c2d3f);background-image:linear-gradient(#2c4762, #1c2d3f);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#1c2d3f #1c2d3f #04070a;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}.jstk-mitwi.tumblr .jstk-page-control-view .control:hover,.jstk-mitwi.tumblr .jstk-page-control-view .control.active{background-color:#2c4762;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#3c6085', EndColorStr='#2c4762', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#3c6085', EndColorStr='#2c4762', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#3c6085), to(#2c4762));background-image:-moz-linear-gradient(#3c6085, #2c4762);background-image:-ms-linear-gradient(#3c6085, #2c4762);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #3c6085), color-stop(100%, #2c4762));background-image:-webkit-linear-gradient(#3c6085, #2c4762);background-image:-o-linear-gradient(#3c6085, #2c4762);background-image:linear-gradient(#3c6085, #2c4762);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#2c4762 #2c4762 #14212d;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi.tumblr.dark .twtr-tweet:hover,.jstk-mitwi.tumblr.dark .twtr-tweet.max-id,.jstk-mitwi.tumblr.dark .twtr-tweet.since-id{background-color:rgba(255, 255, 255, 0.3);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#4dffffff", EndColorStr="#4dffffff");}
+.jstk-mitwi.tumblr.dark .twtr-tweet a{color:#6b93bc;}
+.jstk-mitwi.spotify{background-color:#59b300;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#4d9900', EndColorStr='#59b300', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d9900', EndColorStr='#59b300', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#4d9900), to(#59b300));background-image:-moz-linear-gradient(#4d9900, #59b300);background-image:-ms-linear-gradient(#4d9900, #59b300);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #4d9900), color-stop(100%, #59b300));background-image:-webkit-linear-gradient(#4d9900, #59b300);background-image:-o-linear-gradient(#4d9900, #59b300);background-image:linear-gradient(#4d9900, #59b300);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#59b300 #59b300 #336600;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border:1px solid #4d9900;}.jstk-mitwi.spotify .twtr-tweet{border-bottom:1px solid #4d9900;}.jstk-mitwi.spotify .twtr-tweet a{color:#66cc00;}
+.jstk-mitwi.spotify .twtr-tweet:hover,.jstk-mitwi.spotify .twtr-tweet.max-id,.jstk-mitwi.spotify .twtr-tweet.since-id{background-color:rgba(102, 204, 0, 0.1);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#1a66cc00", EndColorStr="#1a66cc00");}
+.jstk-mitwi.spotify .jstk-page-control-view{border-top:1px solid #333333;}.jstk-mitwi.spotify .jstk-page-control-view .control{background-color:#4d9900;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#66cc00', EndColorStr='#4d9900', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#66cc00', EndColorStr='#4d9900', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#66cc00), to(#4d9900));background-image:-moz-linear-gradient(#66cc00, #4d9900);background-image:-ms-linear-gradient(#66cc00, #4d9900);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #66cc00), color-stop(100%, #4d9900));background-image:-webkit-linear-gradient(#66cc00, #4d9900);background-image:-o-linear-gradient(#66cc00, #4d9900);background-image:linear-gradient(#66cc00, #4d9900);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#4d9900 #4d9900 #264d00;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}.jstk-mitwi.spotify .jstk-page-control-view .control:hover,.jstk-mitwi.spotify .jstk-page-control-view .control.active{background-color:#66cc00;background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#80ff00', EndColorStr='#66cc00', GradientType=0);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#80ff00', EndColorStr='#66cc00', GradientType=0))";background-image:-khtml-gradient(linear, left top, left bottom, from(#80ff00), to(#66cc00));background-image:-moz-linear-gradient(#80ff00, #66cc00);background-image:-ms-linear-gradient(#80ff00, #66cc00);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #80ff00), color-stop(100%, #66cc00));background-image:-webkit-linear-gradient(#80ff00, #66cc00);background-image:-o-linear-gradient(#80ff00, #66cc00);background-image:linear-gradient(#80ff00, #66cc00);text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);border-color:#66cc00 #66cc00 #408000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+.jstk-mitwi.spotify.dark .twtr-tweet:hover,.jstk-mitwi.spotify.dark .twtr-tweet.max-id,.jstk-mitwi.spotify.dark .twtr-tweet.since-id{background-color:rgba(255, 255, 255, 0.3);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#4dffffff", EndColorStr="#4dffffff");}
+.jstk-mitwi.spotify.dark .twtr-tweet a{color:#b3ff66;}
+.jstk-mitwi.light a{color:#cc0000;}
+.jstk-mitwi.light .overlay{color:white !important;background-color:rgba(0, 0, 0, 0.7);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#b3000000", EndColorStr="#b3000000");}
+.jstk-mitwi.light .timeline{background-color:#fff;}
+.jstk-mitwi.dark a{color:#ff3333;}
+.jstk-mitwi.dark .overlay{color:#000000 !important;background-color:rgba(255, 255, 255, 0.7);zoom:1;filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr="#b3ffffff", EndColorStr="#b3ffffff");}
+.jstk-mitwi.dark .timeline{background-color:#333;color:#fff;}
+.twtr-img{float:left;width:36px;height:auto;margin-right:3px;}
+.twtr-img img{width:36px;height:auto;}
+.jstk-spinner-img{display:inline-block;height:14px;width:14px;border:none;margin-right:8px;background-image:url(http://jsblogstop.appspot.com/twtrTmln/spinner.gif);}
+.jstk-tmln-add{display:none;}
+.tmln-count{cursor:pointer;padding-left:20px;background:transparent url(http://jsblogstop.appspot.com/twtrTmln/twitter-bird-white.png) no-repeat scroll top left;}
+.jstk-tmln-auto-count{display:none;padding:5px;font-weight:bold;border-bottom:1px solid #990000;text-align:center;margin:9px;}
+.twtr-tweet-text{margin-left:40px;}
+.tweet-row>a{font-weight:bold;margin-right:6px;}
+.tweet-actions{color:#0084b4;font-size:12px;visibility:hidden;}.tweet-actions>a{padding-left:5px;}
+.tweet-actions .sprite{width:16px;height:15px;margin-right:3px;display:inline-block;background:transparent url(http://jsblogstop.appspot.com/twtrTmln/twitter-spritev2.png) repeat-x scroll top left;}
+.tweet-retweet .sprite{background-position:48px 1px;}
+.tweet-retweet .active-sprite{background-position:16px 1px;}
+.tweet-retweet:hover .sprite{background-position:32px 1px;}
+.tweet-favorite .sprite{background-position:96px 0px;}
+.tweet-favorite .active-sprite{background-position:64px 0px;}
+.tweet-favorite:hover .sprite{background-position:80px 0px;}
+.tweet-reply .sprite{background-position:0px 1px;}
+.tweet-reply:hover .sprite{background-position:-16px 1px;}
+
+</style>
+        <div class='container'>
+            <h2>JS Templates <small>a jQuery plugin for simple client side templating</small></h2>
+<aside>
+
+
+</aside> 
+            <p>
+                AJAX heavy applications frequently have a need to transform API provided JSON data into user HTML markup.
+                In many cases this has lead developers to mix the presentation layer with logic leading to code that looks
+                something like the code on the left below. Although functional, the code is a needlessly complex jumble of string
+                concatination and logic. JS Templates attempts to simply and elegantly separate data processing logic from the presentation
+                markup resulting in the code to the right below.
+            </p>
+            <div class='row'>
+                <div class='span6'>
+                    <h3>JavaScript without JS Templates</h3>
+<pre>
+function outputTweets( tweets ) {
+    var $tmln = $("#tweet-tmln"),
+        html  = "";
+    
+    tweets = prepTweetData( tweets ); //make data ready for presentation
+    
+    for( i = 0; i < tweets.length; i++ ) {
+        html = "&lt;div class='twtr-tweet'&gt;" + tweets[i].status_text + "&lt;/div&gt;" +
+           "&lt;span class='tweet-timestamp'&gt;" + tweets[i].timestamp + "&lt;/span&gt;";
+        $tmln.append( html );
+    }
+}
+</pre>
+                </div>
+                <div class='span6'>
+                    <h3>JavasScript with JS Templates</h3>
+<pre>
+function outputTweets( tweets ) {
+    tweets = prepTweetData( tweets ); //make data ready for presentation
+    
+    var $tmpl   = $("#twtr-tweet-tmpl"),        //select the data's template
+        $tweets = $tmpl.applyTemplate( tweets );//process data with template
+    $("#tweet-tmln").append( $tweets );         //insert markup into the DOM
+}
+</pre>
+<h3>Twitter Tweet Template <small>markup</small></h3>
+<pre>
+&lt;script type='text/html' id='twtr-tweet-tmpl'&gt;
+    &lt;div class='twtr-tweet'&gt;${status_text}&lt;/div&gt;
+    &lt;span class='tweet-timestamp'&gt;${timestamp}&lt;/span&gt;
+&lt;/script&gt;
+</pre>
+                </div>
+            </div>
+            <h2>JS Templates Demo <small>Live Miami Heat results from Reddit <a href='http://reddit.com/r/heat' target='_external'>/r/heat</a></small></h2>
+            <p>
+                This live demonstration uses the Reddit API to obtain recent from the Reddit heat fan community. 
+                To the left below are the status updates, while to its right is the template
+                used. As you can see there is no logic done within the presentation layer, only substitution aliases
+                denoted by the ${dataMapName} pattern.
+            </p>
+            <div class='row'>
+                <div class='span5' style='position: relative;'>
+                    <h3>Miami Heat on <a href='http://reddit.com/r/heat' target='_external'>/r/heat</a></h3>
+                    <div id='news-view' class='jstk-mitwi twtr-tmln'></div>
+                </div>
+                <div id="tmpl-source" class='span7'>
+                    <h3>Reddit Template</h3>
+                    <pre></pre>
+                </div>
+            </div>
+            <section>
+                <h2>Embedded Reference and Inline Templates <small>additional power features</small></h2>
+                <p>
+                    The previous demonstration showed the basic functionality of JS Templates, but sometimes the 
+                    data we're working with contains an array of items related to a parent object. For instance
+                    a blog post with various tags. In these instances it's very useful to have a way to process
+                    these items through their own template. JS Templates allows this through embedded reference and 
+                    inline templating.
+                </p>
+                <div class='row'>
+                    
+                    <div class='span6'>
+                        <h3>Embedded Reference</h3>
+<pre>
+    &lt;div class='tags'&gt;
+            ${my-tag-template:tags}
+    &lt;/div&gt;
+</pre>
+                    </div>
+                    <div class='span6'>
+                        <h3>Inline Template</h3>
+<pre>
+    &lt;template data='map.full.path.key'&gt;
+        ${data.relative.path.key}
+    &lt;/template&gt;
+</pre>
+                    </div>
+                </div>
+                <p>
+                    JS Templates traverses down a data relative path when encountering an embedded template reference
+                    then processes the array of items or object with the template id specified. Inline Templates on 
+                    the other hand are themselves a template and work on the array/object specified by the template 
+                    data attribute. These power features allow processing of intricate data. In fact an entire UI 
+                    derived from a single JSON object is possible with this method. 
+                </p>
+            </section>
+            <section id='github-links'>
+                <h2>Learn more and try JS Templates on Github</h2>
+                <a href='https://github.com/jsimpsonjr00/JSTemplates' target='_external'>
+                    <button class='btn btn-primary btn-large'>JS Templates on Github</button>
+                </a>
+                <a href='https://github.com/jsimpsonjr00/JSTemplates/zipball/master' target='_external'>
+                    <button class='btn btn-large'>Download JS Templates</button>
+                </a>
+            </section>
+        </div>
+
+<script type='text/html' id='reddit-news-tmpl'>
+    <div class='item'>
+        <div class='detail'>
+            <h3 class='title'><a target='subreddit' href='${data.url}'>${data.title}</a></h3>
+            <div class='info'>
+                <span class='author'>by <a target='subreddit' href='http://www.reddit.com/user/${data.author}'>${data.author}</a></span>
+                <span class='comments'><a target='subreddit' href='http://www.reddit.com${data.permalink}'>${data.num_comments} Comments</a></span>
+            </div>
+        </div>
+    </div>
+</script>
+<script type='text/javascript-lazy'>
+(function(a){if(a.JSTemplates===void 0)a.JSTemplates={};a.JSTemplates.substitute=function(e,f){var b=a.JSTemplates.newEvalInlineTemplates(e,f);return b=b.replace(/\$\{([^\s\}]+)(?:([^\s\}]+))?\}/g,function(b,g){var c=g.split(":"),e=a.JSTemplates.resolveKey(c[c.length-1],f);c.length>1&&(c=a("#"+c[0]),e=a("<div></div>").append(c.applyTemplate(e)).html());return e.toString()})};a.JSTemplates.evalInlineTemplates=function(e,f){var b=a(e),d=b.find("template").get().reverse();a(d).each(function(){var b=
+	a(this),c=b.attr("data"),c=a.JSTemplates.resolveKey(c,f),c=b.applyTemplate(c);b.after(c).remove()});return a("<div></div>").append(b).html()};a.JSTemplates.newEvalInlineTemplates=function(e,f){for(var b=e.split("<template"),d=b.length-1;d>=0;d--){var g=b[d].split("</template>"),c="",h="",i="";g.length>1&&(c=b.pop().replace("</template>",""),c=c.replace(/data\='([^\s]+)'>/,function(b,c){h=c;return""}),i=a.JSTemplates.resolveKey(h,f),c=a.JSTemplates.substitute(c,i),b[d-1]+=c,g.length>2&&(b[d-1]+=g.join("</template>")))}return b.join("")};
+	a.JSTemplates.resolveKey=function(a,f){for(var b=a.split("."),d=f,g="",c=0;c<b.length;c++)if(g=b[c],d[g]!=void 0)d=d[g];else{d="";console&&console.log("Key: "+a+" element "+g+" undefined in template map");break}return d}})(jQuery);(function(a){a.fn.applyTemplate=function(e){var f=this.html(),b="",d;if(e instanceof Array)for(d in e)b+=a.JSTemplates.substitute(f,e[d]);else b=a.JSTemplates.substitute(f,e);return a( a.parseHTML(b))}})(jQuery);
+	(function ( $ ) {
+		var $doc = $(document),
+			$tmpl = [];
+		
+		$doc.ready( function () {
+			var $view = $("#news-view");
+			
+			function hasTmpl() {
+				var has = false;
+				
+				if( $tmpl.length > 0 ) {
+					has = true;
+				} else {
+					console.log( "No template found, unable to process data." );
+				}
+			};
+			
+			// Handle a rewrite of the news view
+			$doc.on( "activeNewsData", function ( e, tmpl, data ) {
+				$tmpl = $(tmpl);
+				if( hasTmpl ) {
+					$view.empty()
+						.html( $tmpl.applyTemplate( data ) );
+				}
+			});
+			
+			// Handle events where the view receives newer entries 
+			$doc.on( "newNewsData", function ( e, data ) {
+				if( hasTmpl ) {
+					$view.prepend( $tmpl.applyTemplate( data ) );
+				}
+			});
+			
+			// Handle event identifying more data for the view, append this data
+			$doc.on( "moreNewsData", function ( e, data ) {
+				if( hasTmpl ) {
+					$view.append( $tmpl.applyTemplate( data ) );
+				}
+			});
+		});
+	})(jQuery);
+	
+	( function( $ ) {
+		var $doc = $(document),
+			config = {
+				tmpl:	"#reddit-news-tmpl"
+			};
+		
+		function redditActive( e, opts ) {
+			$.ajax( {
+	        	type:      	"GET",
+	        	dataType:  	"jsonp",
+	        	url:       	"http://www.reddit.com/r/" + opts.reddit.subreddit + "/.json",
+	        	jsonp:		"jsonp",
+	        	timeout:   (10 * 1000),
+	        	success: function ( data, xhr, status ) {
+	        		$doc.trigger( "activeNewsData", [ config.tmpl, data.data.children ] );
+	        	},
+	        	error: function ( xhr, status, error ) {
+	        		console.log( status );
+	        	}
+	        });
+		};
+		
+		$doc.on( "redditActive", redditActive );
+	})( jQuery );
+	
+    $(document).ready( function () {
+    	var teamOpts    = {
+            twitter: {
+                data:       {
+                    list_id:    "52796954" //Miami Heat list statuses
+                }
+            },
+            reddit: {
+                subreddit: "heat"
+            },
+            nba: {
+                team: "heat"
+            }
+        };
+    	$(document).trigger( "redditActive", [ teamOpts ] );
+    	
+        var $tmplSrc = $("#tmpl-source"),
+            $tmpl    = $("#reddit-news-tmpl");
+    	
+        $tmplSrc.find("pre").text( $.trim( $tmpl.html() ) );
+    });
+</script>

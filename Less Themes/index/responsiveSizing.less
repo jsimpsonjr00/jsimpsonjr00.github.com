@@ -11,10 +11,16 @@ body {
     font-size:      @baseline;
     line-height:    @baseline + @thirdline;
     
+    h3 {
+		font-size:      @baseline;
+		line-height:    @baseline + @thirdline;
+	}
+    p {
+        font-size:  @baseline;
+    }
+
     > header {
-    	padding:    	@halfline 0;
-	    
-	    .avatar {
+    	.avatar {
 			height: @headerLineHeight;
 			margin: 0 @baseline 0 0;
 			.box-shadow( 0 0 @thirdline #aaa );
@@ -45,9 +51,6 @@ body {
 	    	}
 	    }
 	}
-    p {
-        font-size:  @baseline;
-    }
     
     .content section {
         margin-bottom: @baseline + @halfline;
@@ -59,10 +62,6 @@ h2:after {
 
 
 footer {
-    padding:  1px 0 @baseline * 2;
-    
-    .box-shadow( 0 0 @thirdline darken(#F2F2EC, 20%) );
-    
     h3 {
         color:          #f3f3f3;
         font-size:      @baseline + @thirdline;
@@ -88,8 +87,8 @@ footer {
         }
     }
     .inner {
-        margin-right: -(@gridGutterWidth/2);
-        padding-right: (@gridGutterWidth/2);
+        margin-right: -(@grid-gutter-width/2);
+        padding-right: (@grid-gutter-width/2);
     }
     .legal {
         img { 
@@ -98,38 +97,9 @@ footer {
     }
 }
 
-[id$=-detail] {    
-    margin:         @halfline auto;
-    
-    .box-shadow( 0 0 @halfline #333 );
-    .border-radius(@halfline);
-    #gridSystem > .columns(@gridGutterWidth, @gridColumnWidth, @gridRowWidth, 12);
-    
-    h2 {
-        font-size:      @baseline + @thirdline;
-        line-height:    @baseline + @thirdline;
-        padding:        @thirdline @halfline;
-        .border-radius( @halfline @halfline 0 0 );
-    }
-    .detail {
-        position:   absolute;
-        top:        @baseline + ( @thirdline * 3 );
-        bottom:     @baseline;
-        
-        .summary {
-            margin: @halfline @baseline;
-        }
-        .aside {
-            
-            img {
-                margin: 0 0 @thirdline @thirdline;
-            }
-        }
-    }
-}
 
 .item {
-    margin-bottom:  @gridGutterWidth;
+    margin-bottom:  @grid-gutter-width;
 
     .thumb {
         .border-radius( @thirdline );

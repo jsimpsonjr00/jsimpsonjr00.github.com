@@ -1,0 +1,45 @@
+// Control Groups are a standardization of buttons intended to replace the nav and button group markup/less/js. 
+// Designed primarily for use in single page ajax applications, button tags are given purpose by supporting javascript.
+// However, insertion of anchor tags with simple hash navigation links are also supported.
+// 
+// A companion suite of jQuery plugins manage active button states, while bubbling click events for the buttons
+// only.
+//
+.control-group {
+    a { // anchors wrap buttons for navigation with no need for javascript
+        display: inline-block;
+    }
+    
+    button { //Default Button styling
+        border: none;
+		border-radius: @thirdline;
+		padding: @thirdline (@thirdline*2);
+		background: @grayDark;
+		color: white;
+		font-weight: bold;
+		
+		.transition(background-color .2s);
+		
+		&:hover, &.active, &.deactivate {
+		  background: @grayLighter;
+		  color: @grayDark;
+		}
+    }
+    //Optional Button Style Definitions - Begin
+    &.block { //displays buttons without rounded corners
+        button { 
+            .border-radius(0);
+        }
+    }
+    //Optional Button Style Definitions - End
+    
+    //Optional Layout Definitions - Begin
+    &.stacked { //stacks buttons
+        button {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+    }
+    //Optional Layout Definitions - End
+}

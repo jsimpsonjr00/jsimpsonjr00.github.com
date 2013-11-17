@@ -1,0 +1,6 @@
+<project basedir="." name="lessCompile">
+    <property name="convert" location="C:\Program Files\ImageMagick-6.6.9-Q16\convert.exe"/>
+    <exec dir="${basedir}" executable="${convert}">
+        <arg line="*.jpg -filter Welsh -resize 360 -set filename:myname '%t-360' thumbs\%[filename:myname].jpg"/>
+    </exec>
+</project>
