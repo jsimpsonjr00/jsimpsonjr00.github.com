@@ -8,7 +8,9 @@
 @import "bootstrap/2.3.2/less/forms.less";
 @import "bootstrap/2.3.2/less/buttons.less";
 @import "bootstrap/2.3.2/less/code.less";
-@import "bootstrap/2.3.2/less/carousel.less";
+@import "bootstrap/2.3.2/less/alerts.less";
+@import "bootstrap/2.3.2/less/close.less";
+@import "bootstrap/2.3.2/less/modals.less";
 @import "bootstrap/2.3.2/less/component-animations.less";
 @import "bootstrap/2.3.2/less/responsive.less";
 
@@ -181,37 +183,33 @@ body {
         margin-bottom: @baseline + @halfline;
     }
 }
-#contact-form {
-	position: 	fixed;
-	left: 		0;
-	bottom: 	0;
-	padding: 	0 @halfline;
+.modal-scrollable {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index:	10000;
+	overflow: auto;
+	display: none;
+}
+#contact-modal {
 	text-align: left;
-	background: #F5F5DC;
-	margin-bottom: 0;
-	
-	box-sizing:	border-box;
-	width: 		100%;
-	max-width: 	400px;
 	
 	&.in {
-		border: 1px solid #CCC;
-		border-top-right-radius: 5px;
+		position: absolute;
+		margin-bottom: 20px;
+	}
+	.modal-body {
+		//max-height: 80%;
+	}
+	#contact-form {
+		margin-bottom: 0;		
 	}
 	input, textarea {
 		width: 		100%;
 		box-sizing: border-box;
 		min-height: 30px;
-	}
-	legend {
-		margin-bottom:	0;
-		
-		i {
-			cursor: pointer;
-		}
-	}
-	fieldset {
-		padding: 	@halfline 0;
 	}
 }
 img {

@@ -1,7 +1,5 @@
 <div class='social'>
-	<a href='mailto:jsimpsonjr00@gmail.com'>
-		<i class='fa fa-envelope clickable' data-toggle="collapse" href="#contact-form" title='Contact Me'></i>
-	</a>
+	<i class='fa fa-envelope clickable' data-toggle="modal" href="#contact-modal" title='Contact Me'></i>
 	<a href='tel:14234444076' title='Call (423) 444-4076'>
         	<i class='fa fa-mobile'></i>
 	</a>
@@ -12,35 +10,3 @@
         	<i class='fa fa-github-square'></i>
        </a>
 </div>
-<form id='contact-form' class='collapse' ng-controller='ContactCtrl'>
-	<legend>
-		Contact Me
-		<i class='fa fa-caret-down pull-right' data-toggle="collapse" href="#contact-form" title='collapse'></i>
-	</legend>
-	<fieldset>
-		<div class="control-group">
-	  		<label class="control-label" for="email">Email</label>
-	  		<div class="controls">
-	    		<input type='email' placeholder='Email Address' ng-model='email' id='email' required>
-	  		</div>
-		</div>
-		<div class="control-group">
-	  		<label class="control-label" for="other">Other Contact</label>
-	  		<div class="controls">
-	    		<input type='text' placeholder='Phone or other contact' ng-model='other' id='other'>
-	  		</div>
-		</div>
-		<div class="control-group">
-	  		<label class="control-label" for="message">Your Message</label>
-			<div class="controls">
-	    		<textarea rows='5' placeholder='Enter a message for me' ng-model='message' required></textarea>
-	    	</div>
-	    </div>
-	    <div class='control-group' ng-class="{success: success, error: error}">
-	    	<button class='btn btn-primary' ng-click='submit()'>Send</button>
-	    	<button class='btn' data-toggle="collapse" href="#contact-form">Cancel</button>
-	    	<div class='help-inline' ng-show='success'>Success, Thank you!</div>
-	    	<div class='help-inline' ng-show='error'>An Error Occurred</div>
-	    </div>
-	</fieldset>
-</form>

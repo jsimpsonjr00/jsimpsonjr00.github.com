@@ -11,6 +11,50 @@
     	<header class='navbar navbar-fixed-top' ng-include="'app/views/header.html'"></header>
         <section class='container content' ng-view></section>
         <footer class='navbar navbar-fixed-bottom' ng-include="'app/views/footer.html'"></footer>
+        <div class='modal-scrollable'>
+        	<div id='contact-modal' class="modal hide fade" ng-controller='ContactCtrl'>
+				<div class="modal-header">
+			    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			    	<h4>Contact Me</h4>
+			  	</div>
+			  	<div class="modal-body">
+			    	<form id='contact-form'>
+						<fieldset>
+							<div class="control-group">
+						  		<label class="control-label" for="email">Email</label>
+						  		<div class="controls">
+						    		<input type='email' placeholder='Email Address' ng-model='email' id='email' required>
+						  		</div>
+							</div>
+							<div class="control-group">
+						  		<label class="control-label" for="other">Other Contact</label>
+						  		<div class="controls">
+						    		<input type='text' placeholder='Phone or other contact' ng-model='other' id='other'>
+						  		</div>
+							</div>
+							<div class="control-group">
+						  		<label class="control-label" for="message">Your Message</label>
+								<div class="controls">
+						    		<textarea rows='5' placeholder='Enter a message for me' ng-model='message' required></textarea>
+						    	</div>
+						    </div>
+						    <div class="alert alert-success" ng-show='success'>
+			              		<button type="button" class="close" data-dismiss="alert">×</button>
+			              		<strong>Success!</strong> Thank you for the message.
+			            	</div>
+			            	<div class="alert alert-error" ng-show='error'>
+			              		<button type="button" class="close" data-dismiss="alert">×</button>
+			              		<strong>Error!</strong> An unknown error occurred. Please try again.
+			            	</div>
+						</fieldset>
+					</form>
+			  	</div>
+			  	<div class="modal-footer">
+			  		<button class='btn btn-primary' ng-click='submit()'>Send</button>
+					<button class='btn' data-dismiss="modal" aria-hidden="true">Cancel</button>
+			  	</div>
+			</div>
+		</div>
         
         <script type="text/javascript">
           var _gaq = _gaq || [];
@@ -40,7 +84,9 @@
         
         <script src='app/scripts/controllers/contact.js'></script>
         
-        <script src='app/scripts/bootstrap/2.3.2/bootstrap-collapse.js'></script>
+        <script src='app/scripts/bootstrap/2.3.2/bootstrap-transition.js'></script>
+        <script src='app/scripts/bootstrap/2.3.2/bootstrap-modal.js'></script>
+        
         <!--[if lt IE 9]>
             <script src="/js/HTML5Shiv/html5shiv.js"></script>
         <![endif]-->

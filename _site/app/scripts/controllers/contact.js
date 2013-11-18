@@ -1,5 +1,18 @@
 angular.module("AngularApp")
 	.controller( "ContactCtrl", function ( $scope, $http, $sanitize, $window ) {
+		//Extend modal behavior so that it can scroll on mobiles
+		var $modal 	= $( "#contact-modal"),
+			$body	= $( "body" );
+		
+		$modal.on( "show", function () {
+			$modal.parent().show();
+			$body.css( "overflow", "hidden" );
+		});
+		$modal.on( "hide", function () {
+			$modal.parent().hide();
+			$body.css( "overflow", "auto" );
+		});
+		
 		$scope.success 	= false;
 		$scope.error	= false;
 		
@@ -27,7 +40,7 @@ angular.module("AngularApp")
 					
 					//auto hide after 2 seconds
 					$window.setTimeout( function () {
-						$("#contact-form").collapse( 'hide' );
+						$modal.modal( 'hide' );
 						$scope.success = false;
 						$scope.$digest();
 					},
