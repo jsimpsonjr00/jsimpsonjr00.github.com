@@ -1,9 +1,15 @@
-<project basedir="." name="lessCompile">
-    <property name="convert" location="C:\Program Files\ImageMagick-6.6.9-Q16\convert.exe"/>
+<project basedir="." name="sizeImages">
+    <property name="convert" location="C:\Program Files\ImageMagick-6.8.7-Q16\convert.exe"/>
     <exec dir="${basedir}" executable="${convert}">
-        <arg line="*.png -filter Welsh -adaptive-resize 360x202! -set filename:myname '%t-360' thumbs\%[filename:myname].png"/>
+        <arg line="*.png -filter Welsh -gravity center -background transparent -extent 1440x900 -crop 1440x840+0+30! -set filename:myname '%t' x-large\%[filename:myname].png"/>
     </exec>
     <exec dir="${basedir}" executable="${convert}">
-        <arg line="*.png -filter Welsh -adaptive-resize 720x404! -set filename:myname '%t-720' medium\%[filename:myname].png"/>
+        <arg line="x-large\*.png -filter Welsh -adaptive-resize 960x600! -set filename:myname '%t' large\%[filename:myname].png"/>
+    </exec>
+    <exec dir="${basedir}" executable="${convert}">
+        <arg line="x-large\*.png -filter Welsh -adaptive-resize 720x420! -set filename:myname '%t' medium\%[filename:myname].png"/>
+    </exec>
+    <exec dir="${basedir}" executable="${convert}">
+        <arg line="x-large\*.png -filter Welsh -adaptive-resize 360x210! -set filename:myname '%t' small\%[filename:myname].png"/>
     </exec>
 </project>

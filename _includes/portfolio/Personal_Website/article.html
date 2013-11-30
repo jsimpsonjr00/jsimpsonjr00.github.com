@@ -6,7 +6,7 @@
 		</p>
 		<p>
 			{% if post.link == nil %}
-			
+				<a class='btn btn-primary' href='#{{ post.url }}'>View Larger</a>
 			{% else %}
 				<a class='btn btn-primary' href='{{ post.link }}' target='_external'>Visit {{ post.title }}</a>
 			{% endif %}
@@ -14,10 +14,10 @@
 	</section>
 	<section class='span6 item'>
 		{% if post.link == nil %}
-			<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+			<img src='/images/personal/medium/{{ post.image-name }}.png' class='thumb'>
 		{% else %}
 			<a href='{{ post.link }}' target='_external'>
-		    	<img src='/images/portfolio/medium/{{ post.image-name }}-720.png' class='thumb'>
+		    	<img src='/images/personal/medium/{{ post.image-name }}.png' class='thumb'>
 		    </a>
 		{% endif %}
 	</section>
