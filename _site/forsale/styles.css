@@ -1,10 +1,16 @@
 body {
-	margin-top: 0;	
+	margin-top: 0;
+	margin-bottom: 0;
 }
 body > header {
 	margin-bottom: 20px;	
 }
-
+body > footer {
+	background: #d5d5bC;
+}
+body > footer ul {
+	list-style-type: none;
+}
 .item, .post-image {
     text-align: center;
     background: #f2f2f2;
@@ -69,5 +75,6 @@ body > header {
 }
 footer .sales {
     font-weight:    bold;
-    min-height:     100px;	
+    min-height:     100px;
+    text-align:		left;
 }

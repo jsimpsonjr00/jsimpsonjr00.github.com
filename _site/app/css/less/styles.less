@@ -37,6 +37,13 @@
 
 @headerLineHeight:	46px;
 
+//One off mixins
+.grayscale( @percent: 100% ) {
+	-webkit-filter: grayscale( @percent );
+	-moz-filter: grayscale( @percent );
+	filter: grayscale( @percent );
+}
+//
 // Styles by ID
 
 //HTML5 Shiv Styling
@@ -103,6 +110,14 @@ body {
 							background:	transparent;
 						}
     				}
+    				img.icon {
+	    				.grayscale( 0% );
+	    			}
+    			}
+    			&:hover {
+    				img.icon {
+    					.grayscale( 70% );
+    				}
     			}
     			a {
     				font-size: 		12px;
@@ -115,6 +130,9 @@ body {
 					&:hover {
 						color: #ccc;
 					}
+    			}
+    			img.icon {
+    				.grayscale( 100% );
     			}
     		}
     	}
