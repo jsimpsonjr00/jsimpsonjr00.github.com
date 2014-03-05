@@ -1,4 +1,4 @@
-angular.module( "AngularApp", [ 'ngRoute', 'ngSanitize' ]);
+angular.module( "AngularApp", [ 'ngRoute', 'ngSanitize', 'js.Img' ]);
 
 angular.module( "AngularApp" ).directive('script', function() {
 		return { 

@@ -14,10 +14,12 @@
 	</section>
 	<section class='span6 item'>
 		{% if post.link == nil %}
-			<img src='/images/personal/medium/{{ post.image-name }}.png' class='thumb'>
+			<js-bootstrap-img src-xs='images/personal/small/{{post.image-name}}.png'
+					src-md='/images/personal/medium/{{post.image-name}}.png' class='thumb'></js-bootstrap-img>
 		{% else %}
 			<a href='{{ post.link }}' target='_external'>
-		    	<img src='/images/personal/medium/{{ post.image-name }}.png' class='thumb'>
+		    	<js-bootstrap-img src-xs='images/personal/small/{{post.image-name}}.png'
+					src-md='/images/personal/medium/{{post.image-name}}.png' class='thumb'></js-bootstrap-img>
 		    </a>
 		{% endif %}
 	</section>
