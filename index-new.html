@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <title>James Simpson - Github Portfolio</title>
+        
+        <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		
+    </head>
+    <body ng-app='AngularApp'>
+    	<header class='navbar navbar-fixed-top' ng-include="'app/views/header.html'"></header>
+        <div class='container content'>
+        	<section id='projects'>
+				<h2>Client Projects <small>professional work for freelance clients</small></h2>
+			    <section class='row'>
+			        {% for post in site.tags.Featured_Project %}
+			            {% include portfolio/featured/article.html %}
+			        {% endfor %}
+			        {% for post in site.tags.Personal_Website %}
+			            {% include portfolio/Personal_Website/article.html %}
+			        {% endfor %}
+			    </section>
+			</section>
+        </div>
+        <footer class='navbar navbar-fixed-bottom' ng-include="'app/views/footer.html'"></footer>
+        <div class='modal-scrollable'>
+        	<div id='contact-modal' class="modal hide fade" ng-controller='ContactCtrl'>
+				<div class="modal-header">
+			    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			    	<h4>Contact Me</h4>
+			  	</div>
+			  	<div class="modal-body">
+			    	<form id='contact-form'>
+						<fieldset>
+							<div class="control-group">
+						  		<label class="control-label" for="email">Email</label>
+						  		<div class="controls">
+						    		<input type='email' placeholder='Email Address' ng-model='email' id='email' required>
+						  		</div>
+							</div>
+							<div class="control-group">
+						  		<label class="control-label" for="other">Other Contact</label>
+						  		<div class="controls">
+						    		<input type='text' placeholder='Phone or other contact' ng-model='other' id='other'>
+						  		</div>
+							</div>
+							<div class="control-group">
+						  		<label class="control-label" for="message">Your Message</label>
+								<div class="controls">
+						    		<textarea rows='5' placeholder='Enter a message for me' ng-model='message' required></textarea>
+						    	</div>
+						    </div>
+						    <div class="alert alert-success" ng-show='success'>
+			              		<button type="button" class="close" data-dismiss="alert">×</button>
+			              		<strong>Success!</strong> Thank you for the message.
+			            	</div>
+			            	<div class="alert alert-error" ng-show='error'>
+			              		<button type="button" class="close" data-dismiss="alert">×</button>
+			              		<strong>Error!</strong> An unknown error occurred. Please try again.
+			            	</div>
+						</fieldset>
+					</form>
+			  	</div>
+			  	<div class="modal-footer">
+			  		<button class='btn btn-primary' ng-click='submit()'>Send</button>
+					<button class='btn' data-dismiss="modal" aria-hidden="true">Cancel</button>
+			  	</div>
+			</div>
+		</div>
+        
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33551566-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+        
+        <!--[if lt IE 9]>
+            <script src="/js/HTML5Shiv/html5shiv.js"></script>
+        <![endif]-->
+    </body>
+</html>
