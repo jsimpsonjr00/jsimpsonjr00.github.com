@@ -1,9 +1,0 @@
-<project basedir="." name="EbayDailyDeals">
-    <concat destfile="ebay-daily-deals-source.js">
-        <fileset dir="src\" includes="*.js"/>
-    </concat>
-    <java id='ClosureCompile' fork='true' jar="..\..\builders\Closure\compiler.jar">
-          <arg line='--js ebay-daily-deals-source.js'/>
-          <arg line='--js_output_file ebay-daily-deals-min.js'/>
-    </java>
-</project>

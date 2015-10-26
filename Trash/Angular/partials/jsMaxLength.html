@@ -1,0 +1,21 @@
+<article>
+	<section>
+		<h2>{{ Demo.type | uppercase }} {{ Demo.id }} <small>{{ Demo.subtitle }}</small></h2>
+		<article>
+			<div id='demo'><textarea id='demoText' ng-model='demo.text' js-maxlength='50'></textarea></div>
+			<div>
+				<js-input-counter input='#demoText' text='{{demo.text}}'></js-input-counter> Total Chars
+			</div>
+		</article>
+		
+	</section>
+	<section>
+		<h2>The Markup</h2>
+		<pre>{{ markupSRC }}</pre>
+	</section>
+	<section>
+		<h2>The Code</h2>
+		<pre>{{ scriptSRC }}</pre>
+	</section>
+</article>
+
